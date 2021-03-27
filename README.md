@@ -20,5 +20,13 @@
 
 #### Diagramas de casos de uso, clases, secuencia y componentes de cada una de las funcionalidades previamente descritas.
 #### Respuestas
+
+ Diagrama casos de uso
 ![Diagramas_Proyecto_Progra -  Diagrama casos de uso](https://user-images.githubusercontent.com/73041810/112705552-6a3e9d80-8e6d-11eb-800b-7714f2449818.png)
+
+Diagrama de componentes
 ![Diagramas_Proyecto_Progra - Diagrama de componentes](https://user-images.githubusercontent.com/65428260/112709006-cdd3c580-8e83-11eb-99d2-6f4bdfd24282.png)
+
+Diagrama de secuencia
+![Diagramas_Proyecto_Progra - Diagrama de secuencia](https://user-images.githubusercontent.com/65428260/112709057-168b7e80-8e84-11eb-96e8-5e80bca360eb.png)
+
