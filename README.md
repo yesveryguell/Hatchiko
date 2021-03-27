@@ -17,3 +17,7 @@
 5. Almacenar el caso registrado y si el usuario requiere atención más especializada, comunicarlo con un agente de soporte al ciudadano. :trollface: 🤖
 6. Búsqueda de la información por parte del funcionario de la alcaldía sobre la distribución geográfica de las mascotas o propietarios, mediante especie, raza, tamaño, sexo y localidad. :mag_right:
 7. Consulta de mediante el funcionario que permita ver los eventos de la mascota con el número del microchip o un propietario con el número de identificación. :books:
+
+#### Diagramas de casos de uso, clases, secuencia y componentes de cada una de las funcionalidades previamente descritas.
+#### Respuestas
+![Diagramas_Proyecto_Progra -  Diagrama casos de uso](https://user-images.githubusercontent.com/73041810/112705552-6a3e9d80-8e6d-11eb-800b-7714f2449818.png)
