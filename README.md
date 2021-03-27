@@ -1,3 +1,4 @@
+![DiagramaProyecto](https://user-images.githubusercontent.com/65428260/112709724-c0213e80-8e89-11eb-8863-55e649b6f068.png)
 # Hatchiko
 
 #### ¿Cuáles son los tipos de usuarios que debe soportar la aplicación web? :shipit:
@@ -29,4 +30,6 @@ Diagrama de componentes
 
 Diagrama de secuencia
 ![Diagramas_Proyecto_Progra - Diagrama de secuencia](https://user-images.githubusercontent.com/65428260/112709057-168b7e80-8e84-11eb-96e8-5e80bca360eb.png)
+
+![DiagramaProyecto](https://user-images.githubusercontent.com/65428260/112709728-c7484c80-8e89-11eb-935f-4bfec696da9d.png)
 
