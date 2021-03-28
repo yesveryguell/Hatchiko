@@ -34,3 +34,6 @@ Diagrama de clases
 
 ![Diagramas_Proyecto_Progra - Diagrama de clases](https://user-images.githubusercontent.com/65428260/112709758-08406100-8e8a-11eb-8c55-69a08c0c091f.png)
 
+Mock-Up
+
+![Diagramas_Proyecto_Progra - MockUp](https://user-images.githubusercontent.com/73042300/112740103-cf62c380-8f3f-11eb-817f-88eb80d5db0e.jpeg)
