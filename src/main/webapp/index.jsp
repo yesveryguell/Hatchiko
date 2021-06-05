@@ -47,7 +47,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.jsp"><img src="images/logo.png" alt="#" /></a>
+                                <a href="index.jsp"><img src="images/Hatchik.png" alt="#" /></a>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
         <div class="row d_flex">
             <div class="col-md-5">
                 <div class="text-bg">
-                    <h1>Power ful<br> Web Hosting</h1>
+                    <h1>Estudiantes<br> Web Hosting</h1>
                     <span>Landing Page 2019</span>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
                     <a href="#">Get Started</a>
