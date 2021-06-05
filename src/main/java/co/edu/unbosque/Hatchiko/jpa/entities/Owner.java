@@ -109,7 +109,7 @@ public class Owner {
         return pets;
     }
 
-    public void addBook(Pet pet) {
+    public void addPet(Pet pet) {
         pets.add(pet);
         pet.setOwner(this);
     }

@@ -31,8 +31,8 @@ public class Vet {
     @OneToOne
     private UserApp userApp;
 
-//    @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Visit> visits = new ArrayList<>();
+    @OneToMany(mappedBy = "vet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Visit> visits = new ArrayList<>();
 
 
     public Vet(){
@@ -94,12 +94,12 @@ public class Vet {
         this.userApp = userApp;
     }
 
-//    public List<Visit> getVisits() {
-//        return visits;
-//    }
-//
-//    public void addBook(Visit visit) {
-//        visits.add(visit);
-//        visit.setVet(this);
-//    }
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void addVisit(Visit visit) {
+        visits.add(visit);
+        visit.setVet(this);
+    }
 }

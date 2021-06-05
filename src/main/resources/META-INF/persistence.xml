@@ -5,12 +5,12 @@
              version="2.2">
     <persistence-unit name="hatchiko" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:/PostgresDS</jta-data-source>
+        <jta-data-source>java:/HatchikoDS</jta-data-source>
+        <class>co.edu.unbosque.Hatchiko.jpa.entities.Cases</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Owner</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Vet</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Visit</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Pet</class>
-        <class>co.edu.unbosque.Hatchiko.jpa.entities.Case</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.UserApp</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Official</class>
         <properties>

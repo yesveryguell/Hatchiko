@@ -1,6 +1,8 @@
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Pet")
@@ -38,6 +40,13 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
+
+    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Visit> visits = new ArrayList<>();
+
+    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Cases> cases = new ArrayList<>();
+
 
     public Pet(Integer microchip, String name, String species, String race, String size, String sex, String picture) {
         this.microchip = microchip;
@@ -119,5 +128,23 @@ public class Pet {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void addVisit(Visit visit) {
+        visits.add(visit);
+        visit.setPet(this);
+    }
+
+    public List<Cases> getCases() {
+        return cases;
+    }
+
+    public void addCase(Cases caso) {
+        cases.add(caso);
+        caso.setPet(this);
     }
 }
