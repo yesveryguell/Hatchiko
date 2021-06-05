@@ -10,6 +10,10 @@ import javax.persistence.*;
 })
 public class Official {
     @Id
+    @GeneratedValue
+    @Column(name = "official_id", unique = true)
+    private String official_id;
+
     @Column(name = "userName", unique = true)
     private String userName;
 
