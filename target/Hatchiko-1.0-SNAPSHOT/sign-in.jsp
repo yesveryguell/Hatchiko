@@ -12,6 +12,16 @@
         <div class="login-form">
             <div class="sign-in-htm">
                 <div class="group">
+                    <label for="user" class="label">Type of user</label>
+                    <select>
+
+                        <option value = "funcionario">Funcionario</option>
+                        <option value = "propietario">Propietario</option>
+                        <option value = "veterinario">Veterinario</option>
+
+                    </select>
+                </div>
+                <div class="group">
                     <label for="user" class="label">Username</label>
                     <input id="user" type="text" class="input">
                 </div>

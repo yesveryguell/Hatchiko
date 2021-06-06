@@ -268,22 +268,23 @@ button {
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
+     font-family: 'Lato', sans-serif;
      padding: 0 25px;
-     color: #fff;
+     color: #000000;
      font-size: 16px;
      line-height: 20px;
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
 .navigation.navbar-dark .navbar-nav .nav-link:hover {
-     color: #fdd430;
+     color: #ffe4cd;
 }
 
 .navigation.navbar-dark .navbar-nav .active>.nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
 .navigation.navbar-dark .navbar-nav .show>.nav-link {
-     color: #fdd430;
+     color: #ffe4cd;
 }
 
 
@@ -317,6 +318,7 @@ button {
 }
 
 .text-bg h1 {
+     font-family: 'Dosis', sans-serif;
      color: #fff;
      font-size: 60px;
      line-height: 80px;
@@ -332,9 +334,11 @@ button {
 }
 
 .text-bg p {
+     font-family: 'Lato';
+     font-size: 22px;
      color: #fff;
-     font-size: 17px;
-     line-height: 28px;
+     font-size: 30px;
+     line-height: 32px;
      padding: 40px 0;
 }
 
@@ -392,8 +396,10 @@ button {
 }
 
 .web_hosting p {
+
+     font-family: 'Lato';
+     font-size: 30px;
      color: #0c0f38;
-     font-size: 17px;
      line-height: 28px;
      padding: 40px 50px;
 }
@@ -591,7 +597,7 @@ button {
 }
 
 .main_form {
-     background: #0c0f38;
+     background: #eebb55;
      padding: 55px 55px;
      border-radius: 30px;
      margin-bottom: -58%;
@@ -656,7 +662,7 @@ button {
 
 .footer {
      font-family: Poppins;
-     background: #0c0f38;
+     background: #eebb55;
 }
 
 .cont {

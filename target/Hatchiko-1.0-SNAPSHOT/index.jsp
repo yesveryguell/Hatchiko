@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Data web</title>
+    <title>Hatchiko</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -20,12 +20,15 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="images/favicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -47,7 +50,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.jsp"><img src="images/Hatchik.png" alt="#" /></a>
+                                <a href="index.jsp"><img src="images/second.png" alt="#" /></a>
                             </div>
                         </div>
                     </div>
@@ -60,7 +63,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home</a>
+                                    <a class="nav-link" href="index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"> About  </a>
@@ -90,15 +93,14 @@
         <div class="row d_flex">
             <div class="col-md-5">
                 <div class="text-bg">
-                    <h1>Estudiantes<br> Web Hosting</h1>
-                    <span>Landing Page 2019</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
-                    <a href="#">Get Started</a>
+                    <h1>Four Paws Citizens<br>Hatchiko</h1>
+                    <p>Our software development give to every user the possibility to track your pet and give a visit for every pet. </p>
+                    <p>Take a look and sign up.</p>
                 </div>
             </div>
             <div class="col-md-7">
                 <div class="text-img">
-                    <figure><img src="images/img.png" /></figure>
+                    <figure><img src="images/peopledog.jpg" /></figure>
                 </div>
             </div>
         </div>
@@ -111,15 +113,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>What’s New In Web Hosting</h2>
+                    <h2>What is great about us?</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="web_hosting">
-                    <figure><img src="images/web.jpg" alt="#"/></figure>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
+                    <figure><img src="images/programmingT.png" alt="#"/></figure>
+                    <p>Whatever you can expect! We have a great skills with backend and frontend.
+                    So you can tell us what you want for your page and we can make it.</p>
                     <a href="#">Read more</a>
                 </div>
             </div>
