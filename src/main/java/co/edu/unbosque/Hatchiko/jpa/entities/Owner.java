@@ -49,6 +49,8 @@ public class Owner {
         this.neighborhood = neighborhood;
     }
 
+
+
     public Integer getOwner_id() {
         return owner_id;
     }
