@@ -33,6 +33,7 @@ public class OwnerService {
         for (Owner owner : owners) {
             ownerPojo.add(new OwnerPojo(
                     owner.getUserName(),
+                    owner.getPerson_id(),
                     owner.getName(),
                     owner.getAddress(),
                     owner.getNeighborhood()
@@ -43,14 +44,14 @@ public class OwnerService {
 
     }
 
-    public Owner saveOwner(Owner owner1) {
+    public Owner saveOwner(OwnerPojo owner1) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
 
-        Owner owner = new Owner(owner1.getUserName(), owner1.getPerson_id(), owner1.getName(), owner1.getAddress(), owner1.getNeighborhood());
+        Owner owner = new Owner(owner1.getUsername(), owner1.getPerson_id(), owner1.getName(), owner1.getAddress(), owner1.getNeighborhood());
         Owner persistedOwner = ownerRepository.save(owner).get();
 
         entityManager.close();

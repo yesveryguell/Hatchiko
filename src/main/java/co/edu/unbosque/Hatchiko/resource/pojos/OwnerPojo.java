@@ -2,17 +2,19 @@ package co.edu.unbosque.Hatchiko.resource.pojos;
 
 public class OwnerPojo {
     private String username;
+    private Integer person_id;
     private String name;
-    private String adress;
+    private String address;
     private String neighborhood;
 
     public OwnerPojo() {
     }
 
-    public OwnerPojo(String username, String name, String adress, String neighborhood) {
+    public OwnerPojo(String username, Integer person_id, String name, String address, String neighborhood) {
         this.username = username;
+        this.person_id = person_id;
         this.name = name;
-        this.adress = adress;
+        this.address = address;
         this.neighborhood = neighborhood;
     }
 
@@ -24,6 +26,14 @@ public class OwnerPojo {
         this.username = username;
     }
 
+    public Integer getPerson_id() {
+        return person_id;
+    }
+
+    public void setPerson_id(Integer person_id) {
+        this.person_id = person_id;
+    }
+
     public String getName() {
         return name;
     }
@@ -32,12 +42,12 @@ public class OwnerPojo {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String adress) {
+        this.address = adress;
     }
 
     public String getNeighborhood() {

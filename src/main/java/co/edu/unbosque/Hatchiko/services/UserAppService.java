@@ -67,21 +67,21 @@ public class UserAppService {
 
     }
 
-    public Optional<UserApp> saveUser(UserApp user) {
+    public Optional<UserAppPojo> saveUser(UserAppPojo user) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         userAppRepository = new UserAppRepositoryImpl(entityManager);
 
-        UserApp userApp = new UserApp(user.getUserName(), user.getPassword(), user.getEmail(), user.getRole());
+        UserApp userApp = new UserApp(user.getUsername(), user.getPassword(), user.getEmail(), user.getRole());
         Optional<UserApp> persistedUserApp = userAppRepository.save(userApp);
 
         entityManager.close();
         entityManagerFactory.close();
 
         if (persistedUserApp.isPresent()) {
-            return Optional.of(new UserApp(persistedUserApp.get().getUserName(),
+            return Optional.of(new UserAppPojo(persistedUserApp.get().getUserName(),
                     persistedUserApp.get().getPassword(),
                     persistedUserApp.get().getEmail(),
                     persistedUserApp.get().getRole()));

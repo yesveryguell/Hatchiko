@@ -1,14 +1,11 @@
 package co.edu.unbosque.Hatchiko;
 
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Application;
 
-@Path("/hello-world")
-public class HelloResource {
-    @GET
-    @Produces("text/plain")
-    public String hello() {
-        return "Hello, World!";
-    }
+@ApplicationPath("/api")
+public class HelloResource extends Application {
 }
