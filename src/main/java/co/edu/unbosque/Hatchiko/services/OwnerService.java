@@ -43,14 +43,14 @@ public class OwnerService {
 
     }
 
-    public Owner saveOwner(String username, Integer personID, String name, String adress, String neighborhood) {
+    public Owner saveOwner(Owner owner1) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
 
-        Owner owner = new Owner(username, personID, name, adress, neighborhood);
+        Owner owner = new Owner(owner1.getUserName(), owner1.getPerson_id(), owner1.getName(), owner1.getAddress(), owner1.getNeighborhood());
         Owner persistedOwner = ownerRepository.save(owner).get();
 
         entityManager.close();
@@ -59,13 +59,13 @@ public class OwnerService {
 
     }
 
-    public void modifyOwner(Integer personID, String name, String adress, String neighborhood) {
+    public void modifyOwner(Integer personID, Owner owner) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-        ownerRepository.updateById(personID, name, adress, neighborhood);
+        ownerRepository.updateById(personID, owner.getName(), owner.getAddress(), owner.getNeighborhood());
 
         entityManager.close();
         entityManagerFactory.close();

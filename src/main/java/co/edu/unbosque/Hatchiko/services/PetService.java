@@ -46,14 +46,14 @@ public class PetService {
 
     }
 
-    public Pet savePet(String microchip, String name, String species, String race, String size, String sex, String picture) {
+    public Pet savePet(Pet pet1) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
 
-        Pet pet = new Pet(microchip, name, species, race, size, sex, picture);
+        Pet pet = new Pet(pet1.getMicrochip(), pet1.getName(), pet1.getSpecies(), pet1.getRace(), pet1.getSize(), pet1.getSex(), pet1.getPicture());
         Pet persistedPet = petRepository.save(pet).get();
 
         entityManager.close();
@@ -62,13 +62,13 @@ public class PetService {
 
     }
 
-    public void modifyPet(int pet_id, String name, String species, String race, String size, String sex, String picture) {
+    public void modifyPet(int pet_id, Pet pet) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
-        petRepository.updateById(pet_id, name, species, race, size, sex, picture);
+        petRepository.updateById(pet_id, pet.getName(), pet.getSpecies(), pet.getRace(), pet.getSize(), pet.getSex(), pet.getRace());
 
         entityManager.close();
         entityManagerFactory.close();

@@ -42,14 +42,14 @@ public class VisitService {
 
     }
 
-    public Visit saveVisit(String created_at, String type, String description) {
+    public Visit saveVisit(Visit visit1) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         visitRepository = new VisitRepositoryImpl(entityManager);
 
-        Visit visit = new Visit(created_at, type, description);
+        Visit visit = new Visit(visit1.getCreated_at(), visit1.getType(), visit1.getDescription());
         Visit persistedVisit = visitRepository.save(visit).get();
 
         entityManager.close();
@@ -58,13 +58,13 @@ public class VisitService {
 
     }
 
-    public void modifyVisit(Integer id,String created_at, String type, String description) {
+    public void modifyVisit(Integer id,Visit visit) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         visitRepository = new VisitRepositoryImpl(entityManager);
-        visitRepository.updateById(id, created_at, type, description);
+        visitRepository.updateById(id, visit.getCreated_at(), visit.getType(), visit.getDescription());
 
         entityManager.close();
         entityManagerFactory.close();

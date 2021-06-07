@@ -43,14 +43,14 @@ public class VetService {
 
     }
 
-    public Vet saveVet(String userName, String name, String address, String neighborhood) {
+    public Vet saveVet(Vet vet1) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
 
-        Vet vet = new Vet(userName, name, address, neighborhood);
+        Vet vet = new Vet(vet1.getUserName(), vet1.getName(), vet1.getAddress(), vet1.getNeighborhood());
         Vet peristedVet = vetRepository.save(vet).get();
 
         entityManager.close();
@@ -59,13 +59,13 @@ public class VetService {
 
     }
 
-    public void modifyVet(Integer id,String userName, String name, String address, String neighborhood) {
+    public void modifyVet(Integer id, Vet vet) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
-        vetRepository.updateById(id, name, address, neighborhood);
+        vetRepository.updateById(id, vet.getName(), vet.getAddress(), vet.getNeighborhood());
 
         entityManager.close();
         entityManagerFactory.close();

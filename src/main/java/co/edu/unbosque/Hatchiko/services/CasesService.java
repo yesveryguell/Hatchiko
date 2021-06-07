@@ -43,14 +43,14 @@ public class CasesService {
 
     }
 
-    public Cases saveCase(Integer case_id, String created_at, String type, String description) {
+    public Cases saveCase(Cases cases) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         caseRepository = new CasesRepositoryImpl(entityManager);
 
-        Cases case1 = new Cases(case_id, created_at, type, description);
+        Cases case1 = new Cases(cases.getCase_id(), cases.getCreated_at(), cases.getType(), cases.getDescription());
         Cases persistedCase = caseRepository.save(case1).get();
 
         entityManager.close();
@@ -59,13 +59,13 @@ public class CasesService {
 
     }
 
-    public void modifyCase(Integer id, String created_at, String type, String description) {
+    public void modifyCase(Integer id, Cases cases) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         caseRepository = new CasesRepositoryImpl(entityManager);
-        caseRepository.updateById(id, created_at, type, description);
+        caseRepository.updateById(id, cases.getCreated_at(), cases.getType(), cases.getDescription());
 
         entityManager.close();
         entityManagerFactory.close();
