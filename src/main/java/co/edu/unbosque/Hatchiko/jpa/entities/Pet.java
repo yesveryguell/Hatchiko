@@ -17,7 +17,7 @@ public class Pet {
     private Integer pet_id;
 
     @Column(name = "microchip", unique = true)
-    private Integer microchip;
+    private String microchip;
 
     @Column(name = "name")
     private String name;
@@ -48,7 +48,7 @@ public class Pet {
     private List<Cases> cases = new ArrayList<>();
 
 
-    public Pet(Integer microchip, String name, String species, String race, String size, String sex, String picture) {
+    public Pet(String microchip, String name, String species, String race, String size, String sex, String picture) {
         this.microchip = microchip;
         this.name = name;
         this.species = species;
@@ -66,11 +66,11 @@ public class Pet {
         this.pet_id = pet_id;
     }
 
-    public Integer getMicrochip() {
+    public String getMicrochip() {
         return microchip;
     }
 
-    public void setMicrochip(Integer microchip) {
+    public void setMicrochip(String microchip) {
         this.microchip = microchip;
     }
 

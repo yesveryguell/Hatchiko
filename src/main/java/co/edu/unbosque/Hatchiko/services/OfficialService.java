@@ -1,12 +1,9 @@
 package co.edu.unbosque.Hatchiko.services;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Official;
-import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 import co.edu.unbosque.Hatchiko.jpa.repositories.OfficialRepository;
 import co.edu.unbosque.Hatchiko.jpa.repositories.OfficialRepositoryImpl;
-import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepositoryImpl;
 import co.edu.unbosque.Hatchiko.resource.pojos.OfficialPojo;
-import co.edu.unbosque.Hatchiko.resource.pojos.UserAppPojo;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

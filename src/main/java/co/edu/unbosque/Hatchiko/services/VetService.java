@@ -1,12 +1,8 @@
 package co.edu.unbosque.Hatchiko.services;
 
-import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
-import co.edu.unbosque.Hatchiko.jpa.repositories.OwnerRepository;
-import co.edu.unbosque.Hatchiko.jpa.repositories.OwnerRepositoryImpl;
 import co.edu.unbosque.Hatchiko.jpa.repositories.VetRepository;
 import co.edu.unbosque.Hatchiko.jpa.repositories.VetRepositoryImpl;
-import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.VetPojo;
 
 import javax.ejb.Stateless;
