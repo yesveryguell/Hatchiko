@@ -1,16 +1,16 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class UserApp {
+public class UserAppPojo {
 
     private String username;
     private String password;
     private String email;
     private String role;
 
-    public UserApp() {
+    public UserAppPojo() {
     }
 
-    public UserApp(String username, String password, String email, String role) {
+    public UserAppPojo(String username, String password, String email, String role) {
         this.username = username;
         this.password = password;
         this.email = email;

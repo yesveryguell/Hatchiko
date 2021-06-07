@@ -1,16 +1,16 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class Cases {
+public class CasesPojo {
 
     private Integer case_id;
     private String crated_at;
     private String type;
     private String description;
 
-    public Cases(){
+    public CasesPojo(){
     }
 
-    public Cases(Integer case_id, String crated_at, String type, String description) {
+    public CasesPojo(Integer case_id, String crated_at, String type, String description) {
         this.case_id = case_id;
         this.crated_at = crated_at;
         this.type = type;

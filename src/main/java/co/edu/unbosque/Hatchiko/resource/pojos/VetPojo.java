@@ -1,16 +1,16 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class Vet {
+public class VetPojo {
 
     private String username;
     private String name;
     private String adress;
     private String neighborhood;
 
-    public Vet() {
+    public VetPojo() {
     }
 
-    public Vet(String username, String name, String adress, String neighborhood) {
+    public VetPojo(String username, String name, String adress, String neighborhood) {
         this.username = username;
         this.name = name;
         this.adress = adress;

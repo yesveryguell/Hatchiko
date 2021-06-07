@@ -1,16 +1,16 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class Visit {
+public class VisitPojo {
 
     private int visit_id;
     private String created_at;
     private String type;
     private String description;
 
-    public Visit() {
+    public VisitPojo() {
     }
 
-    public Visit(int visit_id, String created_at, String type, String description) {
+    public VisitPojo(int visit_id, String created_at, String type, String description) {
         this.visit_id = visit_id;
         this.created_at = created_at;
         this.type = type;

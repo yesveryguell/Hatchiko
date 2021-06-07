@@ -1,6 +1,6 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class Pet {
+public class PetPojo {
 
     private int pet_id;
     private String microchip;
@@ -11,10 +11,10 @@ public class Pet {
     private String sex;
     private String picture;
 
-    public Pet() {
+    public PetPojo() {
     }
 
-    public Pet(int pet_id, String microchip, String name, String species, String race, String size, String sex, String picture) {
+    public PetPojo(int pet_id, String microchip, String name, String species, String race, String size, String sex, String picture) {
         this.pet_id = pet_id;
         this.microchip = microchip;
         this.name = name;

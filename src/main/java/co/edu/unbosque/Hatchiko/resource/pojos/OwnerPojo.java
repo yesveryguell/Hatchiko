@@ -1,15 +1,15 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class Owner {
+public class OwnerPojo {
     private String username;
     private String name;
     private String adress;
     private String neighborhood;
 
-    public Owner() {
+    public OwnerPojo() {
     }
 
-    public Owner(String username, String name, String adress, String neighborhood) {
+    public OwnerPojo(String username, String name, String adress, String neighborhood) {
         this.username = username;
         this.name = name;
         this.adress = adress;
