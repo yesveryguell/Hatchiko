@@ -6,18 +6,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "Owner")
-@NamedQueries({
-        @NamedQuery(name = "Owner.findByUserName",
-                query = "SELECT a FROM Owner a WHERE a.userName = :userName")
-})
 public class Owner {
     @Id
     @GeneratedValue
     @Column(name = "owner_id")
     private Integer owner_id;
 
-    @Column(name = "userName", unique = true)
-    private String userName;
+//    @Column(name = "userName", unique = true)
+//    private String userName;
 
     @Column(name = "person_id", unique = true)
     private Integer person_id;
@@ -32,6 +28,7 @@ public class Owner {
     private String neighborhood;
 
     @OneToOne
+    @JoinColumn(name = "userName")
     private UserApp userApp;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -41,8 +38,7 @@ public class Owner {
 
     }
 
-    public Owner(String userName, Integer person_id, String name, String address, String neighborhood) {
-        this.userName = userName;
+    public Owner(Integer person_id, String name, String address, String neighborhood) {
         this.person_id = person_id;
         this.name = name;
         this.address = address;
@@ -65,14 +61,6 @@ public class Owner {
 
     public void setUserApp(UserApp userApp) {
         this.userApp = userApp;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public Integer getPerson_id() {
@@ -115,4 +103,5 @@ public class Owner {
         pets.add(pet);
         pet.setOwner(this);
     }
+
 }

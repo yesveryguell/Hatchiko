@@ -32,7 +32,7 @@ public class VetService {
         List<VetPojo> vetPojo = new ArrayList<>();
         for (Vet vet : vets) {
             vetPojo.add(new VetPojo(
-                    vet.getUserName(),
+                    vet.getUserApp().getUserName(),
                     vet.getName(),
                     vet.getAddress(),
                     vet.getNeighborhood()
@@ -50,7 +50,7 @@ public class VetService {
 
         vetRepository = new VetRepositoryImpl(entityManager);
 
-        Vet vet = new Vet(vet1.getUserName(), vet1.getName(), vet1.getAddress(), vet1.getNeighborhood());
+        Vet vet = new Vet(vet1.getName(), vet1.getAddress(), vet1.getNeighborhood());
         Vet peristedVet = vetRepository.save(vet).get();
 
         entityManager.close();

@@ -1,5 +1,6 @@
 package co.edu.unbosque.Hatchiko.resource;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.resource.filters.Logged;
 import co.edu.unbosque.Hatchiko.resource.pojos.UserAppPojo;
 import co.edu.unbosque.Hatchiko.services.UserAppService;
@@ -11,7 +12,7 @@ import javax.ws.rs.core.Response;
 import java.util.Optional;
 
 @Path("/owners")
-public class OnwerResource {
+public class OwnerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

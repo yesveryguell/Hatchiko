@@ -6,18 +6,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "Vet")
-@NamedQueries({
-        @NamedQuery(name = "Vet.findByUserName",
-                query = "SELECT a FROM Vet a WHERE a.userName = :userName")
-})
 public class Vet {
     @Id
     @GeneratedValue
     @Column(name = "vet_id")
     private Integer vet_id;
 
-    @Column(name = "userName")
-    private String userName;
+//    @Column(name = "userName")
+//    private String userName;
 
     @Column(name = "name")
     private String name;
@@ -29,6 +25,7 @@ public class Vet {
     private String neighborhood;
 
     @OneToOne
+    @JoinColumn(name = "userName")
     private UserApp userApp;
 
     @OneToMany(mappedBy = "vet",  cascade = CascadeType.ALL, orphanRemoval = true)
@@ -39,8 +36,7 @@ public class Vet {
 
     }
 
-    public Vet(String userName, String name, String address, String neighborhood) {
-        this.userName = userName;
+    public Vet(String name, String address, String neighborhood) {
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
@@ -52,14 +48,6 @@ public class Vet {
 
     public void setVet_id(Integer vet_id) {
         this.vet_id = vet_id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getName() {

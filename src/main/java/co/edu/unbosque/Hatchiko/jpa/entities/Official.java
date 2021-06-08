@@ -14,13 +14,14 @@ public class Official {
     @Column(name = "official_id", unique = true)
     private String official_id;
 
-    @Column(name = "userName", unique = true)
-    private String userName;
+//    @Column(name = "userName", unique = true)
+//    private String userName;
 
     @Column(name = "name")
     private String name;
 
     @OneToOne
+    @JoinColumn(name = "userName")
     private UserApp userApp;
 
     public Official(){
@@ -28,17 +29,9 @@ public class Official {
     }
 
     public Official(String userName, String name) {
-        this.userName = userName;
         this.name = name;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getName() {
         return name;

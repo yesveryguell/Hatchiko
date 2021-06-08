@@ -1,8 +1,11 @@
 package co.edu.unbosque.Hatchiko.services;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
+import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 import co.edu.unbosque.Hatchiko.jpa.repositories.OwnerRepository;
 import co.edu.unbosque.Hatchiko.jpa.repositories.OwnerRepositoryImpl;
+import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepository;
+import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepositoryImpl;
 import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 
 import javax.ejb.Stateless;
@@ -11,11 +14,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Stateless
 public class OwnerService {
 
     OwnerRepository ownerRepository;
+    UserAppRepository userAppRepository;
 
 
     public List<OwnerPojo> listOwner() {
@@ -32,7 +37,7 @@ public class OwnerService {
         List<OwnerPojo> ownerPojo = new ArrayList<>();
         for (Owner owner : owners) {
             ownerPojo.add(new OwnerPojo(
-                    owner.getUserName(),
+                    owner.getUserApp().getUserName(),
                     owner.getPerson_id(),
                     owner.getName(),
                     owner.getAddress(),
@@ -44,15 +49,17 @@ public class OwnerService {
 
     }
 
-    public Owner saveOwner(OwnerPojo owner1) {
+    public Optional<Owner> saveOwner(Owner owner1, String username) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-
-        Owner owner = new Owner(owner1.getUsername(), owner1.getPerson_id(), owner1.getName(), owner1.getAddress(), owner1.getNeighborhood());
-        Owner persistedOwner = ownerRepository.save(owner).get();
+        userAppRepository = new UserAppRepositoryImpl(entityManager);
+        UserApp userApp = userAppRepository.findByUserName(username).get();
+        Owner owner = new Owner(owner1.getPerson_id(), owner1.getName(), owner1.getAddress(), owner1.getNeighborhood());
+        owner.setUserApp(userApp);
+        Optional<Owner> persistedOwner = ownerRepository.save(owner);
 
         entityManager.close();
 
