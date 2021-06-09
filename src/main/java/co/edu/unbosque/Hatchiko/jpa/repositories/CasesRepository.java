@@ -1,16 +1,16 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
-import co.edu.unbosque.Hatchiko.jpa.entities.Cases;
+import co.edu.unbosque.Hatchiko.jpa.entities.VetCase;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CasesRepository {
-    Optional<Cases> findById(Integer id);
+    Optional<VetCase> findById(Integer id);
 
-    List<Cases> findAll();
+    List<VetCase> findAll();
 
-    Optional<Cases> save(Cases cases);
+    Optional<VetCase> save(VetCase vetCase);
 
     void updateById(Integer id, String create_at, String type, String description);
 }

@@ -6,7 +6,7 @@
     <persistence-unit name="hatchiko" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/HatchikoDS</jta-data-source>
-        <class>co.edu.unbosque.Hatchiko.jpa.entities.Cases</class>
+        <class>co.edu.unbosque.Hatchiko.jpa.entities.VetCase</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Owner</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Vet</class>
         <class>co.edu.unbosque.Hatchiko.jpa.entities.Visit</class>

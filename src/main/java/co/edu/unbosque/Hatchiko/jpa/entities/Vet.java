@@ -12,9 +12,6 @@ public class Vet {
     @Column(name = "vet_id")
     private Integer vet_id;
 
-//    @Column(name = "userName")
-//    private String userName;
-
     @Column(name = "name")
     private String name;
 
@@ -28,7 +25,7 @@ public class Vet {
     @JoinColumn(name = "userName")
     private UserApp userApp;
 
-    @OneToMany(mappedBy = "vet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "vet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
 

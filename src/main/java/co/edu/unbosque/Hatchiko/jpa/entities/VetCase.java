@@ -3,12 +3,12 @@ package co.edu.unbosque.Hatchiko.jpa.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Cases")
+@Table(name = "vetCase")
 @NamedQueries({
-        @NamedQuery(name = "Case.findByType",
-                query = "SELECT a FROM Cases a WHERE a.type = :type")
+        @NamedQuery(name = "vetCase.findByType",
+                query = "SELECT a FROM VetCase a WHERE a.type = :type")
 })
-public class Cases {
+public class VetCase {
     @Id
     @GeneratedValue
     @Column(name = "case_id")
@@ -27,11 +27,11 @@ public class Cases {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    public Cases(){
+    public VetCase(){
 
     }
 
-    public Cases(Integer case_id, String created_at, String type, String description) {
+    public VetCase(Integer case_id, String created_at, String type, String description) {
         this.case_id = case_id;
         this.created_at = created_at;
         this.type = type;

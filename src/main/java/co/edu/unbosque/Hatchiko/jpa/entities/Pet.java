@@ -45,8 +45,11 @@ public class Pet {
     private List<Visit> visits = new ArrayList<>();
 
     @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Cases> cases = new ArrayList<>();
+    private List<VetCase> aCases = new ArrayList<>();
 
+    public Pet(){
+
+    }
 
     public Pet(String microchip, String name, String species, String race, String size, String sex, String picture) {
         this.microchip = microchip;
@@ -139,12 +142,12 @@ public class Pet {
         visit.setPet(this);
     }
 
-    public List<Cases> getCases() {
-        return cases;
+    public List<VetCase> getCases() {
+        return aCases;
     }
 
-    public void addCase(Cases caso) {
-        cases.add(caso);
+    public void addCase(VetCase caso) {
+        aCases.add(caso);
         caso.setPet(this);
     }
 }

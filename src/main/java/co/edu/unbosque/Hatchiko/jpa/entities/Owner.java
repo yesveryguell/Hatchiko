@@ -12,9 +12,6 @@ public class Owner {
     @Column(name = "owner_id")
     private Integer owner_id;
 
-//    @Column(name = "userName", unique = true)
-//    private String userName;
-
     @Column(name = "person_id", unique = true)
     private Integer person_id;
 

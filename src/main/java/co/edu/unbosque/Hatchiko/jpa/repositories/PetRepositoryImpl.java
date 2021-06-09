@@ -1,6 +1,5 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
-import co.edu.unbosque.Hatchiko.jpa.entities.Cases;
 import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 
 import javax.persistence.EntityManager;

@@ -1,6 +1,6 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
-import co.edu.unbosque.Hatchiko.jpa.entities.Cases;
+import co.edu.unbosque.Hatchiko.jpa.entities.VetCase;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -15,23 +15,23 @@ public class CasesRepositoryImpl implements CasesRepository{
     }
 
     @Override
-    public Optional<Cases> findById(Integer id) {
-        Cases cases = entityManager.find(Cases.class, id);
-        return cases != null ? Optional.of(cases) : Optional.empty();
+    public Optional<VetCase> findById(Integer id) {
+        VetCase aCases = entityManager.find(VetCase.class, id);
+        return aCases != null ? Optional.of(aCases) : Optional.empty();
     }
 
     @Override
-    public List<Cases> findAll() {
-        return entityManager.createQuery("from Cases").getResultList();
+    public List<VetCase> findAll() {
+        return entityManager.createQuery("from VetCase").getResultList();
     }
 
     @Override
-    public Optional<Cases> save(Cases cases) {
+    public Optional<VetCase> save(VetCase aCases) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(cases);
+            entityManager.persist(aCases);
             entityManager.getTransaction().commit();
-            return Optional.of(cases);
+            return Optional.of(aCases);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,14 +40,14 @@ public class CasesRepositoryImpl implements CasesRepository{
 
     @Override
     public void updateById(Integer id, String create_at, String type, String description) {
-        Cases cases = entityManager.find(Cases.class, id);
-        if (cases != null) {
+        VetCase aCases = entityManager.find(VetCase.class, id);
+        if (aCases != null) {
             try {
                 entityManager.getTransaction().begin();
-                cases.setCreated_at(create_at);
-                cases.setType(type);
-                cases.setDescription(description);
-                entityManager.merge(cases);
+                aCases.setCreated_at(create_at);
+                aCases.setType(type);
+                aCases.setDescription(description);
+                entityManager.merge(aCases);
                 entityManager.getTransaction().commit();
             } catch (Exception e) {
                 e.printStackTrace();

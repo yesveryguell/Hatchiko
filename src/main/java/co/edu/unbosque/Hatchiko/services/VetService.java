@@ -1,6 +1,9 @@
 package co.edu.unbosque.Hatchiko.services;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
+import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepository;
+import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepositoryImpl;
 import co.edu.unbosque.Hatchiko.jpa.repositories.VetRepository;
 import co.edu.unbosque.Hatchiko.jpa.repositories.VetRepositoryImpl;
 import co.edu.unbosque.Hatchiko.resource.pojos.VetPojo;
@@ -11,11 +14,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Stateless
 public class VetService {
 
     VetRepository vetRepository;
+    UserAppRepository userAppRepository;
 
 
     public List<VetPojo> listVet() {
@@ -43,19 +48,21 @@ public class VetService {
 
     }
 
-    public Vet saveVet(Vet vet1) {
+    public Optional<Vet> saveVet(Vet vet1, String username) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
-
+        userAppRepository = new UserAppRepositoryImpl(entityManager);
+        UserApp userApp = userAppRepository.findByUserName(username).get();
         Vet vet = new Vet(vet1.getName(), vet1.getAddress(), vet1.getNeighborhood());
-        Vet peristedVet = vetRepository.save(vet).get();
+        vet.setUserApp(userApp);
+        Optional<Vet> persistedVet = vetRepository.save(vet);
 
         entityManager.close();
 
-        return peristedVet;
+        return persistedVet;
 
     }
 
@@ -70,9 +77,5 @@ public class VetService {
         entityManager.close();
         entityManagerFactory.close();
     }
-
-
-
-
 
 }

@@ -9,13 +9,11 @@ import javax.persistence.*;
                 query = "SELECT a FROM Official a WHERE a.name = :name")
 })
 public class Official {
+
     @Id
     @GeneratedValue
-    @Column(name = "official_id", unique = true)
-    private String official_id;
-
-//    @Column(name = "userName", unique = true)
-//    private String userName;
+    @Column(name = "official_id")
+    private Integer official_id;
 
     @Column(name = "name")
     private String name;
@@ -28,7 +26,7 @@ public class Official {
 
     }
 
-    public Official(String userName, String name) {
+    public Official(String name) {
         this.name = name;
     }
 
@@ -39,5 +37,21 @@ public class Official {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getOfficial_id() {
+        return official_id;
+    }
+
+    public void setOfficial_id(Integer official_id) {
+        this.official_id = official_id;
+    }
+
+    public UserApp getUserApp() {
+        return userApp;
+    }
+
+    public void setUserApp(UserApp userApp) {
+        this.userApp = userApp;
     }
 }
