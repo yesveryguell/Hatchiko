@@ -24,43 +24,48 @@
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
-    <script language="javascript" src="main.js"></script>
 </head>
 <body>
+<!--logo_transparent-->
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <form class="login100-form validate-form">
-                <span class="login100-form-title p-b-34">
+                 <span class="login100-form-title p-b-34">
 						<a href="index.jsp"><img src="images/logo_t.png"/></a>
 					</span>
 
                 <span class="login100-form-title p-b-34">
-						Sign In
+						Sign Up
 					</span>
-
                 <span class="login100-form-title p-b-34">
 						User type
                             <select>
                             <option value="funcionario">Funcionario</option>
-                            <option value="propietario" href="official.jsp">Propietario</option>
-                            <option value="veterinario" href="official.jsp">Veterinario</option>
+                            <option value="propietario">Propietario</option>
+                            <option value="veterinario">Veterinario</option>
                         </select>
 					</span>
-
-
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="text" name="username" placeholder="User name">
+                    <input id="first-name" class="input100" type="text" name="username" placeholder="Username">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
                     <input class="input100" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
+                <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="email">
+                    <input id="e-mail" class="input100" type="text" name="email" placeholder="email">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+                    <input class="input100" type="password" name="pass" placeholder="Re - password">
+                    <span class="focus-input100"></span>
+                </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" onchange="redireccion()">
-                        Sign in
+                    <button class="login100-form-btn">
+                        Sign up
                     </button>
                 </div>
 
@@ -70,14 +75,13 @@
                 </div>
 
                 <div class="w-full text-center">
-                    <a href="sign-up.jsp" class="txt3">
-                        Sign Up
+                    <a href="sign-in.jsp" class="txt3">
+                        Sign In
                     </a>
                 </div>
             </form>
 
-            <div class="login100-more" style="background-image: url('images/perro.jpg');"></div>
-
+            <div class="login100-more" style="background-image: url('images/perro2.jpg');"></div>
         </div>
     </div>
 </div>
