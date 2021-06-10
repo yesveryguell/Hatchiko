@@ -2,6 +2,7 @@ package co.edu.unbosque.Hatchiko.resource;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
+import co.edu.unbosque.Hatchiko.resource.pojos.PetPojo;
 import co.edu.unbosque.Hatchiko.services.OwnerService;
 import co.edu.unbosque.Hatchiko.services.PetService;
 
@@ -10,14 +11,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
 
-@Path("/owners/{id}/pets")
+@Path("/owners/{username}/pets")
 public class PetsResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(Pet pet, @PathParam("id") Integer id) {
+    public Response create(PetPojo pet, @PathParam("username") String username) {
 
-        Optional<Pet> persistedPet = new PetService().savePet(pet, id);
+        Optional<Pet> persistedPet = new PetService().savePet(pet, username);
 
         if (persistedPet.isPresent()) {
             return Response.status(Response.Status.CREATED)

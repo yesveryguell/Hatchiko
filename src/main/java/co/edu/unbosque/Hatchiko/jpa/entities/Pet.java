@@ -38,7 +38,7 @@ public class Pet {
     private String picture;
 
     @ManyToOne
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "username")
     private Owner owner;
 
     @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,6 +1,7 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
+import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -13,9 +14,10 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     public OwnerRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
     @Override
-    public Optional<Owner> findById(Integer id) {
-        Owner owner = entityManager.find(Owner.class, id);
+    public Optional<Owner> findByUserName(String userName) {
+        Owner owner = entityManager.find(Owner.class, userName);
         return owner != null ? Optional.of(owner) : Optional.empty();
     }
 
@@ -38,8 +40,8 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     }
 
     @Override
-    public void updateById(Integer id, String name, String address, String neighborhood) {
-        Owner owner = entityManager.find(Owner.class, id);
+    public void updateByUsername(String username, String name, String address, String neighborhood) {
+        Owner owner = entityManager.find(Owner.class, username);
         if (owner != null) {
             try {
                 entityManager.getTransaction().begin();

@@ -6,11 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "Vet")
-public class Vet {
-    @Id
-    @GeneratedValue
-    @Column(name = "vet_id")
-    private Integer vet_id;
+@PrimaryKeyJoinColumn
+public class Vet extends UserApp{
 
     @Column(name = "name")
     private String name;
@@ -21,10 +18,6 @@ public class Vet {
     @Column(name = "neighborhood")
     private String neighborhood;
 
-    @OneToOne
-    @JoinColumn(name = "userName")
-    private UserApp userApp;
-
     @OneToMany(mappedBy = "vet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
@@ -33,18 +26,11 @@ public class Vet {
 
     }
 
-    public Vet(String name, String address, String neighborhood) {
+    public Vet(String username, String password, String email, String name, String address, String neighborhood) {
+        super(username, password, email, "Vet");
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
-    }
-
-    public Integer getVet_id() {
-        return vet_id;
-    }
-
-    public void setVet_id(Integer vet_id) {
-        this.vet_id = vet_id;
     }
 
     public String getName() {
@@ -69,14 +55,6 @@ public class Vet {
 
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
-    }
-
-    public UserApp getUserApp() {
-        return userApp;
-    }
-
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
     }
 
     public List<Visit> getVisits() {

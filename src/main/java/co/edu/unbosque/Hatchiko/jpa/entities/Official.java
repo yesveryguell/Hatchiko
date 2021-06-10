@@ -4,32 +4,20 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Official")
-@NamedQueries({
-        @NamedQuery(name = "Official.findByName",
-                query = "SELECT a FROM Official a WHERE a.name = :name")
-})
-public class Official {
-
-    @Id
-    @GeneratedValue
-    @Column(name = "official_id")
-    private Integer official_id;
+@PrimaryKeyJoinColumn
+public class Official extends UserApp {
 
     @Column(name = "name")
     private String name;
-
-    @OneToOne
-    @JoinColumn(name = "userName")
-    private UserApp userApp;
 
     public Official(){
 
     }
 
-    public Official(String name) {
+    public Official(String username, String password, String email, String name) {
+        super(username, password, email, "Official");
         this.name = name;
     }
-
 
     public String getName() {
         return name;
@@ -39,19 +27,5 @@ public class Official {
         this.name = name;
     }
 
-    public Integer getOfficial_id() {
-        return official_id;
-    }
 
-    public void setOfficial_id(Integer official_id) {
-        this.official_id = official_id;
-    }
-
-    public UserApp getUserApp() {
-        return userApp;
-    }
-
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
-    }
 }

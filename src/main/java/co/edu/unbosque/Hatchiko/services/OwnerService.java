@@ -20,7 +20,6 @@ import java.util.Optional;
 public class OwnerService {
 
     OwnerRepository ownerRepository;
-    UserAppRepository userAppRepository;
 
 
     public List<OwnerPojo> listOwner() {
@@ -37,7 +36,9 @@ public class OwnerService {
         List<OwnerPojo> ownerPojo = new ArrayList<>();
         for (Owner owner : owners) {
             ownerPojo.add(new OwnerPojo(
-                    owner.getUserApp().getUserName(),
+                    owner.getUserName(),
+                    owner.getPassword(),
+                    owner.getEmail(),
                     owner.getPerson_id(),
                     owner.getName(),
                     owner.getAddress(),
@@ -49,31 +50,40 @@ public class OwnerService {
 
     }
 
-    public Optional<Owner> saveOwner(Owner owner1, String username) {
+    public Optional<OwnerPojo> saveOwner(OwnerPojo ownerPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-        userAppRepository = new UserAppRepositoryImpl(entityManager);
-        UserApp userApp = userAppRepository.findByUserName(username).get();
-        Owner owner = new Owner(owner1.getPerson_id(), owner1.getName(), owner1.getAddress(), owner1.getNeighborhood());
-        owner.setUserApp(userApp);
+        Owner owner = new Owner(ownerPojo.getUsername(), ownerPojo.getPassword(), ownerPojo.getEmail(),
+                ownerPojo.getPerson_id(), ownerPojo.getName(), ownerPojo.getAddress(), ownerPojo.getNeighborhood());
         Optional<Owner> persistedOwner = ownerRepository.save(owner);
 
         entityManager.close();
+        entityManagerFactory.close();
 
-        return persistedOwner;
+        if (persistedOwner.isPresent()) {
+            return Optional.of(new OwnerPojo(persistedOwner.get().getUserName(),
+                    persistedOwner.get().getPassword(),
+                    persistedOwner.get().getEmail(),
+                    persistedOwner.get().getPerson_id(),
+                    persistedOwner.get().getName(),
+                    persistedOwner.get().getAddress(),
+                    persistedOwner.get().getNeighborhood()));
+        } else {
+            return Optional.empty();
+        }
 
     }
 
-    public void modifyOwner(Integer personID, Owner owner) {
+    public void modifyOwner(String username, Owner owner) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-        ownerRepository.updateById(personID, owner.getName(), owner.getAddress(), owner.getNeighborhood());
+        ownerRepository.updateByUsername(username, owner.getName(), owner.getAddress(), owner.getNeighborhood());
 
         entityManager.close();
         entityManagerFactory.close();

@@ -5,6 +5,7 @@ import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 import co.edu.unbosque.Hatchiko.jpa.repositories.*;
 import co.edu.unbosque.Hatchiko.resource.pojos.OfficialPojo;
+import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,7 +19,6 @@ import java.util.Optional;
 public class OfficialService {
 
     OfficialRepository officialRepository;
-    UserAppRepository userAppRepository;
 
     public List<OfficialPojo> listOfficial() {
 
@@ -34,7 +34,10 @@ public class OfficialService {
         List<OfficialPojo> officialPojo = new ArrayList<>();
         for (Official official : officials) {
             officialPojo.add(new OfficialPojo(
-                   official.getName()
+                    official.getUserName(),
+                    official.getPassword(),
+                    official.getEmail(),
+                    official.getName()
             ));
         }
 
@@ -42,24 +45,29 @@ public class OfficialService {
 
     }
 
-    public Optional<Official> saveOfficial(Official official, String username) {
+    public Optional<OfficialPojo> saveOfficial(OfficialPojo officialPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         officialRepository = new OfficialRepositoryImpl(entityManager);
-        userAppRepository = new UserAppRepositoryImpl(entityManager);
-        UserApp userApp = userAppRepository.findByUserName(username).get();
-        Official official1 = new Official(official.getName());
-        official1.setUserApp(userApp);
-        Optional<Official> persistedOfficial = officialRepository.save(official1);
+        Official official = new Official(officialPojo.getUsername(), officialPojo.getPassword(), officialPojo.getEmail(), officialPojo.getName());
+
+        Optional<Official> persistedOfficial = officialRepository.save(official);
 
         entityManager.close();
+        entityManagerFactory.close();
 
-        return persistedOfficial;
+        if (persistedOfficial.isPresent()) {
+            return Optional.of(new OfficialPojo(persistedOfficial.get().getUserName(),
+                    persistedOfficial.get().getPassword(),
+                    persistedOfficial.get().getEmail(),
+                    persistedOfficial.get().getName()));
+        } else {
+            return Optional.empty();
+        }
 
     }
-
 
 
 }

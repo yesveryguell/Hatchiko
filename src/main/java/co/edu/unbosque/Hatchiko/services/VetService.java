@@ -6,6 +6,7 @@ import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepository;
 import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepositoryImpl;
 import co.edu.unbosque.Hatchiko.jpa.repositories.VetRepository;
 import co.edu.unbosque.Hatchiko.jpa.repositories.VetRepositoryImpl;
+import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.VetPojo;
 
 import javax.ejb.Stateless;
@@ -20,8 +21,6 @@ import java.util.Optional;
 public class VetService {
 
     VetRepository vetRepository;
-    UserAppRepository userAppRepository;
-
 
     public List<VetPojo> listVet() {
 
@@ -37,7 +36,9 @@ public class VetService {
         List<VetPojo> vetPojo = new ArrayList<>();
         for (Vet vet : vets) {
             vetPojo.add(new VetPojo(
-                    vet.getUserApp().getUserName(),
+                    vet.getUserName(),
+                    vet.getPassword(),
+                    vet.getEmail(),
                     vet.getName(),
                     vet.getAddress(),
                     vet.getNeighborhood()
@@ -48,31 +49,40 @@ public class VetService {
 
     }
 
-    public Optional<Vet> saveVet(Vet vet1, String username) {
+    public Optional<VetPojo> saveVet(VetPojo vetPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
-        userAppRepository = new UserAppRepositoryImpl(entityManager);
-        UserApp userApp = userAppRepository.findByUserName(username).get();
-        Vet vet = new Vet(vet1.getName(), vet1.getAddress(), vet1.getNeighborhood());
-        vet.setUserApp(userApp);
+
+        Vet vet = new Vet(vetPojo.getUsername(), vetPojo.getPassword(), vetPojo.getEmail(), vetPojo.getName(), vetPojo.getAddress(), vetPojo.getNeighborhood());
+
         Optional<Vet> persistedVet = vetRepository.save(vet);
 
         entityManager.close();
+        entityManagerFactory.close();
 
-        return persistedVet;
+        if (persistedVet.isPresent()) {
+            return Optional.of(new VetPojo(persistedVet.get().getUserName(),
+                    persistedVet.get().getPassword(),
+                    persistedVet.get().getEmail(),
+                    persistedVet.get().getName(),
+                    persistedVet.get().getAddress(),
+                    persistedVet.get().getNeighborhood()));
+        } else {
+            return Optional.empty();
+        }
 
     }
 
-    public void modifyVet(Integer id, Vet vet) {
+    public void modifyVet(String username, Vet vet) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
-        vetRepository.updateById(id, vet.getName(), vet.getAddress(), vet.getNeighborhood());
+        vetRepository.updateByUsername(username, vet.getName(), vet.getAddress(), vet.getNeighborhood());
 
         entityManager.close();
         entityManagerFactory.close();

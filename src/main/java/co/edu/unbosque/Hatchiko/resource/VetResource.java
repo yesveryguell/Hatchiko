@@ -1,8 +1,12 @@
 package co.edu.unbosque.Hatchiko.resource;
 
 import co.edu.unbosque.Hatchiko.resource.filters.Logged;
+import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.UserAppPojo;
+import co.edu.unbosque.Hatchiko.resource.pojos.VetPojo;
+import co.edu.unbosque.Hatchiko.services.OwnerService;
 import co.edu.unbosque.Hatchiko.services.UserAppService;
+import co.edu.unbosque.Hatchiko.services.VetService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,15 +18,13 @@ public class VetResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(UserAppPojo user) {
+    public Response create(VetPojo vetPojo) {
 
-        user.setRole("vet");
+        Optional<VetPojo> persistedVet = new VetService().saveVet(vetPojo);
 
-        Optional<UserAppPojo> persistedUser = new UserAppService().saveUser(user);
-
-        if (persistedUser.isPresent()) {
+        if (persistedVet.isPresent()) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedUser.get())
+                    .entity(persistedVet.get())
                     .build();
         } else {
             return Response.serverError()
@@ -39,7 +41,7 @@ public class VetResource {
     public Response hello(@HeaderParam("role") String role) {
 
         // If role doesn't match
-        if (!"vet".equals(role))
+        if (!"Vet".equals(role))
             return Response.status(Response.Status.FORBIDDEN)
                     .entity("Role " + role + " cannot access to this method")
                     .build();

@@ -14,11 +14,6 @@ public class OfficialRepositoryImpl implements OfficialRepository{
         this.entityManager = entityManager;
     }
 
-    @Override
-    public Optional<Official> findById(Integer id) {
-        Official official = entityManager.find(Official.class, id);
-        return official != null ? Optional.of(official) : Optional.empty();
-    }
 
     @Override
     public List<Official> findAll() {
@@ -39,8 +34,8 @@ public class OfficialRepositoryImpl implements OfficialRepository{
     }
 
     @Override
-    public void updateById(Integer id, String name) {
-        Official official = entityManager.find(Official.class, id);
+    public void updateByUsername(String username, String name) {
+        Official official = entityManager.find(Official.class, username);
         if (official != null) {
             try {
                 entityManager.getTransaction().begin();

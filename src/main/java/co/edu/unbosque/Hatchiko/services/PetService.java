@@ -2,10 +2,8 @@ package co.edu.unbosque.Hatchiko.services;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
-import co.edu.unbosque.Hatchiko.jpa.repositories.OwnerRepository;
-import co.edu.unbosque.Hatchiko.jpa.repositories.OwnerRepositoryImpl;
-import co.edu.unbosque.Hatchiko.jpa.repositories.PetRepository;
-import co.edu.unbosque.Hatchiko.jpa.repositories.PetRepositoryImpl;
+import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
+import co.edu.unbosque.Hatchiko.jpa.repositories.*;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetPojo;
 
 import javax.ejb.Stateless;
@@ -50,15 +48,15 @@ public class PetService {
 
     }
 
-    public Optional<Pet> savePet(Pet pet1, Integer id) {
+    public Optional<Pet> savePet(PetPojo petPojo, String username) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-        Optional<Owner> owner = ownerRepository.findById(id);
-        Pet pet = new Pet(pet1.getMicrochip(), pet1.getName(), pet1.getSpecies(), pet1.getRace(), pet1.getSize(), pet1.getSex(), pet1.getPicture());
+        Optional<Owner> owner = ownerRepository.findByUserName(username);
+        Pet pet = new Pet(petPojo.getMicrochip(), petPojo.getName(), petPojo.getSpecies(), petPojo.getRace(), petPojo.getSize(), petPojo.getSex(), petPojo.getPicture());
         owner.ifPresent(a -> {
             a.addPet(pet);
             ownerRepository.save(a);

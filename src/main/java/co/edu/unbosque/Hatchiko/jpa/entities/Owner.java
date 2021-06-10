@@ -6,14 +6,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "Owner")
-public class Owner {
-    @Id
-    @GeneratedValue
-    @Column(name = "owner_id")
-    private Integer owner_id;
+@PrimaryKeyJoinColumn
+public class Owner extends UserApp{
 
     @Column(name = "person_id", unique = true)
-    private Integer person_id;
+    private Long person_id;
 
     @Column(name = "name")
     private String name;
@@ -24,9 +21,6 @@ public class Owner {
     @Column(name = "neighborhood")
     private String neighborhood;
 
-    @OneToOne
-    @JoinColumn(name = "userName")
-    private UserApp userApp;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets = new ArrayList<>();
@@ -35,36 +29,19 @@ public class Owner {
 
     }
 
-    public Owner(Integer person_id, String name, String address, String neighborhood) {
+    public Owner(String username, String password, String email,Long person_id, String name, String address, String neighborhood) {
+        super(username, password, email, "Owner");
         this.person_id = person_id;
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
     }
 
-
-
-    public Integer getOwner_id() {
-        return owner_id;
-    }
-
-    public void setOwner_id(Integer owner_id) {
-        this.owner_id = owner_id;
-    }
-
-    public UserApp getUserApp() {
-        return userApp;
-    }
-
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
-    }
-
-    public Integer getPerson_id() {
+    public Long getPerson_id() {
         return person_id;
     }
 
-    public void setPerson_id(Integer person_id) {
+    public void setPerson_id(Long person_id) {
         this.person_id = person_id;
     }
 

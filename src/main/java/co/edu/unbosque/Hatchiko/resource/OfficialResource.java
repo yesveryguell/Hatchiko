@@ -1,7 +1,9 @@
 package co.edu.unbosque.Hatchiko.resource;
 
 import co.edu.unbosque.Hatchiko.resource.filters.Logged;
+import co.edu.unbosque.Hatchiko.resource.pojos.OfficialPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.UserAppPojo;
+import co.edu.unbosque.Hatchiko.services.OfficialService;
 import co.edu.unbosque.Hatchiko.services.UserAppService;
 
 import javax.ws.rs.*;
@@ -14,15 +16,13 @@ public class OfficialResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(UserAppPojo user) {
+    public Response create(OfficialPojo officialPojo) {
 
-        user.setRole("official");
+        Optional<OfficialPojo> persistedOfficial = new OfficialService().saveOfficial(officialPojo);
 
-        Optional<UserAppPojo> persistedUser = new UserAppService().saveUser(user);
-
-        if (persistedUser.isPresent()) {
+        if (persistedOfficial.isPresent()) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedUser.get())
+                    .entity(persistedOfficial.get())
                     .build();
         } else {
             return Response.serverError()
@@ -39,7 +39,7 @@ public class OfficialResource {
     public Response hello(@HeaderParam("role") String role) {
 
         // If role doesn't match
-        if (!"official".equals(role))
+        if (!"Official".equals(role))
             return Response.status(Response.Status.FORBIDDEN)
                     .entity("Role " + role + " cannot access to this method")
                     .build();

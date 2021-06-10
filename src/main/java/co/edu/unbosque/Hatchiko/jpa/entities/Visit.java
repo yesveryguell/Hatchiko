@@ -25,7 +25,7 @@ public class Visit {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "vet_id")
+    @JoinColumn(name = "username")
     private Vet vet;
 
     @ManyToOne
