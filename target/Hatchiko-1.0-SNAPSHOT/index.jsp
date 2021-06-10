@@ -49,7 +49,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.jsp"><img src="images/second.png" alt="#" /></a>
+                                <a href="index.jsp"><img src="images/logos.png" alt="#" /></a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                     <a class="nav-link" href="index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"> About  </a>
+                                    <a class="nav-link" href="jsp/owner.jsp"> About  </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
@@ -119,7 +119,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="web_hosting">
-                    <figure><img src="images/programmingT.png" alt="#"/></figure>
+                    <figure><img src="images/programming.png" alt="#"/></figure>
                     <p>Whatever you can expect! We have a great skills with backend and frontend.
                     So you can tell us what you want for your page and we can make it.</p>
                     <a href="#">Read more</a>
@@ -145,7 +145,7 @@
         <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="Services-box">
-                    <i><img src="images/service1.png" alt="#" /></i>
+                    <i><img src="images/service.png" alt="#" /></i>
                     <h3> Shared Hosting</h3>
                     <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
                 </div>

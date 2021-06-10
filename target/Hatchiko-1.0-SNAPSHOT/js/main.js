@@ -57,18 +57,3 @@
     
 
 })(jQuery);
-function redireccion() {
-    switch(document.value) {
-
-        case "funcionario":
-            window.location="official.jsp";
-            break;
-
-        /// Can be extended to other different selections of SubCategory //////
-
-        default:
-            window.location="../"; // if no selection matches then redirected to home page
-            break;
-
-    }// end of switch
-}

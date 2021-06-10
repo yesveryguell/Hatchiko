@@ -43,8 +43,8 @@
 						User type
                             <select>
                             <option value="funcionario">Funcionario</option>
-                            <option value="propietario" href="official.jsp">Propietario</option>
-                            <option value="veterinario" href="official.jsp">Veterinario</option>
+                            <option value="propietario">Propietario</option>
+                            <option value="veterinario">Veterinario</option>
                         </select>
 					</span>
 
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" onchange="redireccion()">
+                    <button class="login100-form-btn">
                         Sign in
                     </button>
                 </div>
