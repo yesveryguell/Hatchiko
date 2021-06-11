@@ -11,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.List;
 import java.util.Optional;
 
 @Path("/owners")
@@ -50,5 +51,16 @@ public class OwnerResource {
                 .entity("Hello, World, " + role + "!")
                 .build();
 
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(){
+
+        List<OwnerPojo> owners = new OwnerService().listOwner();
+
+        return Response.ok()
+                .entity(owners)
+                .build();
     }
 }
