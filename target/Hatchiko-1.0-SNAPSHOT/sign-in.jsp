@@ -35,7 +35,7 @@
 						<a href="index.jsp"><img src="images/logo_t.png"/></a>
 					</span>
 
-                <span class="login100-form-title p-b-34">
+                <span class="login100-form-title p-b-34" >
 						Sign In
 					</span>
 
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" style="background-color:#eebb55">
                         Sign in
                     </button>
                 </div>

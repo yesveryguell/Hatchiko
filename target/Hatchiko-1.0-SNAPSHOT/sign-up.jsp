@@ -64,18 +64,18 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" style="background-color:#eebb55">
                         Sign up
                     </button>
                 </div>
 
-                <div class="w-full text-center p-t-27 p-b-239">
-						<span class="txt1">
+                <div class="w-full text-center p-t-27 p-b-239" >
+						<span class="txt1" >
 						</span>
                 </div>
 
-                <div class="w-full text-center">
-                    <a href="sign-in.jsp" class="txt3">
+                <div class="w-full text-center"  >
+                    <a href="sign-in.jsp" class="txt3" >
                         Sign In
                     </a>
                 </div>
