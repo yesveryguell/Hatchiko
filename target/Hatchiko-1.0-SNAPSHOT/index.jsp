@@ -93,7 +93,7 @@
             <div class="col-md-5">
                 <div class="text-bg">
                     <h1>Four Paws Citizens<br>Hatchiko</h1>
-                    <p>Our software development give to every user the possibility to track your pet and give a visit for every pet. </p>
+                    <p>Our software development give to every user the possibility to track your pet. </p>
                     <p>Take a look and sign up.</p>
                 </div>
             </div>
@@ -135,10 +135,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>Best Services</h2>
-                    <p>Lorem ipsum dolor sittem ametamngcing elit, per sed do eiusmoad <br>
-                        teimpor sittem elit inuning ut sed.
-                    </p>
+                    <h2>Sign up</h2>
                 </div>
             </div>
         </div>
@@ -146,17 +143,17 @@
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="Services-box">
                     <i><img src="images/service.png" alt="#" /></i>
-                    <h3> Shared Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    <a class="read_more" href="jsp/owner.jsp">Read More</a>
+                    <h3> Owner </h3>
+                    <p> Here you can register, you just have to add your data, add the information requested in the following form </p>
+                    <a class="read_more" href="jsp/owner.jsp">Add Owner</a>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="Services-box">
-                    <i><img src="images/service6.png" alt="#" /></i>
-                    <h3>Reseller Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    <a class="read_more" href="jsp/pet.jsp">Read More</a>
+                    <i><img src="images/PetsLogo.png" alt="#" /></i>
+                    <h3> Pet </h3>
+                    <p> Here you can register your 4-legged friend, add the information requested in the following form </p>
+                    <a class="read_more" href="jsp/pet.jsp">Add Pet</a>
                 </div>
             </div>
         </div>
