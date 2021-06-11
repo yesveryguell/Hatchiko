@@ -112,16 +112,18 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>What is great about us?</h2>
+                    <h2>How does it work?</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="web_hosting">
-                    <figure><img src="images/programming.png" alt="#"/></figure>
-                    <p>Whatever you can expect! We have a great skills with backend and frontend.
-                    So you can tell us what you want for your page and we can make it.</p>
+                    <figure><img src="images/Microchip.jpg" alt="#"/></figure>
+                    <p>Each owner must register their data to be able to add their pet, if it is the case, they can also list in a table if they have more than one.</p>
+                    <p>Each pet must have a table that combines the cases and visits that are registered by the veterinarian, ordered by date in descending order
+                        and being able to filter by date range.</p>
+                    <p>A veterinarian, in addition to being able to update her data, will be able to create pet visit records.</p>
                     <a href="#">Read more</a>
                 </div>
             </div>
