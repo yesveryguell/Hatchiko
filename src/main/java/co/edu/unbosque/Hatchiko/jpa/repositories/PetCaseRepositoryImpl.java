@@ -1,32 +1,32 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
-import co.edu.unbosque.Hatchiko.jpa.entities.VetCase;
+import co.edu.unbosque.Hatchiko.jpa.entities.PetCase;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-public class CasesRepositoryImpl implements CasesRepository{
+public class PetCaseRepositoryImpl implements PetCaseRepository {
 
     private EntityManager entityManager;
 
-    public CasesRepositoryImpl(EntityManager entityManager) {
+    public PetCaseRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
-    public Optional<VetCase> findById(Integer id) {
-        VetCase aCases = entityManager.find(VetCase.class, id);
+    public Optional<PetCase> findById(Integer id) {
+        PetCase aCases = entityManager.find(PetCase.class, id);
         return aCases != null ? Optional.of(aCases) : Optional.empty();
     }
 
     @Override
-    public List<VetCase> findAll() {
-        return entityManager.createQuery("from VetCase").getResultList();
+    public List<PetCase> findAll() {
+        return entityManager.createQuery("from PetCase").getResultList();
     }
 
     @Override
-    public Optional<VetCase> save(VetCase aCases) {
+    public Optional<PetCase> save(PetCase aCases) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(aCases);
@@ -40,7 +40,7 @@ public class CasesRepositoryImpl implements CasesRepository{
 
     @Override
     public void updateById(Integer id, String create_at, String type, String description) {
-        VetCase aCases = entityManager.find(VetCase.class, id);
+        PetCase aCases = entityManager.find(PetCase.class, id);
         if (aCases != null) {
             try {
                 entityManager.getTransaction().begin();

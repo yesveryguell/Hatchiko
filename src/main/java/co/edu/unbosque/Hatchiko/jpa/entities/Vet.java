@@ -18,7 +18,7 @@ public class Vet extends UserApp{
     @Column(name = "neighborhood")
     private String neighborhood;
 
-    @OneToMany(mappedBy = "vet", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
 

@@ -1,18 +1,18 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-public class VetCasePojo {
+public class PetCasePojo {
 
     private Integer case_id;
-    private String crated_at;
+    private String created_at;
     private String type;
     private String description;
 
-    public VetCasePojo(){
+    public PetCasePojo(){
     }
 
-    public VetCasePojo(Integer case_id, String crated_at, String type, String description) {
+    public PetCasePojo(Integer case_id, String created_at, String type, String description) {
         this.case_id = case_id;
-        this.crated_at = crated_at;
+        this.created_at = created_at;
         this.type = type;
         this.description = description;
     }
@@ -25,12 +25,12 @@ public class VetCasePojo {
         this.case_id = case_id;
     }
 
-    public String getCrated_at() {
-        return crated_at;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setCrated_at(String crated_at) {
-        this.crated_at = crated_at;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
     public String getType() {

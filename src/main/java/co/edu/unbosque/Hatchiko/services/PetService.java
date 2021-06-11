@@ -63,6 +63,8 @@ public class PetService {
         });
         Optional<Pet> persistedPet = petRepository.save(pet);
 
+        entityManager.close();
+
         return persistedPet;
 
     }

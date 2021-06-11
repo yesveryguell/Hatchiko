@@ -17,6 +17,12 @@ public class VisitPojo {
         this.description = description;
     }
 
+    public VisitPojo(String created_at, String type, String description) {
+        this.created_at = created_at;
+        this.type = type;
+        this.description = description;
+    }
+
     public int getVisit_id() {
         return visit_id;
     }

@@ -1,8 +1,9 @@
 package co.edu.unbosque.Hatchiko.services;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
+import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
 import co.edu.unbosque.Hatchiko.jpa.entities.Visit;
-import co.edu.unbosque.Hatchiko.jpa.repositories.VisitRepository;
-import co.edu.unbosque.Hatchiko.jpa.repositories.VisitRepositoryImpl;
+import co.edu.unbosque.Hatchiko.jpa.repositories.*;
 import co.edu.unbosque.Hatchiko.resource.pojos.VisitPojo;
 
 import javax.ejb.Stateless;
@@ -11,10 +12,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Stateless
 public class VisitService {
     VisitRepository visitRepository;
+    VetRepository vetRepository;
+    PetRepository petRepository;
 
 
     public List<VisitPojo> listVisit() {
@@ -42,15 +46,26 @@ public class VisitService {
 
     }
 
-    public Visit saveVisit(Visit visit1) {
+    public Optional<Visit> saveVisit(VisitPojo visitPojo, String username, Integer pet_id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         visitRepository = new VisitRepositoryImpl(entityManager);
-
-        Visit visit = new Visit(visit1.getCreated_at(), visit1.getType(), visit1.getDescription());
-        Visit persistedVisit = visitRepository.save(visit).get();
+        vetRepository = new VetRepositoryImpl(entityManager);
+        petRepository = new PetRepositoryImpl(entityManager);
+        Optional<Vet> vet = vetRepository.findByUserName(username);
+        Optional<Pet> pet = petRepository.findById(pet_id);
+        Visit visit = new Visit(visitPojo.getCreated_at(), visitPojo.getType(), visitPojo.getDescription());
+        vet.ifPresent(a -> {
+            a.addVisit(visit);
+            vetRepository.save(a);
+        });
+        pet.ifPresent(a -> {
+            a.addVisit(visit);
+            petRepository.save(a);
+        });
+        Optional<Visit> persistedVisit = visitRepository.save(visit);
 
         entityManager.close();
 

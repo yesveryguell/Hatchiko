@@ -41,11 +41,11 @@ public class Pet {
     @JoinColumn(name = "username")
     private Owner owner;
 
-    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pet", fetch = FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
-    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<VetCase> aCases = new ArrayList<>();
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PetCase> petCases = new ArrayList<>();
 
     public Pet(){
 
@@ -142,12 +142,12 @@ public class Pet {
         visit.setPet(this);
     }
 
-    public List<VetCase> getCases() {
-        return aCases;
+    public List<PetCase> getPetCases() {
+        return petCases;
     }
 
-    public void addCase(VetCase caso) {
-        aCases.add(caso);
-        caso.setPet(this);
+    public void addPetCase(PetCase petCase) {
+        petCases.add(petCase);
+        petCase.setPet(this);
     }
 }

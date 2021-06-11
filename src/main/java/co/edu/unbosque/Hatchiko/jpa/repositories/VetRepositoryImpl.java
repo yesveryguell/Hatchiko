@@ -1,5 +1,6 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
 
 import javax.persistence.EntityManager;
@@ -12,6 +13,12 @@ public class VetRepositoryImpl implements VetRepository{
 
     public VetRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    @Override
+    public Optional<Vet> findByUserName(String userName) {
+        Vet vet = entityManager.find(Vet.class, userName);
+        return vet != null ? Optional.of(vet) : Optional.empty();
     }
 
     @Override
