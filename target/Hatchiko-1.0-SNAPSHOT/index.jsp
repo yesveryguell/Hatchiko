@@ -145,47 +145,46 @@
         <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="Services-box">
-                    <i><img src="images/service.png" alt="#" /></i>
-                    <h3> Shared Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                    <h3>Name</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name">
+                    </div>
+                    <div class="input-group">
+                        <h3>Address</h3>
+                        <input class="input--style-2" placeholder="Address" type="text" name="address">
+                    </div>
+
+                    <div class="input-group">
+                        <h3>Neighborhood</h3>
+                        <input class="input--style-2" placeholder="Neighborhood" type="text" name="neighborhood">
+                    </div>
+                    <div class="p-t-30">
+                        <button class="btn btn--radius btn--green" type="submit">Add</button>
+                        <a href="pet.jsp" class="btn btn--radius btn--green">Add pet</a>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="Services-box">
-                    <i><img src="images/service2.png" alt="#" /></i>
-                    <h3>Dedicated Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                    <h3>Name</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name">
+                    </div>
+                    <div class="input-group">
+                        <h3>Address</h3>
+                        <input class="input--style-2" placeholder="Address" type="text" name="address">
+                    </div>
+
+                    <div class="input-group">
+                        <h3>Neighborhood</h3>
+                        <input class="input--style-2" placeholder="Neighborhood" type="text" name="neighborhood">
+                    </div>
+                    <div class="p-t-30">
+                        <button class="btn btn--radius btn--green" type="submit">Add</button>
+                        <a href="pet.jsp" class="btn btn--radius btn--green">Add pet</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="Services-box">
-                    <i><img src="images/service3.png" alt="#" /></i>
-                    <h3>Domain Registration</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="Services-box">
-                    <i><img src="images/service4.png" alt="#" /></i>
-                    <h3>VPS Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="Services-box">
-                    <i><img src="images/service5.png" alt="#" /></i>
-                    <h3>Cloud Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <div class="Services-box">
-                    <i><img src="images/service6.png" alt="#" /></i>
-                    <h3>Reseller Hosting</h3>
-                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                </div>
-            </div>
-            <a class="read_more" href="#">Read More</a>
         </div>
     </div>
 </div>
