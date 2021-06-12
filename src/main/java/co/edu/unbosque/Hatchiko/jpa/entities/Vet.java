@@ -6,18 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "Vet")
-@NamedQueries({
-        @NamedQuery(name = "Vet.findByUserName",
-                query = "SELECT a FROM Vet a WHERE a.userName = :userName")
-})
-public class Vet {
-    @Id
-    @GeneratedValue
-    @Column(name = "vet_id")
-    private Integer vet_id;
-
-    @Column(name = "userName")
-    private String userName;
+@PrimaryKeyJoinColumn
+public class Vet extends UserApp{
 
     @Column(name = "name")
     private String name;
@@ -28,10 +18,7 @@ public class Vet {
     @Column(name = "neighborhood")
     private String neighborhood;
 
-    @OneToOne
-    private UserApp userApp;
-
-    @OneToMany(mappedBy = "vet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
 
@@ -39,27 +26,11 @@ public class Vet {
 
     }
 
-    public Vet(String userName, String name, String address, String neighborhood) {
-        this.userName = userName;
+    public Vet(String username, String password, String email, String name, String address, String neighborhood) {
+        super(username, password, email, "Vet");
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
-    }
-
-    public Integer getVet_id() {
-        return vet_id;
-    }
-
-    public void setVet_id(Integer vet_id) {
-        this.vet_id = vet_id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getName() {
@@ -84,14 +55,6 @@ public class Vet {
 
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
-    }
-
-    public UserApp getUserApp() {
-        return userApp;
-    }
-
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
     }
 
     public List<Visit> getVisits() {

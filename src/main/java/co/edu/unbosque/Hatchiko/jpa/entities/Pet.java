@@ -17,7 +17,7 @@ public class Pet {
     private Integer pet_id;
 
     @Column(name = "microchip", unique = true)
-    private Integer microchip;
+    private String microchip;
 
     @Column(name = "name")
     private String name;
@@ -38,17 +38,20 @@ public class Pet {
     private String picture;
 
     @ManyToOne
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "username")
     private Owner owner;
 
-    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pet", fetch = FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
-    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Cases> cases = new ArrayList<>();
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PetCase> petCases = new ArrayList<>();
 
+    public Pet(){
 
-    public Pet(Integer microchip, String name, String species, String race, String size, String sex, String picture) {
+    }
+
+    public Pet(String microchip, String name, String species, String race, String size, String sex, String picture) {
         this.microchip = microchip;
         this.name = name;
         this.species = species;
@@ -66,11 +69,11 @@ public class Pet {
         this.pet_id = pet_id;
     }
 
-    public Integer getMicrochip() {
+    public String getMicrochip() {
         return microchip;
     }
 
-    public void setMicrochip(Integer microchip) {
+    public void setMicrochip(String microchip) {
         this.microchip = microchip;
     }
 
@@ -139,12 +142,12 @@ public class Pet {
         visit.setPet(this);
     }
 
-    public List<Cases> getCases() {
-        return cases;
+    public List<PetCase> getPetCases() {
+        return petCases;
     }
 
-    public void addCase(Cases caso) {
-        cases.add(caso);
-        caso.setPet(this);
+    public void addPetCase(PetCase petCase) {
+        petCases.add(petCase);
+        petCase.setPet(this);
     }
 }
