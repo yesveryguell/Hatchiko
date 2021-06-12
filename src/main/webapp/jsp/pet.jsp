@@ -65,10 +65,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="jsp/index.jsp">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"> About </a>
+                                    <a class="nav-link" href="../index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
@@ -77,7 +74,10 @@
                                     <a class="nav-link" href="#contact">Contact</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../sign-in.jsp">Sign In</a>
+                                    <a class="nav-link" href="about.jsp"> About </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="sign-in.jsp">Sign In</a>
                                 </li>
                             </ul>
                         </div>

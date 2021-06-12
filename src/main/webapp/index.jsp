@@ -62,16 +62,16 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.jsp">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="jsp/owner.jsp"> About  </a>
+                                    <a class="nav-link" href="../index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#contact">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="sign-in.jsp">Sign In</a>
@@ -99,7 +99,7 @@
             </div>
             <div class="col-md-7">
                 <div class="text-img">
-                    <figure><img src="images/peopledog.jpg" /></figure>
+                    <figure><img src="images/paws2.png"/></figure>
                 </div>
             </div>
         </div>
@@ -137,22 +137,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>Sign up</h2>
+                    <h2>Owner and pet</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="col-xl-5 col-lg-4 col-md-10 col-sm-20">
                 <div class="Services-box">
-                    <i><img src="images/service.png" alt="#" /></i>
+                    <i><img src="images/icono3.png" alt="#" /></i>
                     <h3> Owner </h3>
                     <p> Here you can register, you just have to add your data, add the information requested in the following form </p>
                     <a class="read_more" href="jsp/owner.jsp">Add Owner</a>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="col-xl-5 col-lg-4 col-md-10 col-sm-30">
                 <div class="Services-box">
-                    <i><img src="images/PetsLogo.png" alt="#" /></i>
+                    <i><img src="images/paw.png" alt="#" /></i>
                     <h3> Pet </h3>
                     <p> Here you can register your 4-legged friend, add the information requested in the following form </p>
                     <a class="read_more" href="jsp/pet.jsp">Add Pet</a>
@@ -161,49 +161,9 @@
         </div>
     </div>
 </div>
-<!-- end Servicess -->
-<!-- why -->
-<%--<div id="why" class="why">--%>
-<%--    <div class="container">--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-md-12">--%>
-<%--                <div class="titlepage">--%>
-<%--                    <h2>Why you should choose </h2>--%>
-<%--                    <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">--%>
-<%--                <div id="box_ho" class="why-box">--%>
-<%--                    <i><img src="images/why1.png" alt="#" /></i>--%>
-<%--                    <h3>Powerful Features</h3>--%>
-<%--                    <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>--%>
-<%--                </div>--%>
-<%--                <a class="read_more bg" href="#">Read More</a>--%>
-<%--            </div>--%>
-<%--            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">--%>
-<%--                <div class="why-box">--%>
-<%--                    <i><img src="images/why2.png" alt="#" /></i>--%>
-<%--                    <h3>Totaly Optimised</h3>--%>
-<%--                    <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>--%>
-<%--                </div>--%>
-<%--                <a class="read_more bg" href="#">Read More</a>--%>
-<%--            </div>--%>
-<%--            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">--%>
-<%--                <div class="why-box">--%>
-<%--                    <i><img src="images/why3.png" alt="#" /></i>--%>
-<%--                    <h3>Worldwide Support</h3>--%>
-<%--                    <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>--%>
-<%--                </div>--%>
-<%--                <a class="read_more bg" href="#">Read More</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 <!-- end why -->
 <!-- contact -->
-<div id="contact" class="contact">
+<!--<div id="contact" class="contact">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 ">
@@ -229,7 +189,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <!-- end contact -->
 <!--  footer -->
@@ -239,11 +199,11 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="cont">
-                        <h3>Contact now</h3>
-                        <span>Free Multipurpose Responsive Landing Page 2019</span>
-                        <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quissed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis
+                        <h3>Contact us</h3>
+                        <p>     Park Way
+                            Cupertino, CA 95014
+                            (408) 996–1010
+                            <!--Address from Apple-->
                         </p>
                     </div>
                 </div>

@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/main2.css">
     <!-- Responsive-->
     <link rel="stylesheet" href="../css/responsive.css">
     <!-- fevicon -->
@@ -43,6 +42,7 @@
 <!-- end loader -->
 <!-- header -->
 <header>
+    <!-- header inner -->
     <div class="header">
         <div class="container">
             <div class="row">
@@ -90,29 +90,10 @@
 <!-- end banner -->
 <div id="" class="hosting">
     <div class="container">
-        <div class="card-body">
-            <form>
-                <h3>Name</h3>
-                <div class="input-group">
-                    <input class="input--style-2" type="text" placeholder="Name" name="name">
-                </div>
-                <div class="input-group">
-                    <h3>Address</h3>
-                    <input class="input--style-2" placeholder="Address" type="text" name="address">
-                </div>
-
-                <div class="input-group">
-                    <h3>Neighborhood</h3>
-                    <input class="input--style-2" placeholder="Neighborhood" type="text" name="neighborhood">
-                </div>
-                <div class="p-t-30">
-                    <button class="btn btn--radius btn--green" type="submit">Add</button>
-                    <a href="visit.jsp" class="btn btn--radius btn--green">Add visit</a>
-                </div>
-            </form>
-        </div>
+        <form>
+            <input class="">
+        </form>
     </div>
-
 </div>
 <!-- Hosting -->
 <footer>

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +20,12 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="images/favicon.png" type="image/gif"/>
+    <link rel="icon" href="images/favicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-          media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -42,7 +41,6 @@
 <!-- end loader -->
 <!-- header -->
 <header>
-    <!-- header inner -->
     <div class="header">
         <div class="container">
             <div class="row">
@@ -68,13 +66,13 @@
                                     <a class="nav-link" href="index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"> About </a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#contact">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="sign-in.jsp">Sign In</a>
@@ -87,12 +85,51 @@
         </div>
     </div>
 </header>
-<!-- end banner -->
-<div id="" class="hosting">
+<div id="why" class="why">
     <div class="container">
-        <form>
-            <input class="">
-        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Why you should choose </h2>
+                    <p>making it look like readable English. Many desktop publishing packages and web page editors now
+                        use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many
+                        web sites still </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div id="box_ho" class="why-box">
+                    <i><img src="images/robin.png" alt="#"/></i>
+                    <h3>Robinson Gutiérrez</h3>
+                    <p>Our CEO and Senior programmer, who's dedicate for our web logic and services. </p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="why-box">
+                    <i><img src="images/ladino.png" alt="#"/></i>
+                    <h3>Felipe Ladino</h3>
+                    <p>One of our Senior programmer, he check every detail for every part of the web services, an
+                        architect for every single part of the page </p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="why-box">
+                    <i><img src="images/alejandra.png" alt="#"/></i>
+                    <h3>Alejandra Buitrago</h3>
+                    <p>One of the greatest team for the frontend making a beautifully pages, putting first the harmony
+                        for the pages. </p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="why-box">
+                    <i><img src="images/felipe.png" alt="#"/></i>
+                    <h3>Felipe Rojas</h3>
+                    <p>One of the youngest and newer member for our community, he's explore and help every person in the
+                        team with a different part from backend and frontend </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Hosting -->
