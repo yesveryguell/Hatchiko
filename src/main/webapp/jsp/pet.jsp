@@ -100,9 +100,14 @@
                 <div class="input-group">
                     <input class="input--style-2" type="text" placeholder="Name" name="name">
                 </div>
+
                 <h3>Species</h3>
-                <div class="input-group">
-                    <input class="input--style-2" placeholder="Species" type="text" name="species">
+                <div>
+                    <select id=specie required>
+                        <option value="1">Seleccione una opcion</option>
+                        <option value="canine">Canine</option>
+                        <option value="feline">Feline</option>
+                    </select>
                 </div>
                 <h3>Race</h3>
                 <div class="input-group">
@@ -113,8 +118,12 @@
                     <input class="input--style-2" placeholder="Size" type="text" name="size">
                 </div>
                 <h3>Sex</h3>
-                <div class="input-group">
-                    <input class="input--style-2" placeholder="Sex" type="text" name="sex">
+                <div>
+                    <select id=sex required>
+                        <option value="1">Seleccione una opcion</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
                 </div>
                 <div class="p-t-30">
                     <button class="btn btn--radius btn--green" type="submit">Add</button>
