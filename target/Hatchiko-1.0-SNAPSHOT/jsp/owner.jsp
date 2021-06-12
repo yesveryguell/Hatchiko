@@ -91,7 +91,7 @@
 <div id="" class="hosting">
     <div class="container">
         <div class="card-body">
-            <form>
+            <form method="post" action="api/owners">
                 <h3>Name</h3>
                 <div class="input-group">
                     <input class="input--style-2" type="text" placeholder="Name" name="name">
