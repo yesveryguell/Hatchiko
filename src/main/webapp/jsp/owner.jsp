@@ -77,7 +77,7 @@
                                     <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="sign-in.jsp">Sign In</a>
+                                    <a class="nav-link" href="../sign-in.jsp">Sign In</a>
                                 </li>
                             </ul>
                         </div>
@@ -137,6 +137,8 @@
                 <div class="p-t-30">
                     <button class="btn btn--radius btn--green" type="submit">Add</button>
                     <a href="pet.jsp" class="btn btn--radius btn--green">Add pet</a>
+                    <a type="submit" class="btn btn--radius btn--green">Update</a>
+                    <a href="pet_case.jsp" class="btn btn--radius btn--green">Case</a>
                 </div>
             </form>
         </div>
