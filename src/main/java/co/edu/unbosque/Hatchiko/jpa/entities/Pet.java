@@ -1,5 +1,5 @@
 /**
- * Paquete que enlaza co.edu.unbosque con jpa y entities
+ * Package that links co.edu.unbosque with jpa and entities
  */
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
@@ -7,144 +7,144 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * El paquete Entities se encarga de crear las tablas correspondientes en las bases de datos
+ * The Entities package is responsible for creating the corresponding tables in the databases
  */
 
 /**
- * Anotación se debe definir a nivel de clase y sirve únicamente para indicarle a JPA que esa clase es una Entity
+ * Annotation must be defined at the class level and only serves to tell JPA that that class is an Entity
  */
 @Entity
 /**
- * Anotación se utiliza para indicar la tabla contra la que mapea la entidad
+ * Annotation is used to indicate the table against which the entity maps
  */
 @Table(name = "Pet")
 /**
- * Permiten definir las consultas a nivel de clase de dominio evitando las repeticiones
+ * They allow to define the queries at the domain class level avoiding repetitions
  */
 @NamedQueries({
         @NamedQuery(name = "UserApp.findByPetId",
                 query = "SELECT a FROM Pet a WHERE a.pet_id = :pet_id")
 })
 /**
- * Clase publica de nombre Pet (relacion 1 a muchos)
+ * Public class named Pet (relation 1 to many)
  */
 public class Pet {
     /**
-     * Sirve para definir el identificador único de cada Entidad
+     * It is used to define the unique identifier of each Entity
      */
     @Id
     /**
-     * Indica a JPA que regla de autogeneración de la lleve primaria vamos a utilizar
+     * Tell JPA which autogeneration rule of the primary lead we are going to use
      */
     @GeneratedValue
     /**
-     * permite definir aspectos importantes sobre las columnas de la base de datos como lo es el nombre, la longitud, etc
+     * It allows to define important aspects about the columns of the database such as the name, the length, etc.
      */
     @Column(name = "pet_id")
     /**
-     * Atributo de tipo privado con variable numerica Integer de nombre pet_id
+     * Attribute of private type with numeric variable Integer of name pet_id
      */
     private Integer pet_id;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "microchip", unique = true)
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre microchip
+     * Private type attribute with alphanumeric variable String of name microchip
      */
     private String microchip;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "name")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre name
+     * Private type attribute with alphanumeric variable String of name name
      */
     private String name;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "species")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre species
+     * Attribute of private type with alphanumeric variable String of name species
      */
     private String species;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "race")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre race
+     * Attribute of private type with alphanumeric variable String of name race
      */
     private String race;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "size")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre size
+     * Attribute of private type with alphanumeric variable String of name size
      */
     private String size;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "sex")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre sex
+     * Attribute of private type with alphanumeric variable String of name sex
      */
     private String sex;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "picture")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre picture
+     * Private type attribute with alphanumeric variable String of name picture
      */
     private String picture;
     /**
-     * Es una de las anotaciones mas habituales a nivel de JPA y se encarga de generar una relación de muchos a uno
+     * It is one of the most common annotations at the JPA level and is responsible for generating a many-to-one relationship
      */
     @ManyToOne
     /**
-     * Es una de las anotaciones mas habituales a nivel de JPA y se encarga de generar una relación de muchos a uno
+     * To indicate that the given column is owned by another entity.
      */
     @JoinColumn(name = "username")
     /**
-     * Atributo de tipo privado con variable Owner de nombre owner
+     * Attribute of private type with variable Owner named owner
      */
     private Owner owner;
     /**
-     * Las relaciones uno a muchos se caracterizan por Entidad donde tenemos un objeto principal y colección
-     * de objetos de otra Entidad relacionados directamente. Estas relaciones se definen mediante colecciones
+     * One to many relationships are characterized by Entity where we have a main object and collection
+     * of objects of another Entity directly related. These relationships are defined by collections
      */
     @OneToMany(mappedBy = "pet", fetch = FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = true)
     /**
-     * Atributo que contiene una variable Lista de nombre visits que nos ayudara a listar las visitas a las mascotas registradas
+     * Attribute that contains a variable List of visits name that will help us to list visits to registered pets
      */
     private List<Visit> visits = new ArrayList<>();
     /**
-     * Las relaciones uno a muchos
+     * One-to-many relationships
      */
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
     /**
-     * Atributo que contiene una variable Lista de nombre petCases que nos ayudara a listar los casos ingresados
+     * Attribute that contains a variable List of name petCases that will help us to list the entered cases
      */
     private List<PetCase> petCases = new ArrayList<>();
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public Pet(){
 
     }
 
     /**
-     * Constructor que incluye las 7 variables alfanumerica String microchip, name, species, race, size, sex, picture
-     * @param microchip Microchip con el que fue registrado el animal microchip!= null, microchip!=" "
-     * @param name nombre con el que fue registrado el animal name!= null, name!=" "
-     * @param race raza con la que fue registrado el animal race!= null, race!=" "
-     * @param size tamaño con el que fue registrado el animal size!= null, size!=" "
-     * @param sex sexo con el que fue registrado el animal sex!= null, sex!=" "
-     * @param picture imagen con el que fue registrado el animal picture!= null, picture!=" "
+     * Constructor that includes the 6 alphanumeric String variables microchip, name, species, race, size, sex, picture
+     * @param microchip Microchip with which the animal was registered microchip!= null, microchip!=" "
+     * @param name name with which the animal was registered name!= null, name!=" "
+     * @param race breed with which the animal was registered race!= null, race!=" "
+     * @param size size with which the animal was registered size!= null, size!=" "
+     * @param sex sex with which the animal was registered sex!= null, sex!=" "
+     * @param picture image with which the animal was registered picture!= null, picture!=" "
      */
     public Pet(String microchip, String name, String species, String race, String size, String sex, String picture) {
         this.microchip = microchip;
@@ -157,7 +157,7 @@ public class Pet {
     }
 
     /**
-     * Obtiene el valor del atributo de nombre Pet_id de tipo Integer
+     * Gets the value of the name attribute Pet_id of type Integer
      * @return getPet_id
      */
     public Integer getPet_id() {
@@ -165,15 +165,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param pet_id id del animal pet_id!= null, pet_id!=" "
+     * Update or modify the attribute name
+     * @param pet_id animal id pet_id!= null, pet_id!=" "
      */
     public void setPet_id(Integer pet_id) {
         this.pet_id = pet_id;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre microchip de tipo String
+     * Gets the value of the microchip name attribute of type String
      * @return microchip
      */
     public String getMicrochip() {
@@ -181,15 +181,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param microchip Microchip con el que fue registrado el animal microchip!= null, microchip!=" "
+     * Update or modify the attribute name
+     * @param microchip Microchip with which the animal was registered microchip!= null, microchip!=" "
      */
     public void setMicrochip(String microchip) {
         this.microchip = microchip;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre name de tipo String
+     * Gets the value of the name attribute of type String
      * @return name
      */
     public String getName() {
@@ -197,15 +197,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param name nombre con el que fue registrado el animal name!= null, name!=" "
+     * Update or modify the attribute name
+     * @param name name with which the animal was registered name!= null, name!=" "
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre species de tipo String
+     * Gets the value of the name attribute species of type String
      * @return species
      */
     public String getSpecies() {
@@ -213,15 +213,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param species especie con la que fue registrado el animal species!= null, species!=" "
+     * Update or modify the attribute name
+     * @param species species with which the animal was registered species!= null, species!=" "
      */
     public void setSpecies(String species) {
         this.species = species;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre race de tipo String
+     * Gets the value of the race name attribute of type String
      * @return race
      */
     public String getRace() {
@@ -229,15 +229,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param race raza con la que fue registrado el animal race!= null, race!=" "
+     * Update or modify the attribute name
+     * @param race breed with which the animal was registered race!= null, race!=" "
      */
     public void setRace(String race) {
         this.race = race;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre size de tipo String
+     * Gets the value of the name attribute size of type String
      * @return size
      */
     public String getSize() {
@@ -245,15 +245,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param size tamaño con el que fue registrado el animal size!= null, size!=" "
+     * Update or modify the attribute name
+     * @param size size with which the animal was registered size!= null, size!=" "
      */
     public void setSize(String size) {
         this.size = size;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre sex de tipo String
+     * Gets the value of the sex name attribute of type String
      * @return sex
      */
     public String getSex() {
@@ -261,15 +261,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param sex sexo con el que fue registrado el animal sex!= null, sex!=" "
+     * Update or modify the attribute name
+     * @param sex sex with which the animal was registered sex!= null, sex!=" "
      */
     public void setSex(String sex) {
         this.sex = sex;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre picture de tipo String
+     * Gets the value of the picture name attribute of type String
      * @return picture
      */
     public String getPicture() {
@@ -277,15 +277,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param picture imagen con el que fue registrado el animal picture!= null, picture!=" "
+     * Update or modify the attribute name
+     * @param picture image with which the animal was registered picture!= null, picture!=" "
      */
     public void setPicture(String picture) {
         this.picture = picture;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre owner de tipo Owner
+     * Gets the value of the owner name attribute of type Owner
      * @return owner
      */
     public Owner getOwner() {
@@ -293,15 +293,15 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param owner dueño del animal owner!= null, owner!=" "
+     * Update or modify the attribute name
+     * @param owner animal owner owner!= null, owner!=" "
      */
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre visits de tipo Lista
+     * Gets the value of the visits name attribute of type List
      * @return visits
      */
     public List<Visit> getVisits() {
@@ -309,8 +309,8 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param visit lista de visitas visit!= null, visit!=" "
+     * Update or modify the attribute name
+     * @param visit visiting list visit!= null, visit!=" "
      */
     public void addVisit(Visit visit) {
         visits.add(visit);
@@ -318,7 +318,7 @@ public class Pet {
     }
 
     /**
-     * Obtiene el valor del atributo de nombre petCases de tipo Lista
+     * Gets the value of the name attribute petCases of type List
      * @return petCases
      */
     public List<PetCase> getPetCases() {
@@ -326,8 +326,8 @@ public class Pet {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param petCase lista de visitas a los casos petCase!= null, petCase!=" "
+     * Update or modify the attribute name
+     * @param petCase list of visits to cases petCase!= null, petCase!=" "
      */
     public void addPetCase(PetCase petCase) {
         petCases.add(petCase);

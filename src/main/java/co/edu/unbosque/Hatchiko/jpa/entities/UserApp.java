@@ -1,78 +1,78 @@
 /**
- * Paquete que enlaza co.edu.unbosque con jpa y entities
+ * Package that links co.edu.unbosque with jpa and entities
  */
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
 import javax.persistence.*;
 /**
- * El paquete Entities se encarga de crear las tablas correspondientes en las bases de datos
+ * The Entities package is responsible for creating the corresponding tables in the databases
  */
 
 /**
- * Anotación se debe definir a nivel de clase y sirve únicamente para indicarle a JPA que esa clase es una Entity
+ * Annotation must be defined at the class level and only serves to tell JPA that that class is an Entity
  */
 @Entity
 /**
- * Anotación se utiliza para indicar la tabla contra la que mapea la entidad
+ * Annotation is used to indicate the table against which the entity maps
  */
 @Table(name = "UserApp")
 /**
- * La herencia significa que podemos usar consultas polimórficas para recuperar todas las entidades de la subclase al consultar una superclase
+ * Inheritance means that we can use polymorphic queries to retrieve all entities of the subclass when querying a superclass
  */
 @Inheritance(strategy = InheritanceType.JOINED)
 /**
- * Clase abstracta de nombre UserApp (clases abstractas funcionan como una clase que declara la existencia de métodos pero no su implementación)
+ * Abstract class named UserApp (abstract classes work like a class that declares the existence of methods but not their implementation)
  */
 public abstract class UserApp {
     /**
-     * Sirve para definir el identificador único de cada Entidad
+     * It is used to define the unique identifier of each Entity
      */
     @Id
     /**
-     * permite definir aspectos importantes sobre las columnas de la base de datos como lo es el nombre, la longitud, etc
+     * It allows to define important aspects about the columns of the database such as the name, the length, etc.
      */
     @Column(name = "username")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre username
+     * Private type attribute with alphanumeric variable String of name username
      */
     private String username;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "password")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre password
+     * Private type attribute with alphanumeric variable String of name password
      */
     private String password;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "email")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre email
+     * Private type attribute with alphanumeric variable String of name email
      */
     private String email;
     /**
-     * Define el nombre de la columna
+     * Defines the column name
      */
     @Column(name = "role")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre role
+     * Private type attribute with alphanumeric variable String of name role
      */
     private String role;
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public UserApp(){
 
     }
 
     /**
-     * Constructor que incluye las  variables alfanumerica String de nombre username, password, email, role
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Contraseña del usuario registrado password!= null, password!=" "
-     * @param role Rol del usuario registrado role!= null, role!=" "
+     * Constructor that includes the alphanumeric variables String of name username, password, email, role
+     * @param username Registered Username user!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email email of the registered user email!= null, email!=" "
+     * @param role Registered role of the user role!= null, role!=" "
      */
     public UserApp(String username, String password, String email, String role) {
         this.username = username;
@@ -82,7 +82,7 @@ public abstract class UserApp {
     }
 
     /**
-     * Obtiene el valor del atributo de nombre username de tipo String
+     * Gets the value of the name attribute username of type String
      * @return username
      */
     public String getUserName() {
@@ -90,14 +90,14 @@ public abstract class UserApp {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param userName Nombre de usuario registrado username!= null, username!=" "
+     * Update or modify the attribute name
+     * @param userName Registered Username username!= null, username!=" "
      */
     public void setUserName(String userName) {
         this.username = userName;
     }
     /**
-     * Obtiene el valor del atributo de nombre password de tipo String
+     * Gets the value of the name attribute password of type String
      * @return password
      */
     public String getPassword() {
@@ -105,14 +105,14 @@ public abstract class UserApp {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
+     * Update or modify the attribute name
+     * @param password Password of the registered user password!= null, password!=" "
      */
     public void setPassword(String password) {
         this.password = password;
     }
     /**
-     * Obtiene el valor del atributo de nombre email de tipo String
+     * Gets the value of the email name attribute of type String
      * @return email
      */
     public String getEmail() {
@@ -120,14 +120,14 @@ public abstract class UserApp {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param email Contraseña del usuario registrado password!= null, password!=" "
+     * Update or modify the attribute name
+     * @param email Password of the registered user password!= null, password!=" "
      */
     public void setEmail(String email) {
         this.email = email;
     }
     /**
-     * Obtiene el valor del atributo de nombre role de tipo String
+     * Gets the value of the name attribute role of type String
      * @return role
      */
     public String getRole() {
@@ -135,8 +135,8 @@ public abstract class UserApp {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param role Rol del usuario registrado role!= null, role!=" "
+     * Update or modify the attribute name
+     * @param role Registered User Role role!= null, role!=" "
      */
     public void setRole(String role) {
         this.role = role;

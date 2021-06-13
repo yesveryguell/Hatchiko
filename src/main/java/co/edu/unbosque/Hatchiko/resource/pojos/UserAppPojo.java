@@ -1,38 +1,38 @@
 /**
- * Paquete que enlaza co.edu.unbosque con resource y pojos
+ * Package that links co.edu.unbosque with resource and pojos
  */
 package co.edu.unbosque.Hatchiko.resource.pojos;
 /**
- * El paquete pojos sirve para mostrar los datos que se almacenan en las tablas, UserAppPojo
+ *The pojos package serves to show the data that is stored in the tables, UserAppPojo
  */
 public class UserAppPojo {
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre username
+     * Private type attribute with alphanumeric variable String of name username
      */
     private String username;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre password
+     * Private type attribute with alphanumeric variable String of name password
      */
     private String password;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre email
+     * Private type attribute with alphanumeric variable String of name email
      */
     private String email;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre role
+     * Private type attribute with alphanumeric variable String of name role
      */
     private String role;
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public UserAppPojo() {
     }
     /**
-     * Constructor que incluye las  variables alfanumerica String de nombre username, password, email, role
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Contraseña del usuario registrado password!= null, password!=" "
-     * @param role Rol del usuario registrado role!= null, role!=" "
+     * Constructor that includes the alphanumeric variables String of name username, password, email, role
+     * @param username Registered Username user!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email email of the registered user email!= null, email!=" "
+     * @param role Registered role of the user role!= null, role!=" "
      */
     public UserAppPojo(String username, String password, String email, String role) {
         this.username = username;
@@ -41,7 +41,7 @@ public class UserAppPojo {
         this.role = role;
     }
     /**
-     * Obtiene el valor del atributo de nombre username de tipo String
+     * Gets the value of the name attribute username of type String
      * @return username
      */
     public String getUserName() {
@@ -49,14 +49,14 @@ public class UserAppPojo {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param userName Nombre de usuario registrado username!= null, username!=" "
+     * Update or modify the attribute name
+     * @param userName Registered Username username!= null, username!=" "
      */
     public void setUserName(String userName) {
         this.username = userName;
     }
     /**
-     * Obtiene el valor del atributo de nombre password de tipo String
+     * Gets the value of the name attribute password of type String
      * @return password
      */
     public String getPassword() {
@@ -64,14 +64,14 @@ public class UserAppPojo {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
+     * Update or modify the attribute name
+     * @param password Password of the registered user password!= null, password!=" "
      */
     public void setPassword(String password) {
         this.password = password;
     }
     /**
-     * Obtiene el valor del atributo de nombre email de tipo String
+     * Gets the value of the email name attribute of type String
      * @return email
      */
     public String getEmail() {
@@ -79,14 +79,14 @@ public class UserAppPojo {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param email Contraseña del usuario registrado password!= null, password!=" "
+     * Update or modify the attribute name
+     * @param email Password of the registered user password!= null, password!=" "
      */
     public void setEmail(String email) {
         this.email = email;
     }
     /**
-     * Obtiene el valor del atributo de nombre role de tipo String
+     * Gets the value of the name attribute role of type String
      * @return role
      */
     public String getRole() {
@@ -94,8 +94,8 @@ public class UserAppPojo {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param role Rol del usuario registrado role!= null, role!=" "
+     * Update or modify the attribute name
+     * @param role Registered User Role role!= null, role!=" "
      */
     public void setRole(String role) {
         this.role = role;

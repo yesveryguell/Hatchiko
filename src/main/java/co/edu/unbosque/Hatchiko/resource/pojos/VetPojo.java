@@ -1,5 +1,5 @@
 /**
- * Paquete que enlaza co.edu.unbosque con resource y pojos
+ * Package that links co.edu.unbosque with resource and pojos
  */
 package co.edu.unbosque.Hatchiko.resource.pojos;
 /**
@@ -8,40 +8,40 @@ package co.edu.unbosque.Hatchiko.resource.pojos;
  */
 public class VetPojo {
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre username
+     * Private type attribute with alphanumeric variable String of name username
      */
     private String username;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre password
+     * Private type attribute with alphanumeric variable String of name password
      */
     private String password;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre email
+     * Private type attribute with alphanumeric variable String of name email
      */
     private String email;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre name
+     * Private type attribute with alphanumeric variable String of name name
      */
     private String name;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre address
+     * Private type attribute with alphanumeric variable String of name address
      */
     private String address;
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre neighborhood
+     * Attribute of private type with alphanumeric variable String of name neighborhood
      */
     private String neighborhood;
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public VetPojo() {
     }
 
     /**
-     * Constructor que incluye las 3 variables alfanumerica String de nombre username, password, email
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Email del usuario registrado email!= null, email!=" "
+     * Constructor that includes the 3 alphanumeric variables String of name username, password, email
+     * @param username registered username username!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email Registered User Email email!= null, email!=" "
      */
     public VetPojo(String username, String password, String email) {
         this.username = username;
@@ -50,14 +50,14 @@ public class VetPojo {
     }
 
     /**
-     * Constructor 1 que incluye las 7 variables alfanumerica String de nombre username, password, email, person_id,
+     * Constructor 1 that includes the 7 alphanumeric String variables of nombre username, password, email, person_id,
      * address, neighborhood  y name
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Email del usuario registrado email!= null, email!=" "
-     * @param name Nombre del usuario registrado name!= null, name!=" "
-     * @param address Direccion del usuario registrado address!= null, address!=" "
-     * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
+     * @param username registered username username!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email Registered User Email email!= null, email!=" "
+     * @param name Registered user name name!= null, name!=" "
+     * @param address Registered user address address!= null, address!=" "
+     * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
     public VetPojo(String username, String password, String email, String name, String address, String neighborhood) {
         this.username = username;
@@ -69,85 +69,86 @@ public class VetPojo {
     }
 
     /**
-     * Obtiene el valor del atributo de nombre username de tipo String
+     * Gets the value of the name attribute username of type String
      * @return username
      */
     public String getUsername() {
         return username;
     }
+
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param username Nombre de usuario registrado username!= null, username!=" "
+     *  Update or modify the attribute name
+     * @param username Registered Username username!= null, username!=" "
      */
     public void setUsername(String username) {
         this.username = username;
     }
     /**
-     * Obtiene el valor del atributo de nombre password de tipo String
+     * Gets the value of the name attribute password of type String
      * @return password
      */
     public String getPassword() {
         return password;
     }
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     */
+     * Update or modify the attribute name
+     * @param password Password of the registered user password!= null, password!=" "
+     *      */
     public void setPassword(String password) {
         this.password = password;
     }
     /**
-     * Obtiene el valor del atributo de nombre email de tipo String
+     * Gets the value of the email name attribute of type String
      * @return email
      */
     public String getEmail() {
         return email;
     }
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param email Email del usuario registrado email!= null, email!=" "
-     */
+     * Update or modify the attribute name
+     * @param email Password of the registered user password!= null, password!=" "
+     *      */
     public void setEmail(String email) {
         this.email = email;
     }
     /**
-     * Obtiene el valor del atributo de nombre name de tipo String
+     * Gets the value of the name attribute of type String
      * @return name
      */
     public String getName() {
         return name;
     }
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param name Nombre del usuario registrado name!= null, name!=" "
+     * Update or modify the attribute name
+     * @param name Registered user name name!= null, name!=" "
      */
     public void setName(String name) {
         this.name = name;
     }
     /**
-     * Obtiene el valor del atributo de nombre address de tipo String
+     * Gets the value of the name attribute address of type String
      * @return address
      */
     public String getAddress() {
         return address;
     }
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param address Direccion del usuario registrado address!= null, address!=" "
+     * Update or modify the attribute name
+     * @param address Registered user address address!= null, address!=" "
      */
     public void setAddress(String address) {
         this.address = address;
     }
     /**
-     * Obtiene el valor del atributo de nombre neighborhood de tipo String
+     * Gets the value of the neighborhood name attribute of type String
      * @return neighborhood
      */
     public String getNeighborhood() {
         return neighborhood;
     }
     /**
-     * Obtiene el valor del atributo de nombre pets de tipo List
-     * @return pets
+     * Update or modify the attribute name
+     * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;

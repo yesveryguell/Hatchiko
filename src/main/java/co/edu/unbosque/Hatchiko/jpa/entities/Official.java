@@ -1,51 +1,51 @@
 /**
- * Paquete que enlaza co.edu.unbosque con jpa y entities
+ * Package that links co.edu.unbosque with jpa and entities
  */
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
 import javax.persistence.*;
 /**
- * El paquete Entities se encarga de crear las tablas correspondientes en las bases de datos
+ * The Entities package is responsible for creating the corresponding tables in the databases
  */
 
 /**
- * Anotación se debe definir a nivel de clase y sirve únicamente para indicarle a JPA que esa clase es una Entity
+ * Annotation must be defined at the class level and only serves to tell JPA that that class is an Entity
  */
 @Entity
 /**
- * Anotación se utiliza para indicar la tabla contra la que mapea la entidad
+ * Annotation is used to indicate the table against which the entity maps
  */
 @Table(name = "Official")
 /**
- * Esta anotación especifica una columna de clave principal que se utiliza como clave externa para unirse a otra tabla.
+ * This annotation specifies a primary key column that is used as a foreign key to join another table.
  */
 @PrimaryKeyJoinColumn
 /**
- * Clase publica de nombre Official que extiende de la clase madre UserApp (relacion 1 a 1)
+ * Public class with Official name that extends from the parent class UserApp (relationship 1 to 1)
  */
 public class Official extends UserApp {
     /**
-     * permite definir aspectos importantes sobre las columnas de la base de datos como lo es el nombre, la longitud, etc
+     * It allows to define important aspects about the columns of the database such as the name, the length, etc.
      */
     @Column(name = "name")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre name
+     * Private type attribute with alphanumeric variable String of name name
      */
     private String name;
 
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public Official(){
 
     }
 
     /**
-     * Constructor que incluye las 4 variables alfanumerica String de nombre username, password, email y name
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Email del usuario registrado email!= null, email!=" "
-     * @param name Nombre del usuario registrado name!= null, name!=" "
+     * Constructor that includes the 4 alphanumeric variables String of name username, password, email y name
+     * @param username Registered Username user!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email email of the registered user email!= null, email!=" "
+     * @param name Registered user name!= null, name!=" "
      */
     public Official(String username, String password, String email, String name) {
         super(username, password, email, "Official");
@@ -53,7 +53,7 @@ public class Official extends UserApp {
     }
 
     /**
-     * Obtiene el valor del atributo de nombre name de tipo String
+     * Gets the value of the name attribute of type String
      * @return name
      */
     public String getName() {
@@ -61,8 +61,8 @@ public class Official extends UserApp {
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param name Nombre del usuario registrado name!= null, name!=" "
+     * Update or modify the attribute name
+     * @param name Registered user name!= null, name!=" "
      */
     public void setName(String name) {
         this.name = name;

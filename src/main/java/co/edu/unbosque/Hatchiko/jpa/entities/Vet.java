@@ -1,5 +1,5 @@
 /**
- * Paquete que enlaza co.edu.unbosque con jpa y entities
+ * Package that links co.edu.unbosque with jpa and entities
  */
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
@@ -7,75 +7,75 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * El paquete Entities se encarga de crear las tablas correspondientes en las bases de datos
+ * The Entities package is responsible for creating the corresponding tables in the databases
  */
 
 /**
- * Anotación se debe definir a nivel de clase y sirve únicamente para indicarle a JPA que esa clase es una Entity
+ * Annotation must be defined at the class level and only serves to tell JPA that that class is an Entity
  */
 @Entity
 /**
- * Anotación se utiliza para indicar la tabla contra la que mapea la entidad
+ * Annotation is used to indicate the table against which the entity maps
  */
 @Table(name = "Vet")
 /**
- * Esta anotación especifica una columna de clave principal que se utiliza como clave externa para unirse a otra tabla.
+ * This annotation specifies a primary key column that is used as a foreign key to join another table.
  */
 @PrimaryKeyJoinColumn
 /**
- * Clase publica de nombre Owner que extiende de la clase madre UserApp (relacion 1 a muchos)
+ * Public class named Owner that extends from the parent class UserApp (relation 1 to many)
  */
 public class Vet extends UserApp{
     /**
-     * permite definir aspectos importantes sobre las columnas de la base de datos como lo es el nombre, la longitud, etc
+     * It allows to define important aspects about the columns of the database such as the name, the length, etc.
      */
     @Column(name = "name")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre name
+     * Private type attribute with alphanumeric variable String of name name
      */
     private String name;
     /**
-     * Define el nombre address para la columna
+     * Defines the column name
      */
     @Column(name = "address")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre address
+     * Private type attribute with alphanumeric variable String of name address
      */
     private String address;
     /**
-     * Define el nombre address para la columna
+     * Defines the column name
      */
     @Column(name = "neighborhood")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre neighborhood
+     * Attribute of private type with alphanumeric variable String of name neighborhood
      */
     private String neighborhood;
     /**
-     * Las relaciones uno a muchos se caracterizan por Entidad donde tenemos un objeto principal y colección
-     * de objetos de otra Entidad relacionados directamente. Estas relaciones se definen mediante colecciones
+     * One to many relationships are characterized by Entity where we have a main object and collection
+     * of objects of another Entity directly related. These relationships are defined by collections
      */
     @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     /**
-     * Atributo que contiene una variable Lista de nombre visits que nos ayudara a listar las visitas realizadas
+     * Attribute that contains a variable List of visits name that will help us to list the visits made
      */
     private List<Visit> visits = new ArrayList<>();
 
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public Vet(){
 
     }
 
     /**
-     * Constructor que incluye las 7 variables alfanumerica String de nombre username, password, email,
+     * Constructor that includes the 6 alphanumeric variables String of nombre username, password, email,
      * address, neighborhood  y name
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Contraseña del usuario registrado password!= null, password!=" "
-     * @param name Nombre del usuario registrado name!= null, name!=" "
-     * @param address Direccion del usuario registrado address!= null, address!=" "
-     * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
+     * @param username registered username username!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email Registered User Email email!= null, email!=" "
+     * @param name Registered user name name!= null, name!=" "
+     * @param address Registered user address address!= null, address!=" "
+     * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
     public Vet(String username, String password, String email, String name, String address, String neighborhood) {
         super(username, password, email, "Vet");
@@ -84,57 +84,62 @@ public class Vet extends UserApp{
         this.neighborhood = neighborhood;
     }
     /**
-     * Obtiene el valor del atributo de nombre name de tipo String
+     * Gets the value of the name attribute of type String
      * @return name
      */
     public String getName() {
         return name;
     }
+
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param name Nombre del usuario registrado name!= null, name!=" "
+     * Update or modify the attribute name
+     * @param name Registered user name name!= null, name!=" "
      */
     public void setName(String name) {
         this.name = name;
     }
     /**
-     * Obtiene el valor del atributo de nombre address de tipo String
+     * Gets the value of the name attribute address of type String
      * @return address
      */
+
     public String getAddress() {
         return address;
     }
+
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param address Direccion del usuario registrado address!= null, address!=" "
+     * Update or modify the attribute name
+     * @param address Registered user address address!= null, address!=" "
      */
     public void setAddress(String address) {
         this.address = address;
     }
+
     /**
-     * Obtiene el valor del atributo de nombre neighborhood de tipo String
+     * Gets the value of the neighborhood name attribute of type String
      * @return neighborhood
      */
     public String getNeighborhood() {
         return neighborhood;
     }
+
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
+     * Update or modify the attribute name
+     * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
     }
     /**
-     * Obtiene el valor del atributo de nombre visits de tipo List
+     * Gets the value of the visits name attribute of type List
      * @return visits
      */
     public List<Visit> getVisits() {
         return visits;
     }
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param visit visitas visit!= null, visit!=" "
+     * Update or modify the attribute name
+     * @param visit visits visit!= null, visit!=" "
      */
     public void addVisit(Visit visit) {
         visits.add(visit);

@@ -1,5 +1,5 @@
 /**
- * Paquete que enlaza co.edu.unbosque con jpa y entities
+ * Package that links co.edu.unbosque with jpa and entities
  */
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
@@ -7,84 +7,84 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * El paquete Entities se encarga de crear las tablas correspondientes en las bases de datos
+ * The Entities package is responsible for creating the corresponding tables in the databases
  */
 
 /**
- * Anotación se debe definir a nivel de clase y sirve únicamente para indicarle a JPA que esa clase es una Entity
+ * Annotation must be defined at the class level and only serves to tell JPA that that class is an Entity
  */
 @Entity
 /**
- * Anotación se utiliza para indicar la tabla contra la que mapea la entidad
+ * Annotation is used to indicate the table against which the entity maps
  */
 @Table(name = "Owner")
 /**
- * Esta anotación especifica una columna de clave principal que se utiliza como clave externa para unirse a otra tabla.
+ * This annotation specifies a primary key column that is used as a foreign key to join another table.
  */
 @PrimaryKeyJoinColumn
 /**
- * Clase publica de nombre Owner que extiende de la clase madre UserApp (relacion 1 a muchos)
+ * Public class named Owner that extends from the parent class UserApp (relation 1 to many)
  */
 public class Owner extends UserApp{
     /**
-     * permite definir aspectos importantes sobre las columnas de la base de datos como lo es el nombre, la longitud, etc
+     * It allows to define important aspects about the columns of the database such as the name, the length, etc.
      */
     @Column(name = "person_id", unique = true)
     /**
-     * Atributo de tipo privado con variable numerica Long de nombre person_id
+     * Attribute of private type with Long numeric variable of name person_id
      */
     private Long person_id;
     /**
-     * Define el nombre name para la columna
+     * Defines the name name for the column
      */
     @Column(name = "name")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre name
+     * Private type attribute with alphanumeric variable String of name name
      */
     private String name;
     /**
-     * Define el nombre address para la columna
+     * Defines the name name for the column
      */
     @Column(name = "address")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre address
+     * Private type attribute with alphanumeric variable String of name address
      */
     private String address;
     /**
-     * Define el nombre neighborhood para la columna
+     * Defines the name name for the column
      */
     @Column(name = "neighborhood")
     /**
-     * Atributo de tipo privado con variable alfanumerica String de nombre neighborhood
+     * Attribute of private type with alphanumeric variable String of name neighborhood
      */
     private String neighborhood;
 
     /**
-     * Las relaciones uno a muchos se caracterizan por Entidad donde tenemos un objeto principal y colección
-     * de objetos de otra Entidad relacionados directamente. Estas relaciones se definen mediante colecciones
+     * One to many relationships are characterized by Entity where we have a main object and collection
+     * of objects of another Entity directly related. These relationships are defined by collections
      */
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     /**
-     * Atributo que contiene una variable Lista de nombre pets que nos ayudara a listar a las mascotas registradas
+     * Attribute that contains a variable List of pets name that will help us to list the registered pets
      */
     private List<Pet> pets = new ArrayList<>();
     /**
-     * Constructor vacio
+     * Empty constructor
      */
     public Owner(){
 
     }
 
     /**
-     * Constructor que incluye las 7 variables alfanumerica String de nombre username, password, email, person_id,
+     * Constructor that includes the 7 alphanumeric variables String of name username, password, email, person_id,
      * address, neighborhood  y name
-     * @param username Nombre de usuario registrado username!= null, username!=" "
-     * @param password Contraseña del usuario registrado password!= null, password!=" "
-     * @param email Email del usuario registrado email!= null, email!=" "
-     * @param person_id id del usuario registrado person_id!= null, person_id!=" "
-     * @param name Nombre del usuario registrado name!= null, name!=" "
-     * @param address Direccion del usuario registrado address!= null, address!=" "
-     * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
+     * @param username registered username username!= null, username!=" "
+     * @param password Password of the registered user password!= null, password!=" "
+     * @param email Registered User Email email!= null, email!=" "
+     * @param person_id registered user id person_id!= null, person_id!=" "
+     * @param name Registered user name name!= null, name!=" "
+     * @param address Registered user address address!= null, address!=" "
+     * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
     public Owner(String username, String password, String email,Long person_id, String name, String address, String neighborhood) {
         super(username, password, email, "Owner");
@@ -94,7 +94,7 @@ public class Owner extends UserApp{
         this.neighborhood = neighborhood;
     }
     /**
-     * Obtiene el valor del atributo de nombre person_id de tipo Long
+     * Gets the value of the name attribute person_id of type Long
      * @return person_id
      */
     public Long getPerson_id() {
@@ -102,14 +102,14 @@ public class Owner extends UserApp{
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param person_id id del usuario registrado person_id!= null, person_id!=" "
+     * Update or modify the attribute name
+     * @param person_id registered user id person_id!= null, person_id!=" "
      */
     public void setPerson_id(Long person_id) {
         this.person_id = person_id;
     }
     /**
-     * Obtiene el valor del atributo de nombre name de tipo String
+     * Gets the value of the name attribute of type String
      * @return name
      */
     public String getName() {
@@ -117,14 +117,14 @@ public class Owner extends UserApp{
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param name Nombre del usuario registrado name!= null, name!=" "
+     * Update or modify the attribute name
+     * @param name Registered user name name!= null, name!=" "
      */
     public void setName(String name) {
         this.name = name;
     }
     /**
-     * Obtiene el valor del atributo de nombre address de tipo String
+     * Gets the value of the name attribute address of type String
      * @return address
      */
 
@@ -133,15 +133,15 @@ public class Owner extends UserApp{
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param address Direccion del usuario registrado address!= null, address!=" "
+     * Update or modify the attribute name
+     * @param address Registered user address address!= null, address!=" "
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * Obtiene el valor del atributo de nombre neighborhood de tipo String
+     * Gets the value of the neighborhood name attribute of type String
      * @return neighborhood
      */
     public String getNeighborhood() {
@@ -149,14 +149,14 @@ public class Owner extends UserApp{
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
+     * Update or modify the attribute name
+     * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
     }
     /**
-     * Obtiene el valor del atributo de nombre pets de tipo List
+     * Gets the value of the name attribute pets of type List
      * @return pets
      */
     public List<Pet> getPets() {
@@ -164,8 +164,8 @@ public class Owner extends UserApp{
     }
 
     /**
-     * Actualizar o modificar el nombre del atributo
-     * @param pet mascota pet!= null, pet!=" "
+     * Update or modify the attribute name
+     * @param pet pet pet!= null, pet!=" "
      */
     public void addPet(Pet pet) {
         pets.add(pet);
