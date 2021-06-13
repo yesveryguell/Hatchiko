@@ -74,7 +74,11 @@
                                     <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="sign-in.jsp">Sign In</a>
+                                    <select name="sign-in">
+                                        <option value="official">Official</option>
+                                        <option value="owner">Owner</option>
+                                        <option value="vet">Vet</option>
+                                    </select>
                                 </li>
                             </ul>
                         </div>
@@ -146,53 +150,21 @@
                 <div class="Services-box">
                     <i><img src="images/icono3.png" alt="#" /></i>
                     <h3> Owner </h3>
-                    <p> Here you can register, you just have to add your data, add the information requested in the following form </p>
-                    <a class="read_more" href="jsp/owner.jsp">Add Owner</a>
+                    <p> Here you can register, you just have to add your data, add the information requested in the following form. </p>
+                    <a class="read_more" href="ownerAdd.jsp">Add Owner</a>
                 </div>
             </div>
             <div class="col-xl-5 col-lg-4 col-md-10 col-sm-30">
                 <div class="Services-box">
                     <i><img src="images/paw.png" alt="#" /></i>
                     <h3> Pet </h3>
-                    <p> Here you can register your 4-legged friend, add the information requested in the following form </p>
-                    <a class="read_more" href="jsp/pet.jsp">Add Pet</a>
+                    <p> Here you can register your vet for make controls to every pet.  </p>
+                    <a class="read_more" href="vetAdd.jsp">Add Vet</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- end why -->
-<!-- contact -->
-<!--<div id="contact" class="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 ">
-                <form class="main_form">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <input class="contactus" placeholder="Name" type="text" name="Name">
-                        </div>
-                        <div class="col-sm-12">
-                            <input class="contactus" placeholder="Email" type="text" name=" Email">
-                        </div>
-                        <div class="col-sm-12">
-                            <input class="contactus" placeholder="Phone" type="text" name="Phone">
-                        </div>
-                        <div class="col-sm-12">
-                            <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                        </div>
-                        <div class="col-sm-12">
-                            <button class="send">Send</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<!-- end contact -->
-<!--  footer -->
 <footer>
     <div class="footer">
         <div class="container">
