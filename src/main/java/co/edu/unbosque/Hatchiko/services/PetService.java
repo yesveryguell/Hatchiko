@@ -76,7 +76,7 @@ public class PetService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
-        petRepository.updateById(pet_id, petPojo.getName(), petPojo.getSpecies(), petPojo.getRace(), petPojo.getSize(), petPojo.getSex(), petPojo.getRace());
+        petRepository.updateById(pet_id, petPojo.getName(), petPojo.getSpecies(), petPojo.getRace(), petPojo.getSize(), petPojo.getSex(), petPojo.getPicture());
 
         Optional<Pet> pet = petRepository.findById(pet_id);
         entityManager.close();
