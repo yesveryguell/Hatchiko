@@ -1,5 +1,6 @@
 package co.edu.unbosque.Hatchiko.services;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
 import co.edu.unbosque.Hatchiko.jpa.repositories.UserAppRepository;
@@ -76,16 +77,19 @@ public class VetService {
 
     }
 
-    public void modifyVet(String username, Vet vet) {
+    public Optional<Vet> modifyVet(String username, VetPojo vetPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
-        vetRepository.updateByUsername(username, vet.getName(), vet.getAddress(), vet.getNeighborhood());
+        vetRepository.updateByUsername(username, vetPojo.getName(), vetPojo.getAddress(), vetPojo.getNeighborhood());
 
+        Optional<Vet> vet = vetRepository.findByUserName(username);
         entityManager.close();
         entityManagerFactory.close();
+
+        return vet;
     }
 
 }
