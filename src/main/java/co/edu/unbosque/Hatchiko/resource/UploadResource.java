@@ -1,6 +1,11 @@
+/**
+ * Package connecting co.edu.unbosque with resources
+ */
 package co.edu.unbosque.Hatchiko.resource;
 
-
+/**
+ * The resource package allows us to save, create, modify and list through the rest services
+ */
 
 import javax.servlet.ServletContext;
 
@@ -15,6 +20,10 @@ import java.util.List;
 import java.util.Map;
 
 //@Path("/upload")
+
+/**
+ * The class is initialized UploadResource
+ */
 public class UploadResource {
 //
 //
