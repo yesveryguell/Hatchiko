@@ -91,7 +91,7 @@
 <div id="" class="hosting">
     <div class="container">
         <div class="card-body">
-            <form method="post" action="api/owners">
+            <form id="formOwner">
                 <h3>Username</h3>
                 <div class="input-group">
                     <input class="input--style-2" type="text" placeholder="Username" name="username">
@@ -103,6 +103,10 @@
                 <h3>Email</h3>
                 <div class="input-group">
                     <input class="input--style-2" type="text" placeholder="Email" name="email">
+                </div>
+                <h3>Id</h3>
+                <div class="input-group">
+                    <input class="input--style-2" type="text" placeholder="Id" name="person_id">
                 </div>
                 <h3>Name</h3>
                 <div class="input-group">
@@ -147,7 +151,8 @@
                     </div>
                 </div>
                 <div class="p-t-30">
-                    <a class="btn btn--radius btn--green" type="submit" href="index.jsp">Add</a>
+                    <button class="btn btn-primary" type="submit">Add</button>
+
                 </div>
             </form>
         </div>
@@ -177,6 +182,35 @@
 
 
 </footer>
+
+<script>
+    var formulario = document.getElementById('formOwner');
+    formulario.addEventListener('submit', function (e){
+        e.preventDefault();
+        console.log('me diste un click')
+
+        var datos = new FormData(formulario);
+
+        //console.log(datos.get('owner'))
+        console.log(datos.get('username'))
+        console.log(datos.get('email'))
+        console.log(datos.get('password'))
+        console.log(datos.get('person_id'))
+        console.log(datos.get('name'))
+        console.log(datos.get('address'))
+        console.log(datos.get('neighborhood'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners', {
+            method: 'POST',
+            body: datos,
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+</script>
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>

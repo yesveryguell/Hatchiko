@@ -22,7 +22,7 @@ public class OwnerPojo {
     /**
      * Atributo de tipo privado con variable numerica Long de nombre person_id
      */
-    private Long person_id;
+    private String person_id;
     /**
      * Atributo de tipo privado con variable alfanumerica String de nombre name
      */
@@ -64,7 +64,7 @@ public class OwnerPojo {
      * @param address Direccion del usuario registrado address!= null, address!=" "
      * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
      */
-    public OwnerPojo(String username, String password, String email, Long person_id, String name, String address, String neighborhood) {
+    public OwnerPojo(String username, String password, String email, String person_id, String name, String address, String neighborhood) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -119,14 +119,14 @@ public class OwnerPojo {
      * Obtiene el valor del atributo de nombre person_id de tipo Long
      * @return person_id
      */
-    public Long getPerson_id() {
+    public String getPerson_id() {
         return person_id;
     }
     /**
      * Actualizar o modificar el nombre del atributo
      * @param person_id id del usuario registrado person_id!= null, person_id!=" "
      */
-    public void setPerson_id(Long person_id) {
+    public void setPerson_id(String person_id) {
         this.person_id = person_id;
     }
     /**

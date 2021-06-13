@@ -38,14 +38,6 @@
                 <span class="login100-form-title p-b-34">
 						Sign Up
 					</span>
-                <span class="login100-form-title p-b-34">
-						User type
-                            <select>
-                            <option value="funcionario">Funcionario</option>
-                            <option value="propietario">Propietario</option>
-                            <option value="veterinario">Veterinario</option>
-                        </select>
-					</span>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
                     <input id="first-name" class="input100" type="text" name="username" placeholder="Username">
                     <span class="focus-input100"></span>
@@ -69,13 +61,13 @@
                     </button>
                 </div>
 
-                <div class="w-full text-center p-t-27 p-b-239" >
-						<span class="txt1" >
+                <div class="w-full text-center p-t-27 p-b-239">
+						<span class="txt1">
 						</span>
                 </div>
 
-                <div class="w-full text-center"  >
-                    <a href="sign-in.jsp" class="txt3" >
+                <div class="w-full text-center">
+                    <a href="sign-in.jsp" class="txt3">
                         Sign In
                     </a>
                 </div>

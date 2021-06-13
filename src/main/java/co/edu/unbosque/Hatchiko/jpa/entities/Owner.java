@@ -33,7 +33,7 @@ public class Owner extends UserApp{
     /**
      * Atributo de tipo privado con variable numerica Long de nombre person_id
      */
-    private Long person_id;
+    private String person_id;
     /**
      * Define el nombre name para la columna
      */
@@ -86,7 +86,7 @@ public class Owner extends UserApp{
      * @param address Direccion del usuario registrado address!= null, address!=" "
      * @param neighborhood Vecindario del usuario registrado neighborhood!= null, neighborhood!=" "
      */
-    public Owner(String username, String password, String email,Long person_id, String name, String address, String neighborhood) {
+    public Owner(String username, String password, String email,String person_id, String name, String address, String neighborhood) {
         super(username, password, email, "Owner");
         this.person_id = person_id;
         this.name = name;
@@ -97,7 +97,7 @@ public class Owner extends UserApp{
      * Obtiene el valor del atributo de nombre person_id de tipo Long
      * @return person_id
      */
-    public Long getPerson_id() {
+    public String getPerson_id() {
         return person_id;
     }
 
@@ -105,7 +105,7 @@ public class Owner extends UserApp{
      * Actualizar o modificar el nombre del atributo
      * @param person_id id del usuario registrado person_id!= null, person_id!=" "
      */
-    public void setPerson_id(Long person_id) {
+    public void setPerson_id(String person_id) {
         this.person_id = person_id;
     }
     /**

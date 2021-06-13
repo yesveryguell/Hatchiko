@@ -145,7 +145,6 @@
     </div>
 
 </div>
-<!-- Hosting -->
 <footer>
     <div class="footer">
         <div class="container">
