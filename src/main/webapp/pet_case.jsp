@@ -14,16 +14,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- style css -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/main2.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main2.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="../images/favicon.png" type="image/gif"/>
+    <link rel="icon" href="images/favicon.png" type="image/gif"/>
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
@@ -38,7 +38,7 @@
 <body class="main-layout">
 <!-- loader  -->
 <div class="loader_bg">
-    <div class="loader"><img src="../images/loading.gif" alt="#"/></div>
+    <div class="loader"><img src="images/loading.gif" alt="#"/></div>
 </div>
 <!-- end loader -->
 <!-- header -->
@@ -50,7 +50,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="../index.jsp"><img src="../images/logos.png" alt="#"/></a>
+                                <a href="index.jsp"><img src="images/logos.png" alt="#"/></a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="../index.jsp">Home</a>
+                                    <a class="nav-link" href="index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
@@ -77,7 +77,7 @@
                                     <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../sign-in.jsp">Sign In</a>
+                                    <a class="nav-link" href="sign-in.jsp">Sign In</a>
                                 </li>
                             </ul>
                         </div>
@@ -91,54 +91,22 @@
 <div id="" class="hosting">
     <div class="container">
         <div class="card-body">
-            <form method="post" action="api/owners">
-                <h3>Name</h3>
+            <form>
+                <h3>Created</h3>
                 <div class="input-group">
-                    <input class="input--style-2" type="text" placeholder="Name" name="name">
+                    <input class="input--style-2" type="text" placeholder="Created" name="created">
                 </div>
                 <div class="input-group">
-                    <h3>Address</h3>
-                    <input class="input--style-2" placeholder="Address" type="text" name="address">
+                    <h3>Type</h3>
+                    <input class="input--style-2" placeholder="Type" type="text" name="type">
                 </div>
-                <h3>Neighborhood</h3>
-                <div class="col-2">
-                    <div class="input-group">
-                        <div class="rs-select2 js-select-simple select--no-search">
 
-                            <select name="neighborhood">
-                                <option disabled="disabled" selected="selected">Neighborhood</option>
-                                <option value="A. Nriño">A. Nriño</option>
-                                <option value="B. Unidos">B. Unidos</option>
-                                <option value="Bosa">Bosa</option>
-                                <option value="C.Bolivar">C.Bolivar</option>
-                                <option value="Chapinero">Chapinero</option>
-                                <option value="Engativa">Engativa</option>
-                                <option value="Fontibon">Fontibon</option>
-                                <option value="Kennedy">Kennedy</option>
-                                <option value="La candelaria">La candelaria</option>
-                                <option value="Los martires">Los martires</option>
-                                <option value="Municipios Aledaños Bogota D.C.">Municipios Aledaños Bogota D.C.</option>
-                                <option value="P. Aranda">P. Aranda</option>
-                                <option value="R. Uribe">R. Uribe</option>
-                                <option value="San Cristobal">San Cristobal</option>
-                                <option value="Santa Fe">Santa Fe</option>
-                                <option value="Suba">Suba</option>
-                                <option value="Sumapaz">Sumapaz</option>
-                                <option value="Teusaquillo">Teusaquillo</option>
-                                <option value="Tunjuelito">Tunjuelito</option>
-                                <option value="Usaquen">Usaquen</option>
-                                <option value="Usme">Usme</option>
-                                <option value="Sin Identificar">Sin Identificar</option>
-                            </select>
-                            <div class="select-dropdown"></div>
-                        </div>
-                    </div>
+                <div class="input-group">
+                    <h3>Description</h3>
+                    <input class="input--style-2" placeholder="Description" type="text" name="description">
                 </div>
                 <div class="p-t-30">
                     <button class="btn btn--radius btn--green" type="submit">Add</button>
-                    <a href="pet.jsp" class="btn btn--radius btn--green">Add pet</a>
-                    <a type="submit" class="btn btn--radius btn--green">Update</a>
-                    <a href="pet_case.jsp" class="btn btn--radius btn--green">Case</a>
                 </div>
             </form>
         </div>
@@ -170,14 +138,14 @@
 </footer>
 <!-- end footer -->
 <!-- Javascript files-->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/plugin.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
 <!-- sidebar -->
-<script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
 </html>

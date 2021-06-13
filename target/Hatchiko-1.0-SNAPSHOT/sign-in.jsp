@@ -39,16 +39,6 @@
 						Sign In
 					</span>
 
-                <span class="login100-form-title p-b-34">
-						User type
-                            <select>
-                            <option value="funcionario">Funcionario</option>
-                            <option value="propietario">Propietario</option>
-                            <option value="veterinario">Veterinario</option>
-                        </select>
-					</span>
-
-
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
                     <input id="first-name" class="input100" type="text" name="username" placeholder="User name">
                     <span class="focus-input100"></span>

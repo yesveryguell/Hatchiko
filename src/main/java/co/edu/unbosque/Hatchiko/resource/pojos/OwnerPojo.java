@@ -22,7 +22,7 @@ public class OwnerPojo {
     /**
      * Attribute of private type with Long numeric variable of name person_id
      */
-    private Long person_id;
+    private String person_id;
     /**
      * Private type attribute with alphanumeric variable String of name name
      */
@@ -64,7 +64,7 @@ public class OwnerPojo {
      * @param address Registered user address address!= null, address!=" "
      * @param neighborhood Registered User Neighborhood neighborhood!= null, neighborhood!=" "
      */
-    public OwnerPojo(String username, String password, String email, Long person_id, String name, String address, String neighborhood) {
+    public OwnerPojo(String username, String password, String email, String person_id, String name, String address, String neighborhood) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -120,14 +120,14 @@ public class OwnerPojo {
      * Gets the value of the name attribute person_id of type Long
      * @return person_id
      */
-    public Long getPerson_id() {
+    public String getPerson_id() {
         return person_id;
     }
     /**
      * Update or modify the attribute name
      * @param person_id registered user id person_id!= null, person_id!=" "
      */
-    public void setPerson_id(Long person_id) {
+    public void setPerson_id(String person_id) {
         this.person_id = person_id;
     }
     /**

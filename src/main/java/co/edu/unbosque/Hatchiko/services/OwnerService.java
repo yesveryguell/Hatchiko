@@ -77,16 +77,19 @@ public class OwnerService {
 
     }
 
-    public void modifyOwner(String username, Owner owner) {
+    public Optional<Owner> modifyOwner(String username, OwnerPojo ownerPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-        ownerRepository.updateByUsername(username, owner.getName(), owner.getAddress(), owner.getNeighborhood());
+        ownerRepository.updateByUsername(username, ownerPojo.getName(), ownerPojo.getAddress(), ownerPojo.getNeighborhood());
+        Optional<Owner> owner = ownerRepository.findByUserName(username);
 
         entityManager.close();
         entityManagerFactory.close();
+
+        return owner;
     }
 
 

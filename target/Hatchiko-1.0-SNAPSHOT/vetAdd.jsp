@@ -14,16 +14,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- style css -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/main2.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main2.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="../images/favicon.png" type="image/gif"/>
+    <link rel="icon" href="images/favicon.png" type="image/gif"/>
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
@@ -38,7 +38,7 @@
 <body class="main-layout">
 <!-- loader  -->
 <div class="loader_bg">
-    <div class="loader"><img src="../images/loading.gif" alt="#"/></div>
+    <div class="loader"><img src="images/loading.gif" alt="#"/></div>
 </div>
 <!-- end loader -->
 <!-- header -->
@@ -50,7 +50,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="../index.jsp"><img src="../images/logos.png" alt="#"/></a>
+                                <a href="index.jsp"><img src="images/logos.png" alt="#"/></a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="../index.jsp">Home</a>
+                                    <a class="nav-link" href="index.jsp">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
@@ -77,7 +77,7 @@
                                     <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../sign-in.jsp">Sign In</a>
+                                    <a class="nav-link" href="sign-in.jsp">Sign In</a>
                                 </li>
                             </ul>
                         </div>
@@ -91,7 +91,19 @@
 <div id="" class="hosting">
     <div class="container">
         <div class="card-body">
-            <form>
+            <form id = "formVet">
+                <h3>Username</h3>
+                <div class="input-group">
+                    <input class="input--style-2" type="text" placeholder="Username" name="username">
+                </div>
+                <h3>Password</h3>
+                <div class="input-group">
+                    <input class="input--style-2" type="text" placeholder="Password" name="password">
+                </div>
+                <h3>Email</h3>
+                <div class="input-group">
+                    <input class="input--style-2" type="text" placeholder="Email" name="email">
+                </div>
                 <h3>Name</h3>
                 <div class="input-group">
                     <input class="input--style-2" type="text" placeholder="Name" name="name">
@@ -134,8 +146,8 @@
                     </div>
                 </div>
                 <div class="p-t-30">
-                    <button class="btn btn--radius btn--green" type="submit">Add</button>
-                    <a href="visit.jsp" class="btn btn--radius btn--green">Add visit</a>
+                    <button class="btn btn-primary" type="submit">Add</button>
+
                 </div>
             </form>
         </div>
@@ -165,16 +177,51 @@
 
 
 </footer>
+
+<script>
+    var formulario = document.getElementById('formVet');
+    formulario.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        //console.log(datos.get('owner'))
+        console.log(datos.get('username'))
+        console.log(datos.get('email'))
+        console.log(datos.get('password'))
+        console.log(datos.get('name'))
+        console.log(datos.get('address'))
+        console.log(datos.get('neighborhood'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: datos.get('username'),
+                email: datos.get('email'),
+                password: datos.get('password'),
+                name: datos.get('name'),
+                address: datos.get('address'),
+                neighborhood: datos.get('neighborhood'),
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+</script>
+
 <!-- end footer -->
 <!-- Javascript files-->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/plugin.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
 <!-- sidebar -->
-<script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
 </html>
