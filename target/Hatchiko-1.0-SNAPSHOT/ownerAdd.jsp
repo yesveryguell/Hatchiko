@@ -187,7 +187,6 @@
     var formulario = document.getElementById('formOwner');
     formulario.addEventListener('submit', function (e){
         e.preventDefault();
-        console.log('me diste un click')
 
         var datos = new FormData(formulario);
 
@@ -202,7 +201,15 @@
 
         fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners', {
             method: 'POST',
-            body: datos,
+            body: JSON.stringify({
+                username: datos.get('username'),
+                email: datos.get('email'),
+                password: datos.get('password'),
+                person_id: datos.get('person_id'),
+                name: datos.get('name'),
+                address: datos.get('address'),
+                neighborhood: datos.get('neighborhood'),
+            }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
@@ -211,6 +218,8 @@
             .then((json) => console.log(json));
     });
 </script>
+
+
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>

@@ -11,6 +11,7 @@ import co.edu.unbosque.Hatchiko.services.VetService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Optional;
 
 @Path("/vets")
@@ -50,5 +51,16 @@ public class VetResource {
                 .entity("Hello, World, " + role + "!")
                 .build();
 
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(){
+
+        List<VetPojo> vets = new VetService().listVet();
+
+        return Response.ok()
+                .entity(vets)
+                .build();
     }
 }
