@@ -17,7 +17,7 @@ public class OwnerUploadResource {
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Response modify(@PathParam("userName") String userName, OwnerPojo ownerPojo) {
+    public Response modify(@PathParam("username") String userName, OwnerPojo ownerPojo) {
         Optional<Owner> persistedOwner = new OwnerService().modifyOwner(userName,ownerPojo);
 
 
