@@ -1,3 +1,6 @@
+/**
+ * Connection resource co.edu.unbosque with bundle and filters
+ */
 package co.edu.unbosque.Hatchiko.resource.filters;
 
 import co.edu.unbosque.Hatchiko.services.UserAppService;
@@ -11,15 +14,41 @@ import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * This class filters and authenticates any user
+ */
+
+/**
+ * is used for anything that is of interest to the JAX-RS runtime, such as MessageBodyReader and MessageBodyWriter.
+ */
 @Provider
+/**
+ * you can annotate any class with a record annotation to allow lombok to generate a record field.
+ */
 @Logged
 //@PreMatching
+/**
+ * The security filter class is initialized, which implements the container request filter.
+ */
 public class SecutiryFilter implements ContainerRequestFilter {
-
+    /**
+     * String type attribute of name Authorization private static final int is created which will remain in memory for the life of that application
+     */
     private static final String AUTHORIZATION_HEADER_KEY = "Authorization";
+    /**
+     * String type attribute of name Basic private static final int is created which will remain in memory for the life of that application
+     */
     private static final String AUTHORIZATION_HEADER_PREFIX = "Basic ";
 
+    /**
+     * informs the compiler that the element is meant to override an element declared in a superclass.
+     * @param requestContext requestContext!= null, requestContext!=" "
+     * @throws IOException
+     */
     @Override
+    /**
+     * It is responsible for filtering the information according to the role of each user
+     */
     public void filter(ContainerRequestContext requestContext) throws IOException {
 
         try {
