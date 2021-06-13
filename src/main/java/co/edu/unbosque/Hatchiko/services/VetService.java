@@ -1,3 +1,6 @@
+/**
+ * Package that connects co.edu.unbosque with services
+ */
 package co.edu.unbosque.Hatchiko.services;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
@@ -17,12 +20,24 @@ import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * annotations to a class will turn it into an EJB bean
+ */
 @Stateless
+/**
+ * This class allows the interface to be implemented and stored in the database and the class is initialized VetService
+ */
 public class VetService {
-
+    /**
+     * Attribute you type VetRepository name vetRepository
+     */
     VetRepository vetRepository;
-
+    /**
+     * This method is responsible for storing the information that is added to the vet list in the database
+     * <b>pre</b> The information previously added in the forms is saved
+     * <b>post</b> The information is saved in the list, which causes it to be stored in the database
+     * @return vetPojo
+     */
     public List<VetPojo> listVet() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
@@ -50,6 +65,13 @@ public class VetService {
 
     }
 
+    /**
+     * This method is responsible for saving the information that is added to the list of vet in the database
+     * <b>pre</b> Information is added in the corresponding forms
+     * <b>post</b> The information is saved and stored in the database
+     * @param vetPojo vetPojo!= null, vetPojo!=" "
+     * @return persistedVet
+     */
     public Optional<VetPojo> saveVet(VetPojo vetPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
@@ -77,6 +99,14 @@ public class VetService {
 
     }
 
+    /**
+     * This method allows us to modify the information that was added in the lists and that was saved in the databases
+     * <b>pre</b> You are looking for the information you want to modify
+     * <b>post</b> It is modified and the changes are saved
+     * @param username username!= null, username!=" "
+     * @param vetPojo vetPojo!= null, vetPojo!=" "
+     * @return vet
+     */
     public Optional<Vet> modifyVet(String username, VetPojo vetPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");

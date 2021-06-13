@@ -1,3 +1,6 @@
+/**
+ * Package that connects co.edu.unbosque with services
+ */
 package co.edu.unbosque.Hatchiko.services;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
@@ -16,12 +19,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * annotations to a class will turn it into an EJB bean
+ */
 @Stateless
+/**
+ * This class allows the interface to be implemented and stored in the database and the class is initialized OwnerService
+ */
 public class OwnerService {
-
+    /**
+     * Attribute you type OwnerRepository name ownerRepository
+     */
     OwnerRepository ownerRepository;
 
-
+    /**
+     * This method is responsible for storing the information that is added to the Owner list in the database
+     * <b>pre</b> The information previously added in the forms is saved
+     * <b>post</b> The information is saved in the list, which causes it to be stored in the database
+     * @return ownerPojo
+     */
     public List<OwnerPojo> listOwner() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
@@ -50,6 +66,13 @@ public class OwnerService {
 
     }
 
+    /**
+     * This method is responsible for saving the information that is added to the list of Owners in the database
+     * <b>pre</b> Information is added in the corresponding forms
+     * <b>post</b> The information is saved and stored in the database
+     * @param ownerPojo ownerPojo!= null, ownerPojo!=" "
+     * @return persistedOwner
+     */
     public Optional<OwnerPojo> saveOwner(OwnerPojo ownerPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
@@ -77,6 +100,14 @@ public class OwnerService {
 
     }
 
+    /**
+     * This method allows us to modify the information that was added in the lists and that was saved in the databases
+     * <b>pre</b> You are looking for the information you want to modify
+     * <b>post</b> It is modified and the changes are saved
+     * @param username username!=null, username!=" "
+     * @param ownerPojo ownerPojo!=null, ownerPojo!=" "
+     * @return owner
+     */
     public Optional<Owner> modifyOwner(String username, OwnerPojo ownerPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");

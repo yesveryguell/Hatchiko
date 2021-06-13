@@ -1,3 +1,6 @@
+/**
+ * Package that connects co.edu.unbosque with services
+ */
 package co.edu.unbosque.Hatchiko.services;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Official;
@@ -15,11 +18,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * annotations to a class will turn it into an EJB bean
+ */
 @Stateless
+/**
+ * This class allows the interface to be implemented and stored in the database and the class is initialized OfficialService
+ */
 public class OfficialService {
-
+    /**
+     * Attribute you type OfficialRepository name officialRepository
+     */
     OfficialRepository officialRepository;
 
+    /**
+     * This method is responsible for storing and saving the information that is added to the official list in the database
+     * <b>pre</b> Information is added in the corresponding forms
+     * <b>post</b> The information is saved in the list, which causes it to be stored in the database
+     * @return officialPojo
+     */
     public List<OfficialPojo> listOfficial() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
@@ -45,6 +62,13 @@ public class OfficialService {
 
     }
 
+    /**
+     * This method is responsible for saving the information that is added to the list of oficcial in the database
+     * <b>pre</b> Information is added in the corresponding forms
+     * <b>post</b> The information is saved and stored in the database
+     * @param officialPojo officialPojo!=null, officialPojo!=" "
+     * @return persistedOfficial
+     */
     public Optional<OfficialPojo> saveOfficial(OfficialPojo officialPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
