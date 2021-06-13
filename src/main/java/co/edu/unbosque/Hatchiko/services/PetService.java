@@ -3,6 +3,7 @@ package co.edu.unbosque.Hatchiko.services;
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
+import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
 import co.edu.unbosque.Hatchiko.jpa.repositories.*;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetPojo;
 
@@ -69,16 +70,19 @@ public class PetService {
 
     }
 
-    public void modifyPet(int pet_id, Pet pet) {
+    public Optional<Pet> modifyPet(int pet_id, PetPojo petPojo) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
-        petRepository.updateById(pet_id, pet.getName(), pet.getSpecies(), pet.getRace(), pet.getSize(), pet.getSex(), pet.getRace());
+        petRepository.updateById(pet_id, petPojo.getName(), petPojo.getSpecies(), petPojo.getRace(), petPojo.getSize(), petPojo.getSex(), petPojo.getRace());
 
+        Optional<Pet> pet = petRepository.findById(pet_id);
         entityManager.close();
         entityManagerFactory.close();
+
+        return pet;
     }
 
 
