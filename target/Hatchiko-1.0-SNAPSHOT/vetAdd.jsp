@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- mobile metas -->
@@ -17,7 +16,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main2.css">
+    <link href="css/main2.css" rel="stylesheet" media="all">
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
@@ -30,6 +29,20 @@
           media="screen">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -88,71 +101,75 @@
     </div>
 </header>
 <!-- end banner -->
-<div id="" class="hosting">
-    <div class="container">
-        <div class="card-body">
-            <form id = "formVet">
-                <h3>Username</h3>
-                <div class="input-group">
-                    <input class="input--style-2" type="text" placeholder="Username" name="username">
-                </div>
-                <h3>Password</h3>
-                <div class="input-group">
-                    <input class="input--style-2" type="text" placeholder="Password" name="password">
-                </div>
-                <h3>Email</h3>
-                <div class="input-group">
-                    <input class="input--style-2" type="text" placeholder="Email" name="email">
-                </div>
-                <h3>Name</h3>
-                <div class="input-group">
-                    <input class="input--style-2" type="text" placeholder="Name" name="name">
-                </div>
-                <div class="input-group">
-                    <h3>Address</h3>
-                    <input class="input--style-2" placeholder="Address" type="text" name="address">
-                </div>
-                <h3>Neighborhood</h3>
-                <div class="col-2">
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Registration Info</h2>
+                <form id="formVet">
+                    <h3>Username</h3>
                     <div class="input-group">
-                        <div class="rs-select2 js-select-simple select--no-search">
-                            <select name="neighborhood">
-                                <option disabled="disabled" selected="selected">Neighborhood</option>
-                                <option value="A. Nriño">A. Nriño</option>
-                                <option value="B. Unidos">B. Unidos</option>
-                                <option value="Bosa">Bosa</option>
-                                <option value="C.Bolivar">C.Bolivar</option>
-                                <option value="Chapinero">Chapinero</option>
-                                <option value="Engativa">Engativa</option>
-                                <option value="Fontibon">Fontibon</option>
-                                <option value="Kennedy">Kennedy</option>
-                                <option value="La candelaria">La candelaria</option>
-                                <option value="Los martires">Los martires</option>
-                                <option value="Municipios Aledaños Bogota D.C.">Municipios Aledaños Bogota D.C.</option>
-                                <option value="P. Aranda">P. Aranda</option>
-                                <option value="R. Uribe">R. Uribe</option>
-                                <option value="San Cristobal">San Cristobal</option>
-                                <option value="Santa Fe">Santa Fe</option>
-                                <option value="Suba">Suba</option>
-                                <option value="Sumapaz">Sumapaz</option>
-                                <option value="Teusaquillo">Teusaquillo</option>
-                                <option value="Tunjuelito">Tunjuelito</option>
-                                <option value="Usaquen">Usaquen</option>
-                                <option value="Usme">Usme</option>
-                                <option value="Sin Identificar">Sin Identificar</option>
-                            </select>
-                            <div class="select-dropdown"></div>
+                        <input class="input--style-2" type="text" placeholder="Username" name="username">
+                    </div>
+                    <h3>Password</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Password" name="password">
+                    </div>
+                    <h3>Email</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Email" name="email">
+                    </div>
+                    <h3>Name</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name">
+                    </div>
+                    <div class="input-group">
+                        <h3>Address</h3>
+                        <input class="input--style-2" placeholder="Address" type="text" name="address">
+                    </div>
+                    <h3>Neighborhood</h3>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="neighborhood">
+                                    <option disabled="disabled" selected="selected">Neighborhood</option>
+                                    <option value="A. Nriño">A. Nriño</option>
+                                    <option value="B. Unidos">B. Unidos</option>
+                                    <option value="Bosa">Bosa</option>
+                                    <option value="C.Bolivar">C.Bolivar</option>
+                                    <option value="Chapinero">Chapinero</option>
+                                    <option value="Engativa">Engativa</option>
+                                    <option value="Fontibon">Fontibon</option>
+                                    <option value="Kennedy">Kennedy</option>
+                                    <option value="La candelaria">La candelaria</option>
+                                    <option value="Los martires">Los martires</option>
+                                    <option value="Municipios Aledaños Bogota D.C.">Municipios Aledaños Bogota D.C.
+                                    </option>
+                                    <option value="P. Aranda">P. Aranda</option>
+                                    <option value="R. Uribe">R. Uribe</option>
+                                    <option value="San Cristobal">San Cristobal</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Suba">Suba</option>
+                                    <option value="Sumapaz">Sumapaz</option>
+                                    <option value="Teusaquillo">Teusaquillo</option>
+                                    <option value="Tunjuelito">Tunjuelito</option>
+                                    <option value="Usaquen">Usaquen</option>
+                                    <option value="Usme">Usme</option>
+                                    <option value="Sin Identificar">Sin Identificar</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="p-t-30">
-                    <button class="btn btn-primary" type="submit">Add</button>
+                    <div class="p-t-30">
+                        <button class="btn btn-primary" type="submit">Add</button>
 
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-
 </div>
 <!-- Hosting -->
 <footer>
@@ -180,7 +197,7 @@
 
 <script>
     var formulario = document.getElementById('formVet');
-    formulario.addEventListener('submit', function (e){
+    formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
         var datos = new FormData(formulario);
@@ -223,5 +240,15 @@
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+<!-- Jquery JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
+
+<!-- Main JS-->
+<script src="js/global.js"></script>
 </body>
 </html>

@@ -109,8 +109,7 @@
                 <div class="why-box">
                     <i><img src="images/ladino.png" alt="#"/></i>
                     <h3>Felipe Ladino</h3>
-                    <p>One of our Senior programmer, he check every detail for every part of the web services, an
-                        architect for every single part of the page </p>
+                    <p>One of our Senior programmer, he check every detail for every part of the web services. </p>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">

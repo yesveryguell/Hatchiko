@@ -124,11 +124,8 @@
             <div class="col-md-12">
                 <div class="web_hosting">
                     <figure><img src="images/Microchip.jpg" alt="#"/></figure>
-                    <p>Each owner must register their data to be able to add their pet, if it is the case, they can also list in a table if they have more than one.</p>
                     <p>Each pet must have a table that combines the cases and visits that are registered by the veterinarian, ordered by date in descending order
                         and being able to filter by date range.</p>
-                    <p>A veterinarian, in addition to being able to update her data, will be able to create pet visit records.</p>
-                    <a href="#">Read more</a>
                 </div>
             </div>
         </div>
