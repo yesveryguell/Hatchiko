@@ -75,12 +75,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
-                                <li>
-                                    <a href="sing-in.jsp">Sing in</a>
+                                <li class="nav-item">
+                                    <a href="sign-in.jsp">Sing in</a>
                                     <ul>
-                                        <li><a href="official.jsp"></a>Official</li>
-                                        <li><a href="owner.jsp"></a>Owner</li>
-                                        <li><a href="vet.jsp"></a>Vet</li>
+                                        <li><a class="menu" href="official.jsp">Official</a></li>
+                                        <li><a href="owner.jsp">Owner</a></li>
+                                        <li><a href="vet.jsp">Vet</a></li>
                                     </ul>
 
                                 </li>
