@@ -1,7 +1,5 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
-import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
-
 import java.util.List;
 
 public class OwnerTotalPojo {
