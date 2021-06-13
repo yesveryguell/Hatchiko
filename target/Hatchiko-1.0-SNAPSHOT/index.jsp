@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,7 +62,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarsExample04">
-                            <ul class="navbar-nav mr-auto">
+                            <ul class="navbar-nav mr-auto" class = "menu">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="../index.jsp">Home</a>
                                 </li>
@@ -73,12 +75,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="about.jsp"> About </a>
                                 </li>
-                                <li class="nav-item">
-                                    <select name="sign-in">
-                                        <option value="official">Official</option>
-                                        <option value="owner">Owner</option>
-                                        <option value="vet">Vet</option>
-                                    </select>
+                                <li>
+                                    <a href="sing-in.jsp">Sing in</a>
+                                    <ul>
+                                        <li><a href="official.jsp"></a>Official</li>
+                                        <li><a href="owner.jsp"></a>Owner</li>
+                                        <li><a href="vet.jsp"></a>Vet</li>
+                                    </ul>
+
                                 </li>
                             </ul>
                         </div>

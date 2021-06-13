@@ -6,6 +6,7 @@ package co.edu.unbosque.Hatchiko.resource;
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.resource.filters.Logged;
 import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
+import co.edu.unbosque.Hatchiko.resource.pojos.OwnerTotalPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.UserAppPojo;
 import co.edu.unbosque.Hatchiko.services.OwnerService;
 import co.edu.unbosque.Hatchiko.services.UserAppService;
@@ -14,6 +15,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 /**
@@ -107,9 +109,24 @@ public class OwnerResource {
     public Response list(){
 
         List<OwnerPojo> owners = new OwnerService().listOwner();
+        List<OwnerTotalPojo> totalOwners = new ArrayList<>();
+
+        String[] neighborhood = {"Antonio Nariño", "Barrios Unidos", "Bosa", "Chapinero", "Ciudad Bolivar", "Engativá", "Fontibón", "Kennedy", "La Candelaria", "Los Martires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristóbal", "Santa Fe", "SUBA", "Sumapaz", "Teusaquillo", "Tunjuelito", "Usaquen", "Usme"};
+
+        for (int i = 0; i < neighborhood.length; i++) {
+            List<OwnerPojo> owners1 = new ArrayList<OwnerPojo>();
+            for (int j = 0; j < owners.size(); j++) {
+                if (neighborhood[i].equals(owners.get(j).getNeighborhood())){
+                    owners1.add(owners.get(j));
+                }
+            }
+
+            totalOwners.add(new OwnerTotalPojo("Total dueños por la localidad de " + neighborhood[i] + " es de " +(owners1.size()) + ":", owners1));
+        }
+
 
         return Response.ok()
-                .entity(owners)
+                .entity(totalOwners)
                 .build();
     }
 }

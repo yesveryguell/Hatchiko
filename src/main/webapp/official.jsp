@@ -122,6 +122,7 @@
     <table class="table table-dark table-striped table-bordered">
         <thead>
         <tr>
+            <th>Localidad</th>
             <th>Username</th>
             <th>password</th>
             <th>email</th>
@@ -166,9 +167,17 @@
         .then(data => mostrarData(data));
     const mostrarData = (data) =>{
         console.log(data);
+        for (let i = 0; i < data.length; i++) {
+            console.log(data[i].total);
+            console.log(data[i].owners);
+        }
         let body = ''
         for(let i = 0; i<data.length; i++){
-            body+= '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' +data[i].password + '</td>' + '<td>' +data[i].email + '</td>' + '<td>' +data[i].person_id + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].address + '</td>' + '<td>' +data[i].neighborhood + '</td>' + '</tr>';
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].owners.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].owners[j].username + '</td>' + '<td>' +data[i].owners[j].password + '</td>' + '<td>' +data[i].owners[j].email + '</td>' + '<td>' +data[i].owners[j].person_id + '</td>' + '<td>' +data[i].owners[j].name + '</td>' + '<td>' +data[i].owners[j].address + '</td>' + '<td>' +data[i].owners[j].neighborhood + '</td>' + '</tr>';
+
+            }
         }
         document.getElementById('ownerInfo').innerHTML = body;
     }
@@ -182,7 +191,8 @@
         console.log(data);
         let body = ''
         for(let i = 0; i<data.length; i++){
-            body+= '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' +data[i].password + '</td>' + '<td>' +data[i].email + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].address + '</td>' + '<td>' +data[i].neighborhood + '</td>' + '</tr>';
+
+                body+= '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' +data[i].password + '</td>' + '<td>' +data[i].email + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].address + '</td>' + '<td>' +data[i].neighborhood + '</td>' + '</tr>';
         }
         document.getElementById('vetInfo').innerHTML = body;
     }
