@@ -1,5 +1,42 @@
 # Hatchiko
 
+#### DESCRIPCIÓN:
+Es una aplicación web en la cual se hará un registro integro acerca de veterinarias, mascotas y sus respectivos propietarios.
+
+Aquí se obtiene un login y dependiendo el rol que tenga el usuario (Propietario, Veterinaria, Oficial), se tendrán opciones diferentes para el manejo de la información
+o en dado caso, para la modificación de la misma.
+
+Se visualizarán tablas discriminadas con distinta organización. La edición de ciertos campos estarán disponibles para ciertos usuarios.
+
+#### DIFICULTADES:
+- Inicialmente un obstáculo fue conectar el Backentd con el Frontend pero después de indagación en distintos sitios, se logró concretar.
+
+- Plataforma de GitHub Pages con el frontend ya que no contamos con infromación precisa para poder anclar nuestra aplicación ahí.
+
+- Autenticación ya que por cuestión de tiempo, se implementó en código, pero no se probó.
+
+- La discriminación de la información por fechas y cargar la imagen.
+
+#### OPORTUNIDADES:
+
+- Profundizar en los conocimientos básicos acerca de los servicios Rest y la orgnaización y correcto uso de los aspectos gráficos en el Frontend.
+
+- Manejo de postman y las colecciones, ya que se verificaron los métodos implementados para continuar con la solución de éste proyecto.
+
+- Manejo de GitHub ya que se hizo un correcto uso de las ramas y se logró una mejor organización a pesar del poco tiempo con el contamos para llevar a cabo el proyecto.
+
+#### ENLACE VIDEO YOUTUBE:
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+####PRIMERA ENTEGA DEL PROYECTO...
 #### ¿Cuáles son los tipos de usuarios que debe soportar la aplicación web? :shipit:
 
 #### Respuesta: 
