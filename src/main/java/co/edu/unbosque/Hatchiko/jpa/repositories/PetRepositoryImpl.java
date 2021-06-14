@@ -37,6 +37,49 @@ public class PetRepositoryImpl implements PetRepository{
         Pet pet = entityManager.find(Pet.class, id);
         return pet != null ? Optional.of(pet) : Optional.empty();
     }
+
+    @Override
+    public List<Pet> findByIdList(Integer id) {
+        String query = "from Pet where pet_id = " + id;
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Pet> findByIdMicrochip(String microchip) {
+        String query = "from Pet where microchip = " + "'" + microchip + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Pet> findByName(String name) {
+        String query = "from Pet where name = " + "'" + name + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Pet> findBySpecie(String specie) {
+        String query = "from Pet where species = " + "'" + specie + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Pet> findByRace(String race) {
+        String query = "from Pet where race = " + "'" + race + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Pet> findBySize(String size) {
+        String query = "from Pet where size = " + "'" + size + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Pet> findBySex(String sex) {
+        String query = "from Pet where sex = " + "'" + sex + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @return

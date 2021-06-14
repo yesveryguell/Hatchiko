@@ -16,6 +16,20 @@ import java.util.Optional;
 public interface PetRepository {
     Optional<Pet> findById(Integer id);
 
+    List<Pet> findByIdList(Integer id);
+
+    List<Pet> findByIdMicrochip(String microchip);
+
+    List<Pet> findByName(String name);
+
+    List<Pet> findBySpecie(String specie);
+
+    List<Pet> findByRace(String race);
+
+    List<Pet> findBySize(String size);
+
+    List<Pet> findBySex(String sex);
+
     List<Pet> findAll();
 
     Optional<Pet> save(Pet pet);
