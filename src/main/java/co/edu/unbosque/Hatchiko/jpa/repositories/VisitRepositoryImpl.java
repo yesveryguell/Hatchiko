@@ -6,6 +6,7 @@ package co.edu.unbosque.Hatchiko.jpa.repositories;
 import co.edu.unbosque.Hatchiko.jpa.entities.Visit;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 /**
@@ -81,7 +82,7 @@ public class VisitRepositoryImpl implements VisitRepository{
     /**
      * This method allows us to update the list of visits by id
      */
-    public void updateById(Integer id, String created_at, String type, String description) {
+    public void updateById(Integer id, LocalDate created_at, String type, String description) {
         Visit visit = entityManager.find(Visit.class, id);
         if (visit != null) {
             try {

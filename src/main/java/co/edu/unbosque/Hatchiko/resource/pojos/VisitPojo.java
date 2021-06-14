@@ -4,6 +4,7 @@
 package co.edu.unbosque.Hatchiko.resource.pojos;
 
 import javax.persistence.Column;
+import java.time.LocalDate;
 
 /**
  * El paquete pojos sirve para mostrar los datos que se almacenan en las tablas, PetCasePojo, muestra la información
@@ -17,7 +18,7 @@ public class VisitPojo {
     /**
      * Private type attribute with alphanumeric variable String of name created_at
      */
-    private String created_at;
+    private LocalDate created_at;
     /**
      * Private type attribute with alphanumeric variable String of name type
      */
@@ -40,7 +41,7 @@ public class VisitPojo {
      * @param type Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public VisitPojo(int visit_id, String created_at, String type, String description) {
+    public VisitPojo(int visit_id, LocalDate created_at, String type, String description) {
         this.visit_id = visit_id;
         this.created_at = created_at;
         this.type = type;
@@ -53,7 +54,7 @@ public class VisitPojo {
      * @param type Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public VisitPojo(String created_at, String type, String description) {
+    public VisitPojo(LocalDate created_at, String type, String description) {
         this.created_at = created_at;
         this.type = type;
         this.description = description;
@@ -77,7 +78,7 @@ public class VisitPojo {
      *Gets the value of the name attribute created_at of type String
      * @return created_at
      */
-    public String getCreated_at() {
+    public LocalDate getCreated_at() {
         return created_at;
     }
 
@@ -85,7 +86,7 @@ public class VisitPojo {
      * Update or modify the attribute name
      * @param created_at Case creation created_at!= null, created_at!=" "
      */
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
     /**

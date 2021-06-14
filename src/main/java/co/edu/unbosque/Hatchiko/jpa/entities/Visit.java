@@ -4,6 +4,7 @@
 package co.edu.unbosque.Hatchiko.jpa.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 /**
  * The Entities package is responsible for creating the corresponding tables in the databases
  */
@@ -50,7 +51,7 @@ public class Visit {
     /**
      * Private type attribute with alphanumeric variable String of name created_at
      */
-    private String created_at;
+    private LocalDate created_at;
     /**
      * Defines the column name
      */
@@ -104,7 +105,7 @@ public class Visit {
      * @param type Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public Visit(String created_at, String type, String description) {
+    public Visit(LocalDate created_at, String type, String description) {
         this.created_at = created_at;
         this.type = type;
         this.description = description;
@@ -128,7 +129,7 @@ public class Visit {
      *Gets the value of the name attribute created_at of type String
      * @return created_at
      */
-    public String getCreated_at() {
+    public LocalDate getCreated_at() {
         return created_at;
     }
 
@@ -136,7 +137,7 @@ public class Visit {
      * Update or modify the attribute name
      * @param created_at Case creation created_at!= null, created_at!=" "
      */
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
     /**

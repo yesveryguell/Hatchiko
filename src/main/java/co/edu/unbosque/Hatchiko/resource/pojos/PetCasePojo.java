@@ -2,6 +2,9 @@
  * Package that links co.edu.unbosque with resource and pojos
  */
 package co.edu.unbosque.Hatchiko.resource.pojos;
+
+import java.time.LocalDate;
+
 /**
  * The pojos package serves to show the data that is stored in the tables, PetCasePojo, shows the information of the pet
  * cases table
@@ -14,7 +17,7 @@ public class PetCasePojo {
     /**
      * Private type attribute with alphanumeric variable String of name created_at
      */
-    private String created_at;
+    private LocalDate created_at;
     /**
      * Private type attribute with alphanumeric variable String of name type
      */
@@ -35,7 +38,7 @@ public class PetCasePojo {
      * @param type Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public PetCasePojo(Integer case_id, String created_at, String type, String description) {
+    public PetCasePojo(Integer case_id, LocalDate created_at, String type, String description) {
         this.case_id = case_id;
         this.created_at = created_at;
         this.type = type;
@@ -61,7 +64,7 @@ public class PetCasePojo {
      *Gets the value of the name attribute created_at of type String
      * @return created_at
      */
-    public String getCreated_at() {
+    public LocalDate getCreated_at() {
         return created_at;
     }
 
@@ -69,7 +72,7 @@ public class PetCasePojo {
      * Update or modify the attribute name
      * @param created_at Case creation created_at!= null, created_at!=" "
      */
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
     /**

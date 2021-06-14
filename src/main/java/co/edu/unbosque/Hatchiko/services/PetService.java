@@ -61,7 +61,8 @@ public class PetService {
                     pet.getRace(),
                     pet.getSize(),
                     pet.getSex(),
-                    pet.getPicture()
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
             ));
         }
 

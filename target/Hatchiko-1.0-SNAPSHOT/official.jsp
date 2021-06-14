@@ -50,7 +50,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.jsp"><img src="images/logos.png" alt="#"/></a>
+                                <a href="index.html"><img src="images/logos.png" alt="#"/></a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.jsp">Home</a>
+                                    <a class="nav-link" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
@@ -88,13 +88,6 @@
     </div>
 </header>
 <!-- end banner -->
-<div id="" class="hosting">
-    <div class="container">
-        <form>
-            <input class="">
-        </form>
-    </div>
-</div>
 <h1>Owners</h1>
 <div>
     <table class="table table-dark table-striped table-bordered">
@@ -115,24 +108,135 @@
         </tbody>
     </table>
 </div>
-
-<h1>Vets</h1>
+<h1>Pets for species</h1>
 
 <div>
     <table class="table table-dark table-striped table-bordered">
         <thead>
         <tr>
-            <th>Localidad</th>
-            <th>Username</th>
-            <th>password</th>
-            <th>email</th>
+            <th>Pet_id</th>
+            <th>microchip</th>
             <th>name</th>
-            <th>address</th>
-            <th>neighborhood</th>
-
+            <th>picture</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>Owner</th>
         </tr>
         </thead>
-        <tbody id = "vetInfo">
+        <tbody id = "petInfoSpece">
+
+        </tbody>
+    </table>
+</div>
+
+<h1>Pets for microchip</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Pet_id</th>
+            <th>microchip</th>
+            <th>name</th>
+            <th>picture</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody id = "petInfoMicro">
+
+        </tbody>
+    </table>
+</div>
+
+<h1>Pets for race</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Pet_id</th>
+            <th>microchip</th>
+            <th>name</th>
+            <th>picture</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody id = "petInforace">
+
+        </tbody>
+    </table>
+</div>
+
+<h1>Pets for size</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Pet_id</th>
+            <th>microchip</th>
+            <th>name</th>
+            <th>picture</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody id = "petInforSize">
+
+        </tbody>
+    </table>
+</div>
+
+
+<h1>Pets for sex</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Pet_id</th>
+            <th>microchip</th>
+            <th>name</th>
+            <th>picture</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody id = "petInforSex">
+
+        </tbody>
+    </table>
+</div>
+
+<h1>Cases</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>case_id</th>
+            <th>created_at</th>
+            <th>type</th>
+            <th>description</th>
+        </tr>
+        </thead>
+        <tbody id = "caseInfo">
 
         </tbody>
     </table>
@@ -184,17 +288,104 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets')
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/species')
         .then((response) => response.json())
         .then(data => mostrarData1(data));
     const mostrarData1 = (data) =>{
         console.log(data);
         let body = ''
         for(let i = 0; i<data.length; i++){
-
-                body+= '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' +data[i].password + '</td>' + '<td>' +data[i].email + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].address + '</td>' + '<td>' +data[i].neighborhood + '</td>' + '</tr>';
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].pets.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].pets[j].pet_id + '</td>' + '<td>' +data[i].pets[j].microchip + '</td>' + '<td>' +data[i].pets[j].name + '</td>' + '<td>' +data[i].pets[j].picture + '</td>' + '<td>' +data[i].pets[j].race + '</td>' + '<td>' +data[i].pets[j].sex + '</td>' + '<td>' +data[i].pets[j].size + '</td>' + '<td>' +data[i].pets[j].species + '</td>' + '<td>' +data[i].pets[j].owner + '</td>' + '</tr>';
+            }
         }
-        document.getElementById('vetInfo').innerHTML = body;
+        document.getElementById('petInfoSpece').innerHTML = body;
+    }
+</script>
+
+<script>
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/microchip')
+        .then((response) => response.json())
+        .then(data => mostrarData2(data));
+    const mostrarData2 = (data) =>{
+        console.log(data);
+        let body = ''
+        for(let i = 0; i<data.length; i++){
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].pets.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].pets[j].pet_id + '</td>' + '<td>' +data[i].pets[j].microchip + '</td>' + '<td>' +data[i].pets[j].name + '</td>' + '<td>' +data[i].pets[j].picture + '</td>' + '<td>' +data[i].pets[j].race + '</td>' + '<td>' +data[i].pets[j].sex + '</td>' + '<td>' +data[i].pets[j].size + '</td>' + '<td>' +data[i].pets[j].species + '</td>' + '<td>' +data[i].pets[j].owner + '</td>' + '</tr>';
+            }
+        }
+        document.getElementById('petInfoMicro').innerHTML = body;
+    }
+</script>
+
+<script>
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/race')
+        .then((response) => response.json())
+        .then(data => mostrarData3(data));
+    const mostrarData3 = (data) =>{
+        console.log(data);
+        let body = ''
+        for(let i = 0; i<data.length; i++){
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].pets.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].pets[j].pet_id + '</td>' + '<td>' +data[i].pets[j].microchip + '</td>' + '<td>' +data[i].pets[j].name + '</td>' + '<td>' +data[i].pets[j].picture + '</td>' + '<td>' +data[i].pets[j].race + '</td>' + '<td>' +data[i].pets[j].sex + '</td>' + '<td>' +data[i].pets[j].size + '</td>' + '<td>' +data[i].pets[j].species + '</td>' + '<td>' +data[i].pets[j].owner + '</td>' + '</tr>';
+            }
+        }
+        document.getElementById('petInforace').innerHTML = body;
+    }
+</script>
+
+<script>
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/sex')
+        .then((response) => response.json())
+        .then(data => mostrarData4(data));
+    const mostrarData4 = (data) =>{
+        console.log(data);
+        let body = ''
+        for(let i = 0; i<data.length; i++){
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].pets.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].pets[j].pet_id + '</td>' + '<td>' +data[i].pets[j].microchip + '</td>' + '<td>' +data[i].pets[j].name + '</td>' + '<td>' +data[i].pets[j].picture + '</td>' + '<td>' +data[i].pets[j].race + '</td>' + '<td>' +data[i].pets[j].sex + '</td>' + '<td>' +data[i].pets[j].size + '</td>' + '<td>' +data[i].pets[j].species + '</td>' + '<td>' +data[i].pets[j].owner + '</td>' + '</tr>';
+            }
+        }
+        document.getElementById('petInforSex').innerHTML = body;
+    }
+</script>
+
+<script>
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/size')
+        .then((response) => response.json())
+        .then(data => mostrarData5(data));
+    const mostrarData5 = (data) =>{
+        console.log(data);
+        let body = ''
+        for(let i = 0; i<data.length; i++){
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].pets.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].pets[j].pet_id + '</td>' + '<td>' +data[i].pets[j].microchip + '</td>' + '<td>' +data[i].pets[j].name + '</td>' + '<td>' +data[i].pets[j].picture + '</td>' + '<td>' +data[i].pets[j].race + '</td>' + '<td>' +data[i].pets[j].sex + '</td>' + '<td>' +data[i].pets[j].size + '</td>' + '<td>' +data[i].pets[j].species + '</td>' + '<td>' +data[i].pets[j].owner + '</td>' + '</tr>';
+            }
+        }
+        document.getElementById('petInforSize').innerHTML = body;
+    }
+</script>
+
+<script>
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/petCases')
+        .then((response) => response.json())
+        .then(data => mostrarData6(data));
+    const mostrarData6 = (data) =>{
+        console.log(data);
+        let body = ''
+        for(let i = 0; i<data.length; i++){
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].cases.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].cases[j].case_id + '</td>' + '<td>' +data[i].cases[j].created_at + '</td>' + '<td>' +data[i].cases[j].type + '</td>' + '<td>' +data[i].cases[j].description + '</td>' + '</tr>';
+            }
+        }
+        document.getElementById('caseInfo').innerHTML = body;
     }
 </script>
 <!-- end footer -->

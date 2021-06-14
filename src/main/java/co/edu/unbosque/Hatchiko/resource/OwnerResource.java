@@ -111,7 +111,7 @@ public class OwnerResource {
         List<OwnerPojo> owners = new OwnerService().listOwner();
         List<OwnerTotalPojo> totalOwners = new ArrayList<>();
 
-        String[] neighborhood = {"Antonio Nariño", "Barrios Unidos", "Bosa", "Chapinero", "Ciudad Bolivar", "Engativá", "Fontibón", "Kennedy", "La Candelaria", "Los Martires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristóbal", "Santa Fe", "SUBA", "Sumapaz", "Teusaquillo", "Tunjuelito", "Usaquen", "Usme"};
+        String[] neighborhood = {"Antonio Nariño", "Barrios Unidos", "Bosa", "Chapinero", "Ciudad Bolivar", "Engativá", "Fontibón", "Kennedy", "La Candelaria", "Los Martires", "Puente Aranda", "Rafael Uribe Uribe", "San Cristóbal", "Santa Fe", "Suba", "Sumapaz", "Teusaquillo", "Tunjuelito", "Usaquen", "Usme"};
 
         for (int i = 0; i < neighborhood.length; i++) {
             List<OwnerPojo> owners1 = new ArrayList<OwnerPojo>();

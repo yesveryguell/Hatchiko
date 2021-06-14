@@ -32,7 +32,7 @@
         <div class="wrap-login100">
             <form method="get" action="api/owners" class="login100-form validate-form">
                 <span class="login100-form-title p-b-34">
-						<a href="index.jsp"><img src="images/logo_t.png"/></a>
+						<a href="index.html"><img src="images/logo_t.png"/></a>
 					</span>
 
                 <span class="login100-form-title p-b-34" >

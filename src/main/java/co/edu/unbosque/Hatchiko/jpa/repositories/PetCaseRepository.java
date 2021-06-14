@@ -5,6 +5,7 @@ package co.edu.unbosque.Hatchiko.jpa.repositories;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.PetCase;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,5 +21,5 @@ public interface PetCaseRepository {
 
     Optional<PetCase> save(PetCase petCase);
 
-    void updateById(Integer id, String create_at, String type, String description);
+    void updateById(Integer id, LocalDate create_at, String type, String description);
 }

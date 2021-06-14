@@ -38,6 +38,8 @@ public class PetPojo {
      * Private type attribute with alphanumeric variable String of name picture
      */
     private String picture;
+
+    private String owner;
     /**
      * Empty constructor
      */
@@ -54,7 +56,7 @@ public class PetPojo {
      * @param sex sex with which the animal was registered sex!= null, sex!=" "
      * @param picture image with which the animal was registered picture!= null, picture!=" "
      */
-    public PetPojo(int pet_id, String microchip, String name, String species, String race, String size, String sex, String picture) {
+    public PetPojo(int pet_id, String microchip, String name, String species, String race, String size, String sex, String picture, String owner) {
         this.pet_id = pet_id;
         this.microchip = microchip;
         this.name = name;
@@ -63,7 +65,9 @@ public class PetPojo {
         this.size = size;
         this.sex = sex;
         this.picture = picture;
+        this.owner = owner;
     }
+
     /**
      * Gets the value of the name attribute Pet_id of type Integer
      * @return getPet_id
@@ -190,5 +194,13 @@ public class PetPojo {
      */
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

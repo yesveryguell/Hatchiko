@@ -6,6 +6,7 @@ package co.edu.unbosque.Hatchiko.jpa.repositories;
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Visit;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 /**
@@ -20,5 +21,5 @@ public interface VisitRepository {
 
     Optional<Visit> save(Visit visit);
 
-    void updateById(Integer id, String created_at, String type, String description);
+    void updateById(Integer id, LocalDate created_at, String type, String description);
 }

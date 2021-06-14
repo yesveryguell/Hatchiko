@@ -6,6 +6,7 @@ package co.edu.unbosque.Hatchiko.jpa.repositories;
 import co.edu.unbosque.Hatchiko.jpa.entities.PetCase;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 /**
@@ -84,7 +85,7 @@ public class PetCaseRepositoryImpl implements PetCaseRepository {
     /**
      * This method allows us to update the list of pet cases by id
      */
-    public void updateById(Integer id, String create_at, String type, String description) {
+    public void updateById(Integer id, LocalDate create_at, String type, String description) {
         PetCase aCases = entityManager.find(PetCase.class, id);
         if (aCases != null) {
             try {

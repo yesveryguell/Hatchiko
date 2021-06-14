@@ -65,7 +65,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.jsp"><img src="images/logos.png" alt="#"/></a>
+                                <a href="index.html"><img src="images/logos.png" alt="#"/></a>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.jsp">Home</a>
+                                    <a class="nav-link" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"> Service</a>
@@ -117,7 +117,7 @@
                         </div>
                         <h3>Password</h3>
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Password" name="password">
+                            <input class="input--style-2" type="password" placeholder="Password" name="password">
                         </div>
                     </div>
                     <div class="row row-space">
@@ -230,7 +230,15 @@
 
         fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners', {
             method: 'POST',
-            body: datos,
+            body: JSON.stringify({
+                username: datos.get('username'),
+                email: datos.get('email'),
+                password: datos.get('password'),
+                person_id: datos.get('person_id'),
+                name: datos.get('name'),
+                address: datos.get('address'),
+                neighborhood: datos.get('neighborhood'),
+            }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
