@@ -117,7 +117,7 @@
                         </div>
                         <h3>Password</h3>
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Password" name="password">
+                            <input class="input--style-2" type="password" placeholder="Password" name="password">
                         </div>
                     </div>
                     <div class="row row-space">
