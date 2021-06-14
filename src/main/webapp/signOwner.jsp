@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="w-full text-center">
-                    <a href="sign-up.jsp" class="txt3">
+                    <a href="ownerSignup.jsp" class="txt3">
                         Sign Up
                     </a>
                 </div>
