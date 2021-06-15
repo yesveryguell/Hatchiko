@@ -241,6 +241,59 @@
         </tbody>
     </table>
 </div>
+
+<div>
+    <form action="" id="filter">
+        <a href="">Id</a>
+        <input type="number" name = "id">
+        <br>
+        <a href="">Microchip</a>
+        <input type="text" name = "microchip">
+        <br>
+        <a href="">name</a>
+        <input type="text" name = "name">
+        <br>
+        <a href="">specie</a>
+        <input type="text" name = "specie">
+        <br>
+        <a href="">race</a>
+        <input type="text" name = "race">
+        <br>
+        <a href="">size</a>
+        <input type="text" name = "size">
+        <br>
+        <a href="">sex</a>
+        <input type="text" name = "sex">
+        <br>
+        <button style="background-color:#eebb55" type="submit">
+            view
+        </button>
+    </form>
+</div>
+
+<h1>Filter</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Pet_id</th>
+            <th>microchip</th>
+            <th>name</th>
+            <th>picture</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody id = "filterPets">
+
+        </tbody>
+    </table>
+</div>
+
 <!-- Hosting -->
 <footer>
     <div class="footer">
@@ -261,6 +314,7 @@
             </div>
         </div>
     </div>
+
 
 
 </footer>
@@ -388,6 +442,8 @@
         document.getElementById('caseInfo').innerHTML = body;
     }
 </script>
+
+
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>

@@ -80,6 +80,11 @@ public class PetRepositoryImpl implements PetRepository{
         return entityManager.createQuery(query).getResultList();
     }
 
+    @Override
+    public List<Pet> findByPets(Integer id, String microchip, String name, String specie, String race, String size, String sex) {
+        return null;
+    }
+
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @return

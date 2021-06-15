@@ -30,6 +30,8 @@ public interface PetRepository {
 
     List<Pet> findBySex(String sex);
 
+    List<Pet> findByPets(Integer id, String microchip, String name, String specie, String race, String size, String sex);
+
     List<Pet> findAll();
 
     Optional<Pet> save(Pet pet);

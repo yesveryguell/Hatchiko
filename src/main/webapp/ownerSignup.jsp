@@ -148,7 +148,6 @@
     var formulario = document.getElementById('formOwner');
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log('me diste un click')
 
         var datos = new FormData(formulario);
 
