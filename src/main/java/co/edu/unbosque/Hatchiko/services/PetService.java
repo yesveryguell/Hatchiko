@@ -70,6 +70,216 @@ public class PetService {
 
     }
 
+    public List<PetPojo> listPetId(Integer id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findByIdList(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
+    public List<PetPojo> listPetMicrochip(String microchip) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findByIdMicrochip(microchip);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
+    public List<PetPojo> listPetName(String name) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findByName(name);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
+    public List<PetPojo> listPetSpecie(String specie) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findBySpecie(specie);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
+    public List<PetPojo> listPetRace(String race) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findByRace(race);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
+    public List<PetPojo> listPetSize(String size) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findBySize(size);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
+    public List<PetPojo> listPetSex(String sex) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findBySex(sex);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture(),
+                    pet.getOwner().getUserName()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
     /**
      * This method is responsible for saving the information that is added to the list of Pet in the database
      * <b>pre</b> Information is added in the corresponding forms

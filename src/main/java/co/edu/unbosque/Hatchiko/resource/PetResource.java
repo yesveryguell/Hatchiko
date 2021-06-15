@@ -1,12 +1,11 @@
 package co.edu.unbosque.Hatchiko.resource;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetTotalPojo;
 import co.edu.unbosque.Hatchiko.services.PetService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -180,5 +179,51 @@ public class PetResource {
         return Response.ok()
                 .entity(totalPets)
                 .build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(@QueryParam("pet_id") Integer pet_id, @QueryParam("microchip") String microchip, @QueryParam("name") String name, @QueryParam("species") String species, @QueryParam("race") String race, @QueryParam("size") String size, @QueryParam("sex") String sex) {
+
+        List<PetPojo> pets = new ArrayList<>();
+
+        if(pet_id != null && microchip == null && name == null && species == null && race == null && size == null && sex == null){
+            List<PetPojo> list = new PetService().listPetId(pet_id);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        }if(pet_id == null && microchip != null && name == null && species == null && race == null && size == null && sex == null){
+            List<PetPojo> list = new PetService().listPetMicrochip(microchip);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        }if(pet_id == null && microchip == null && name != null && species == null && race == null && size == null && sex == null){
+            List<PetPojo> list = new PetService().listPetName(name);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        }if(pet_id == null && microchip == null && name == null && species != null && race == null && size == null && sex == null){
+            List<PetPojo> list = new PetService().listPetSpecie(species);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        }if(pet_id == null && microchip == null && name == null && species == null && race != null && size == null && sex == null){
+            List<PetPojo> list = new PetService().listPetRace(race);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        }if(pet_id == null && microchip == null && name == null && species == null && race == null && size != null && sex == null){
+            List<PetPojo> list = new PetService().listPetSize(size);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        } if(pet_id == null && microchip == null && name == null && species == null && race == null && size == null && sex != null){
+            List<PetPojo> list = new PetService().listPetSex(sex);
+            return Response.ok()
+                    .entity(list)
+                    .build();
+        }else {
+        return null;
+        }
     }
 }
