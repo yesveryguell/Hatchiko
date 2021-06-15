@@ -444,6 +444,44 @@
 </script>
 
 
+<script>
+    var formulario = document.getElementById('filter');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+        console.log('me diste un click')
+
+        var datos = new FormData(formulario);
+
+        if(datos.get('id') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?pet_id=%27+datos.get(%27id%27))
+                .then((response) => response.json())
+                .then(data => mostrarData7(data));
+            const mostrarData7 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+        if(datos.get('microchip') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?microchip=%27+datos.get(%27microchip%27))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+    });
+</script>
+
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
