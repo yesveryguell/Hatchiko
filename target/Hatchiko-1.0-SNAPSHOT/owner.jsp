@@ -190,16 +190,16 @@
 
 <h1>Pets</h1>
 
-<%--<div>--%>
-<%--    <form id = "formPets">--%>
+<div>
+    <form id = "formPets">
 
-<%--        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">--%>
+        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
 
-<%--        <button style="background-color:#eebb55" type="submit">--%>
-<%--            View pets--%>
-<%--        </button>--%>
-<%--    </form>--%>
-<%--</div>--%>
+        <button style="background-color:#eebb55" type="submit">
+            View pets
+        </button>
+    </form>
+</div>
 
 
 
@@ -285,28 +285,28 @@
     });
 </script>
 
-<%--<script>--%>
-<%--    var formulario = document.getElementById('formPets');--%>
+<script>
+    var formulario = document.getElementById('formPets');
 
-<%--    formulario.addEventListener('submit', function (e) {--%>
-<%--        e.preventDefault();--%>
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-<%--        var datos = new FormData(formulario);--%>
+        var datos1 = new FormData(formulario);
 
-<%--        console.log(datos.get('username'))--%>
-<%--            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos.get('username')+"/pets")--%>
-<%--                .then((response) => response.json())--%>
-<%--                .then(data => mostrarData7(data));--%>
-<%--            const mostrarData7 = (data) => {--%>
-<%--                console.log(data);--%>
-<%--                let body = ''--%>
-<%--                for (let i = 0; i < data.length; i++) {--%>
-<%--                    body += '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' + data[i].microchip + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].race + '</td>' + '<td>' + data[i].sex + '</td>' + '<td>' + data[i].size + '</td>' + '<td>' + data[i].species + '</td>' + '<td>' + data[i].picture + '</td>' + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editPet()"/>' + '</td>' + '<td>' + '    <input name="ver" type="button" value="Create case" id="ver" onclick="createdPet()"/>' + '</td>' + '</tr>';--%>
-<%--                }--%>
-<%--                document.getElementById('pets').innerHTML = body;--%>
-<%--            }--%>
-<%--    });--%>
-<%--</script>--%>
+        console.log(datos1.get('username'))
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username')+"/pets")
+                .then((response) => response.json())
+                .then(data => mostrarData7(data));
+            const mostrarData7 = (data) => {
+                console.log(data);
+                let body = ''
+                for (let i = 0; i < data.length; i++) {
+                    body += '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' + data[i].microchip + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].race + '</td>' + '<td>' + data[i].sex + '</td>' + '<td>' + data[i].size + '</td>' + '<td>' + data[i].species + '</td>' + '<td>' + data[i].picture + '</td>' + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editPet()"/>' + '</td>' + '<td>' + '    <input name="ver" type="button" value="Create case" id="ver" onclick="createdPet()"/>' + '</td>' + '</tr>';
+                }
+                document.getElementById('pets').innerHTML = body;
+            }
+    });
+</script>
 
 <!-- end footer -->
 <!-- Javascript files-->

@@ -162,6 +162,37 @@
         </div>
     </div>
 </div>
+
+<h1>Visits</h1>
+
+<div>
+    <form id = "formVisits">
+
+        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+
+        <button style="background-color:#eebb55" type="submit">
+            View visits
+        </button>
+    </form>
+</div>
+
+
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Visit_id</th>
+            <th>Created_at</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody id = "visits">
+
+        </tbody>
+    </table>
+</div>
 <!-- Hosting -->
 <footer>
     <div class="footer">
@@ -211,6 +242,29 @@
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+    });
+</script>
+
+<script>
+    var formulario = document.getElementById('formVisits');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos1 = new FormData(formulario);
+
+        console.log(datos1.get('username'))
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/'+datos1.get('username')+"/visits")
+            .then((response) => response.json())
+            .then(data => mostrarData7(data));
+        const mostrarData7 = (data) => {
+            console.log(data);
+            let body = ''
+            for (let i = 0; i < data.length; i++) {
+                body += '<tr>' + '<td>' + data[i].visit_id + '</td>' + '<td>' + data[i].anio + '</td>' + '<td>' + data[i].type + '</td>' + '<td>' + data[i].description + '</td>' + '</tr>';
+            }
+            document.getElementById('visits').innerHTML = body;
+        }
     });
 </script>
 

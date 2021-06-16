@@ -3,6 +3,7 @@
  */
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 import co.edu.unbosque.Hatchiko.jpa.entities.Visit;
 
 import javax.persistence.EntityManager;
@@ -38,6 +39,13 @@ public class VisitRepositoryImpl implements VisitRepository{
         Visit visit = entityManager.find(Visit.class, id);
         return visit != null ? Optional.of(visit) : Optional.empty();
     }
+
+    @Override
+    public List<Visit> findByVet(String vet) {
+        String query = "from Visit where vet = '" + vet + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @return

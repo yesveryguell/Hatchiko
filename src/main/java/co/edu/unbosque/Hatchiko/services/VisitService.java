@@ -7,6 +7,7 @@ import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
 import co.edu.unbosque.Hatchiko.jpa.entities.Visit;
 import co.edu.unbosque.Hatchiko.jpa.repositories.*;
+import co.edu.unbosque.Hatchiko.resource.pojos.PetPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.VisitPojo;
 
 import javax.ejb.Stateless;
@@ -67,6 +68,31 @@ public class VisitService {
         }
 
         return visitPojo;
+
+    }
+
+    public List<VisitPojo> listVisitVet(String username) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        visitRepository = new VisitRepositoryImpl(entityManager);
+        List<Visit> visits = visitRepository.findByVet(username);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<VisitPojo> visitPojos = new ArrayList<>();
+        for (Visit visit : visits) {
+            visitPojos.add(new VisitPojo(
+                   visit.getVisit_id(),
+                    visit.getCreated_at().getYear(),
+                    visit.getType(),
+                    visit.getDescription()
+            ));
+        }
+
+        return visitPojos;
 
     }
 

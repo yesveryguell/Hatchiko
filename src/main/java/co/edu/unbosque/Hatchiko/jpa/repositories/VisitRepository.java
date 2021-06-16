@@ -4,6 +4,7 @@
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
+import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 import co.edu.unbosque.Hatchiko.jpa.entities.Visit;
 
 import java.time.LocalDate;
@@ -16,6 +17,8 @@ import java.util.Optional;
  */
 public interface VisitRepository {
     Optional<Visit> findById(Integer id);
+
+    List<Visit> findByVet(String vet);
 
     List<Visit> findAll();
 
