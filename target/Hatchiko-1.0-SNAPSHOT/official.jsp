@@ -444,6 +444,115 @@
 </script>
 
 
+<script>
+    var formulario = document.getElementById('filter');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('race'))
+
+        if(datos.get('id') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?pet_id='+datos.get('id'))
+                .then((response) => response.json())
+                .then(data => mostrarData7(data));
+            const mostrarData7 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+        if(datos.get('microchip') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?microchip='+datos.get('microchip'))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+
+        if(datos.get('name') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?name='+datos.get('name'))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+
+        if(datos.get('specie') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?species='+datos.get('specie'))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+
+        if(datos.get('race') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?race='+datos.get('race'))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+
+        if(datos.get('size') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?size='+datos.get('size'))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+
+        if(datos.get('sex') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?sex='+datos.get('sex'))
+                .then((response) => response.json())
+                .then(data => mostrarData8(data));
+            const mostrarData8 = (data) =>{
+                console.log(data);
+                let body = ''
+                for(let i = 0; i<data.length; i++){
+                    body+= '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' +data[i].microchip + '</td>' + '<td>' +data[i].name + '</td>' + '<td>' +data[i].picture + '</td>' + '<td>' +data[i].race + '</td>' + '<td>' +data[i].sex + '</td>' + '<td>' +data[i].size + '</td>' + '<td>' +data[i].species + '</td>' + '<td>' +data[i].owner + '</td>' + '</tr>';
+                }
+                document.getElementById('filterPets').innerHTML = body;
+            }
+        }
+    });
+</script>
+
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>

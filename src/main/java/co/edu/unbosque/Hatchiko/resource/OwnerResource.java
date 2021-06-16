@@ -4,6 +4,7 @@
 package co.edu.unbosque.Hatchiko.resource;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
+import co.edu.unbosque.Hatchiko.jpa.entities.UserApp;
 import co.edu.unbosque.Hatchiko.resource.filters.Logged;
 import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.OwnerTotalPojo;
@@ -95,6 +96,7 @@ public class OwnerResource {
                 .build();
 
     }
+
     /**
      * The @GET annotation is a request method designator and corresponds to the similarly named HTTP method
      */

@@ -30,7 +30,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form method="get" action="api/owners" class="login100-form validate-form">
+            <form  action="" class="login100-form validate-form" id = "OfficialLogin">
                 <span class="login100-form-title p-b-34">
 						<a href="index.html"><img src="images/logo_t.png"/></a>
 					</span>
@@ -69,7 +69,40 @@
 
 
 <div id="dropDownSelect1"></div>
+<script>
+    var formulario = document.getElementById('OfficialLogin');
 
+    formulario.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('username'))
+        console.log(datos.get('password'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/officers/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: datos.get('username'),
+                password: datos.get('password')
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then(data => mostrarData(data));
+        const mostrarData = (data) =>{
+            console.log(data);
+
+            if(data[0] == "Official"){
+                location.href ="./official.jsp";
+            }
+        }
+
+    });
+
+</script>
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

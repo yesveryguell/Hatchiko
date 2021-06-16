@@ -30,7 +30,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form method="get" action="api/owners" class="login100-form validate-form">
+            <form class="login100-form validate-form" id = "OwnerLogin">
                 <span class="login100-form-title p-b-34">
 						<a href="index.html"><img src="images/logo_t.png"/></a>
 					</span>
@@ -74,6 +74,41 @@
 
 
 <div id="dropDownSelect1"></div>
+
+<script>
+    var formulario = document.getElementById('OwnerLogin');
+
+    formulario.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('username'))
+        console.log(datos.get('pass'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: datos.get('username'),
+                password: datos.get('pass')
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then(data => mostrarData(data));
+        const mostrarData = (data) =>{
+            console.log(data);
+
+            if(data[0] == "Owner"){
+                location.href ="./owner.jsp";
+            }
+        }
+
+    });
+
+</script>
 
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>

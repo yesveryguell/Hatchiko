@@ -449,9 +449,10 @@
 
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log('me diste un click')
 
         var datos = new FormData(formulario);
+
+        console.log(datos.get('race'))
 
         if(datos.get('id') != ""){
             fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?pet_id='+datos.get('id'))
@@ -494,7 +495,7 @@
             }
         }
 
-        if(datos.get('sepcie') != ""){
+        if(datos.get('specie') != ""){
             fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?species='+datos.get('specie'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
