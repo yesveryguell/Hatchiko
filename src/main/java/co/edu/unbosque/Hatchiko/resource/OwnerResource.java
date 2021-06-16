@@ -131,4 +131,5 @@ public class OwnerResource {
                 .entity(totalOwners)
                 .build();
     }
+
 }

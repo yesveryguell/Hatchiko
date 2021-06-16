@@ -40,6 +40,12 @@ public class OwnerRepositoryImpl implements OwnerRepository{
         return owner != null ? Optional.of(owner) : Optional.empty();
     }
 
+    @Override
+    public List<Owner> findUserName(String username) {
+        String query = "from Owner where username = '" + username + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @return
@@ -76,7 +82,6 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @param username username!= null, username!= " "
-     * @param name name!= null, name!= " "
      * @param address address!= null, address!= " "
      * @param neighborhood neighborhood!= null, neighborhood!= " "
      */
@@ -84,12 +89,11 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     /**
      * This method allows us to update the list of owners by username
      */
-    public void updateByUsername(String username, String name, String address, String neighborhood) {
+    public void updateByUsername(String username, String address, String neighborhood) {
         Owner owner = entityManager.find(Owner.class, username);
         if (owner != null) {
             try {
                 entityManager.getTransaction().begin();
-                owner.setName(name);
                 owner.setAddress(address);
                 owner.setNeighborhood(neighborhood);
                 entityManager.merge(owner);

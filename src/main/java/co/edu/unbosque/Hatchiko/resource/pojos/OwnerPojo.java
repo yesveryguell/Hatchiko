@@ -73,6 +73,16 @@ public class OwnerPojo {
         this.address = address;
         this.neighborhood = neighborhood;
     }
+
+    public OwnerPojo(String username, String email, String person_id, String name, String address, String neighborhood) {
+        this.username = username;
+        this.email = email;
+        this.person_id = person_id;
+        this.name = name;
+        this.address = address;
+        this.neighborhood = neighborhood;
+    }
+
     /**
      * Gets the value of the name attribute username of type String
      * @return username

@@ -66,6 +66,33 @@ public class OwnerService {
 
     }
 
+    public List<OwnerPojo> listOwner(String username) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        ownerRepository = new OwnerRepositoryImpl(entityManager);
+        List<Owner> owners = ownerRepository.findUserName(username);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<OwnerPojo> ownerPojo = new ArrayList<>();
+        for (Owner owner : owners) {
+            ownerPojo.add(new OwnerPojo(
+                    owner.getUserName(),
+                    owner.getEmail(),
+                    owner.getPerson_id(),
+                    owner.getName(),
+                    owner.getAddress(),
+                    owner.getNeighborhood()
+            ));
+        }
+
+        return ownerPojo;
+
+    }
+
     /**
      * This method is responsible for saving the information that is added to the list of Owners in the database
      * <b>pre</b> Information is added in the corresponding forms
@@ -114,7 +141,7 @@ public class OwnerService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         ownerRepository = new OwnerRepositoryImpl(entityManager);
-        ownerRepository.updateByUsername(username, ownerPojo.getName(), ownerPojo.getAddress(), ownerPojo.getNeighborhood());
+        ownerRepository.updateByUsername(username, ownerPojo.getAddress(), ownerPojo.getNeighborhood());
         Optional<Owner> owner = ownerRepository.findByUserName(username);
 
         entityManager.close();

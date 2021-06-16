@@ -47,10 +47,25 @@ public class OwnerUploadResource {
     public Response modify(@PathParam("username") String userName, OwnerPojo ownerPojo) {
         Optional<Owner> persistedOwner = new OwnerService().modifyOwner(userName,ownerPojo);
 
-
         return Response.ok()
                 .entity(persistedOwner.get())
                 .build();
     }
 
+    @GET
+    /**
+     * This annotation ensures that the content of the REST service is generated with different formats
+     */
+    @Produces(MediaType.APPLICATION_JSON)
+    /**
+     * This method allows you to list all the owners
+     */
+    public Response listOwner(@PathParam("username") String username){
+
+        List<OwnerPojo> owners = new OwnerService().listOwner(username);
+
+        return Response.ok()
+                .entity(owners)
+                .build();
+    }
 }

@@ -2,12 +2,10 @@ package co.edu.unbosque.Hatchiko.resource;
 
 import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.UserAppPojo;
+import co.edu.unbosque.Hatchiko.services.OwnerService;
 import co.edu.unbosque.Hatchiko.services.UserAppService;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;

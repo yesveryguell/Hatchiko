@@ -98,18 +98,42 @@
             <div class="card-body">
                 <h2 class="title">Registration Info</h2>
                 <form id="formOwner">
+
                     <div class="row row-space">
-                        <h3>Name</h3>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Name" name="name">
-                        </div>
                         <h3>Address</h3>
                         <div class="input-group">
                             <input class="input--style-2" type="text" placeholder="Address" name="address">
                         </div>
                         <h3>Neighborhood</h3>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Neighborhood" name="neighborhood">
+                        <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="neighborhood">
+                            <select name="neighborhood">
+                                <option disabled="disabled" selected="selected">Neighborhood</option>
+                                <option value="A. Nriño">A. Nriño</option>
+                                <option value="B. Unidos">B. Unidos</option>
+                                <option value="Bosa">Bosa</option>
+                                <option value="C.Bolivar">C.Bolivar</option>
+                                <option value="Chapinero">Chapinero</option>
+                                <option value="Engativa">Engativa</option>
+                                <option value="Fontibon">Fontibon</option>
+                                <option value="Kennedy">Kennedy</option>
+                                <option value="La candelaria">La candelaria</option>
+                                <option value="Los martires">Los martires</option>
+                                <option value="Municipios Aledaños Bogota D.C.">Municipios Aledaños Bogota
+                                    D.C.
+                                </option>
+                                <option value="P. Aranda">P. Aranda</option>
+                                <option value="R. Uribe">R. Uribe</option>
+                                <option value="San Cristobal">San Cristobal</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Suba">Suba</option>
+                                <option value="Sumapaz">Sumapaz</option>
+                                <option value="Teusaquillo">Teusaquillo</option>
+                                <option value="Tunjuelito">Tunjuelito</option>
+                                <option value="Usaquen">Usaquen</option>
+                                <option value="Usme">Usme</option>
+                                <option value="Sin Identificar">Sin Identificar</option>
+                            </select>
+                            <span class="focus-input100"></span>
                         </div>
                     </div>
                     <div class="p-t-30">
@@ -130,13 +154,11 @@
             <div class="card-body">
                 <h2 class="title">Pet registration</h2>
                 <form id="addPets">
+                    <input type="hidden" id="authorId" name="username" value="<%= request.getParameter("username") %>">
 
-                    <div>
-                        <input type="hidden" id="username" name="username" value="<%= request.getParameter("username") %>">
-                    </div>
                     <h3>Microchip</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Microchip" name="microchip">
+                        <input class="input--style-2" type="text" placeholder="Microchip" name="microchip" id = "microchip1">
                     </div>
                     <h3>Name</h3>
                     <div class="input-group">
@@ -187,12 +209,41 @@
     </div>
 </div>
 
+<h1>Pets</h1>
+
+<div>
+    <form id = "editOwner">
+        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+
+        <button style="background-color:#eebb55" type="submit">
+            View info
+        </button>
+    </form>
+</div>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>email</th>
+            <th>name</th>
+            <th>id</th>
+            <th>address</th>
+            <th>microchip</th>
+            <th>edit</th>
+        </tr>
+        </thead>
+        <tbody id = "owners">
+
+        </tbody>
+    </table>
+</div>
 
 <h1>Pets</h1>
 
 <div>
     <form id = "formPets">
-
         <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
 
         <button style="background-color:#eebb55" type="submit">
@@ -249,6 +300,90 @@
 
 </footer>
 
+<script>
+
+    var formulario = document.getElementById('formOwner');
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('username'))
+        console.log(datos.get('address'))
+        console.log(datos.get('neighborhood'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username'), {
+            method: 'PUT',
+            body: JSON.stringify({
+                address: datos.get('address'),
+                neighborhood: datos.get('neighborhood'),
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+</script>
+
+<script>
+
+    var formulario = document.getElementById('editOwner');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos1 = new FormData(formulario);
+
+        console.log(datos1.get('username'))
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username'))
+            .then((response) => response.json())
+            .then(data => mostrarData7(data));
+        const mostrarData7 = (data) => {
+
+
+            console.log(data);
+            var d = data[0].username;
+            console.log(d)
+            let body = ''
+            for (let i = 0; i < data.length; i++) {
+                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' + '<td>' + data[i].person_id + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>'  + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editOwner(d)"/>' + '</td>'  + '</tr>';
+            }
+            document.getElementById('owners').innerHTML = body;
+        }
+    });
+
+
+    function editOwner(info){
+        location.href ="./editOwner.jsp?username="+ info;
+    }
+
+</script>
+
+<script>
+
+    var formulario = document.getElementById('formPets');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos1 = new FormData(formulario);
+
+        console.log(datos1.get('username'))
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username')+"/pets")
+            .then((response) => response.json())
+            .then(data => mostrarData7(data));
+        const mostrarData7 = (data) => {
+            console.log(data);
+            let body = ''
+            for (let i = 0; i < data.length; i++) {
+                body += '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' + data[i].microchip + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].race + '</td>' + '<td>' + data[i].sex + '</td>' + '<td>' + data[i].size + '</td>' + '<td>' + data[i].species + '</td>' + '<td>' + data[i].picture + '</td>' + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editPet()"/>' + '</td>' + '<td>' + '    <input name="ver" type="button" value="Create case" id="ver" onclick="createdPet()"/>' + '</td>' + '</tr>';
+            }
+            document.getElementById('pets').innerHTML = body;
+        }
+    });
+</script>
 
 <script>
 
@@ -283,30 +418,10 @@
             .then((response) => response.json())
             .then((json) => console.log(json));
     });
+
 </script>
 
-<script>
-    var formulario = document.getElementById('formPets');
 
-    formulario.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        var datos1 = new FormData(formulario);
-
-        console.log(datos1.get('username'))
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username')+"/pets")
-                .then((response) => response.json())
-                .then(data => mostrarData7(data));
-            const mostrarData7 = (data) => {
-                console.log(data);
-                let body = ''
-                for (let i = 0; i < data.length; i++) {
-                    body += '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' + data[i].microchip + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].race + '</td>' + '<td>' + data[i].sex + '</td>' + '<td>' + data[i].size + '</td>' + '<td>' + data[i].species + '</td>' + '<td>' + data[i].picture + '</td>' + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editPet()"/>' + '</td>' + '<td>' + '    <input name="ver" type="button" value="Create case" id="ver" onclick="createdPet()"/>' + '</td>' + '</tr>';
-                }
-                document.getElementById('pets').innerHTML = body;
-            }
-    });
-</script>
 
 <!-- end footer -->
 <!-- Javascript files-->
