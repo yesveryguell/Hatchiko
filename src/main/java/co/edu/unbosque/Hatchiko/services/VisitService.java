@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -59,7 +60,7 @@ public class VisitService {
         for (Visit visit : visits) {
             visitPojo.add(new VisitPojo(
                    visit.getVisit_id(),
-                    visit.getCreated_at(),
+                    visit.getCreated_at().getYear(),
                     visit.getType(),
                     visit.getDescription()
             ));
@@ -83,12 +84,13 @@ public class VisitService {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+        LocalDate date1 = LocalDate.parse(String.valueOf(visitPojo.getCreated_at()));
         visitRepository = new VisitRepositoryImpl(entityManager);
         vetRepository = new VetRepositoryImpl(entityManager);
         petRepository = new PetRepositoryImpl(entityManager);
         Optional<Vet> vet = vetRepository.findByUserName(username);
         Optional<Pet> pet = petRepository.findById(pet_id);
-        Visit visit = new Visit(visitPojo.getCreated_at(), visitPojo.getType(), visitPojo.getDescription());
+        Visit visit = new Visit(date1, visitPojo.getType(), visitPojo.getDescription());
         vet.ifPresent(a -> {
             a.addVisit(visit);
             vetRepository.save(a);

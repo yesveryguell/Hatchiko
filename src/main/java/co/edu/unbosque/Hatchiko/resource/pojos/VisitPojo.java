@@ -18,7 +18,7 @@ public class VisitPojo {
     /**
      * Private type attribute with alphanumeric variable String of name created_at
      */
-    private LocalDate created_at;
+    private String created_at;
     /**
      * Private type attribute with alphanumeric variable String of name type
      */
@@ -31,17 +31,21 @@ public class VisitPojo {
     /**
      * Empty constructor
      */
+
+    private Integer anio;
+
     public VisitPojo() {
     }
 
     /**
      * Constructor 1 that includes the 4 numeric and alphanumeric variables Integer visit_idString created_at, type, description
-     * @param visit_id visitor id visit_id!= null, visit_id!=" "
-     * @param created_at Case creation created_at!= null, created_at!=" "
-     * @param type Case type type!= null, type!=" "
+     *
+     * @param visit_id    visitor id visit_id!= null, visit_id!=" "
+     * @param created_at  Case creation created_at!= null, created_at!=" "
+     * @param type        Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public VisitPojo(int visit_id, LocalDate created_at, String type, String description) {
+    public VisitPojo(int visit_id, String created_at, String type, String description) {
         this.visit_id = visit_id;
         this.created_at = created_at;
         this.type = type;
@@ -50,17 +54,27 @@ public class VisitPojo {
 
     /**
      * Constructor 2 that includes the 3 alphanumeric variables String created_at, type y description
-     * @param created_at Case creation created_at!= null, created_at!=" "
-     * @param type Case type type!= null, type!=" "
+     *
+     * @param created_at  Case creation created_at!= null, created_at!=" "
+     * @param type        Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public VisitPojo(LocalDate created_at, String type, String description) {
+    public VisitPojo(String created_at, String type, String description) {
         this.created_at = created_at;
         this.type = type;
         this.description = description;
     }
+
+    public VisitPojo(int visit_id, Integer anio, String type, String description) {
+        this.visit_id = visit_id;
+        this.type = type;
+        this.description = description;
+        this.anio = anio;
+    }
+
     /**
      * Gets the value of the name attribute visit_id of type Integer
+     *
      * @return visit_id
      */
     public Integer getVisit_id() {
@@ -69,28 +83,34 @@ public class VisitPojo {
 
     /**
      * Update or modify the attribute name
+     *
      * @param visit_id visitor id visit_id!= null, visit_id!=" "
      */
     public void setVisit_id(Integer visit_id) {
         this.visit_id = visit_id;
     }
+
     /**
-     *Gets the value of the name attribute created_at of type String
+     * Gets the value of the name attribute created_at of type String
+     *
      * @return created_at
      */
-    public LocalDate getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
     /**
      * Update or modify the attribute name
+     *
      * @param created_at Case creation created_at!= null, created_at!=" "
      */
-    public void setCreated_at(LocalDate created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
     /**
      * Gets the value of the name attribute type of type String
+     *
      * @return type
      */
     public String getType() {
@@ -99,13 +119,16 @@ public class VisitPojo {
 
     /**
      * Update or modify the attribute name
+     *
      * @param type Case type type!= null, type!=" "
      */
     public void setType(String type) {
         this.type = type;
     }
+
     /**
      * Gets the value of the name attribute description of type String
+     *
      * @return description
      */
     public String getDescription() {
@@ -114,9 +137,18 @@ public class VisitPojo {
 
     /**
      * Update or modify the attribute name
+     *
      * @param description Case description description!= null, description!=" "
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
     }
 }
