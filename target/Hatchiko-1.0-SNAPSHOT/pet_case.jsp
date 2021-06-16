@@ -80,18 +80,6 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="index.html">Home</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#service"> Service</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#contact">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.jsp"> About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="signOwner.jsp">Sign In</a>
-                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -106,21 +94,28 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <form>
-                    <h3>Created</h3>
+                    <h3>Created at: </h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Created" name="created">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created">
                     </div>
                     <div class="input-group">
-                        <h3>Type</h3>
-                        <input class="input--style-2" placeholder="Type" type="text" name="type">
+                        <h3>Type: </h3>
+                        <select name="specie" required>
+                            <option disabled="disabled" selected="selected">Specie</option>
+                            <option value="lost-it">Lost it</option>
+                            <option value="stolen">Stolen</option>
+                            <option value="dead">Dead</option>
+                        </select>
+                        <div class="select-dropdown"></div>
                     </div>
 
                     <div class="input-group">
-                        <h3>Description</h3>
+                        <h3>Description: </h3>
                         <input class="input--style-2" placeholder="Description" type="text" name="description">
                     </div>
                     <div class="p-t-30">
-                        <button class="btn btn--radius btn--green" type="submit">Add</button>
+                        <button class="btn btn--radius btn--green" type="submit">Update</button>
+                        <a class="btn btn--radius btn--green" href="visit.jsp">Add visit</a>
                     </div>
                 </form>
             </div>

@@ -16,6 +16,8 @@ import java.util.Optional;
 public interface PetRepository {
     Optional<Pet> findById(Integer id);
 
+    List<Pet> findByOwner(String owner);
+
     List<Pet> findByIdList(Integer id);
 
     List<Pet> findByIdMicrochip(String microchip);

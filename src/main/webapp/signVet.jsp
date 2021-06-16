@@ -101,7 +101,7 @@
             console.log(data);
 
             if(data[0] == "Vet"){
-                location.href ="./vet.jsp";
+                location.href ="./vet.jsp?username=" + datos.get('username');
             }
         }
 

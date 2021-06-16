@@ -280,6 +280,35 @@ public class PetService {
 
     }
 
+    public List<PetPojo> listPetOwner(String username) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        List<Pet> pets = petRepository.findByOwner(username);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetPojo> petPojo = new ArrayList<>();
+        for (Pet pet : pets) {
+            petPojo.add(new PetPojo(
+                    pet.getPet_id(),
+                    pet.getMicrochip(),
+                    pet.getName(),
+                    pet.getSpecies(),
+                    pet.getRace(),
+                    pet.getSize(),
+                    pet.getSex(),
+                    pet.getPicture()
+            ));
+        }
+
+        return petPojo;
+
+    }
+
     /**
      * This method is responsible for saving the information that is added to the list of Pet in the database
      * <b>pre</b> Information is added in the corresponding forms

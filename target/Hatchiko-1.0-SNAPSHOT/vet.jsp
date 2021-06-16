@@ -80,18 +80,6 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="index.html">Home</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#service"> Service</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#contact">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.jsp"> About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="signOwner.jsp">Sign In</a>
-                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -108,13 +96,17 @@
             <div class="card-body">
                 <h2 class="title">Registration Info</h2>
                 <form id="formVet">
-                    <h3>Username</h3>
+                    <h3>Name</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Username" name="username">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name">
                     </div>
-                    <h3>Password</h3>
+                    <h3>Address</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="password" placeholder="Password" name="password">
+                        <input class="input--style-2" type="text" placeholder="Address" name="address">
+                    </div>
+                    <h3>Neighborhood</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Neighborhood" name="neighborhood">
                     </div>
                 </form>
             </div>

@@ -80,18 +80,6 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="index.html">Home</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#service"> Service</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#contact">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.jsp"> About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="signOwner.jsp">Sign In</a>
-                                </li>
                             </ul>
                         </div>
                     </nav>

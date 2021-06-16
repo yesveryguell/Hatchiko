@@ -39,6 +39,12 @@ public class PetRepositoryImpl implements PetRepository{
     }
 
     @Override
+    public List<Pet> findByOwner(String owner) {
+        String query = "from Pet where owner = '" + owner + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
     public List<Pet> findByIdList(Integer id) {
         String query = "from Pet where pet_id = " + id;
         return entityManager.createQuery(query).getResultList();

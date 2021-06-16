@@ -122,6 +122,109 @@
         </div>
     </div>
 </div>
+
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Pet registration</h2>
+                <form id="addPets">
+
+                    <div>
+                        <input type="hidden" id="username" name="username" value="<%= request.getParameter("username") %>">
+                    </div>
+                    <h3>Microchip</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Microchip" name="microchip">
+                    </div>
+                    <h3>Name</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name">
+                    </div>
+
+                    <h3>Species</h3>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="specie" required>
+                                    <option disabled="disabled" selected="selected">Specie</option>
+                                    <option value="Canino">Canine</option>
+                                    <option value="Felino">Feline</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Race</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" placeholder="Race" type="text" name="race">
+                    </div>
+                    <h3>Size</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" placeholder="Size" type="text" name="size">
+                    </div>
+                    <h3>Sex</h3>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="sex" required>
+                                    <option disabled="disabled" selected="selected">Sex</option>
+                                    <option value="Macho">Male</option>
+                                    <option value="Hembra">Female</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-30">
+                        <button class="btn btn--radius btn--green" type="submit">Add</button>
+                        <a href="pet_case.jsp" class="btn btn--radius btn--green">Add pet case</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1>Pets</h1>
+
+<%--<div>--%>
+<%--    <form id = "formPets">--%>
+
+<%--        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">--%>
+
+<%--        <button style="background-color:#eebb55" type="submit">--%>
+<%--            View pets--%>
+<%--        </button>--%>
+<%--    </form>--%>
+<%--</div>--%>
+
+
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Pet_id</th>
+            <th>microchip</th>
+            <th>name</th>
+            <th>race</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>species</th>
+            <th>picture</th>
+            <th>Edit</th>
+            <th>Created case</th>
+        </tr>
+        </thead>
+        <tbody id = "pets">
+
+        </tbody>
+    </table>
+</div>
+
 <!-- Hosting -->
 <footer>
     <div class="footer">
@@ -146,26 +249,33 @@
 
 </footer>
 
+
 <script>
-    var formulario = document.getElementById('formOwner');
+
+    var formulario = document.getElementById('addPets');
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log('me diste un click')
 
         var datos = new FormData(formulario);
 
-        //console.log(datos.get('owner'))
         console.log(datos.get('username'))
-        console.log(datos.get('email'))
-        console.log(datos.get('password'))
-        console.log(datos.get('person_id'))
+        console.log(datos.get('microchip'))
         console.log(datos.get('name'))
-        console.log(datos.get('address'))
-        console.log(datos.get('neighborhood'))
+        console.log(datos.get('specie'))
+        console.log(datos.get('race'))
+        console.log(datos.get('size'))
+        console.log(datos.get('sex'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners', {
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username') + '/pets', {
             method: 'POST',
-            body: datos,
+            body: JSON.stringify({
+                microchip: datos.get('microchip'),
+                name: datos.get('name'),
+                species: datos.get('specie'),
+                race: datos.get('race'),
+                size: datos.get('size'),
+                sex: datos.get('sex'),
+            }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
@@ -174,6 +284,30 @@
             .then((json) => console.log(json));
     });
 </script>
+
+<%--<script>--%>
+<%--    var formulario = document.getElementById('formPets');--%>
+
+<%--    formulario.addEventListener('submit', function (e) {--%>
+<%--        e.preventDefault();--%>
+
+<%--        var datos = new FormData(formulario);--%>
+
+<%--        console.log(datos.get('username'))--%>
+<%--            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos.get('username')+"/pets")--%>
+<%--                .then((response) => response.json())--%>
+<%--                .then(data => mostrarData7(data));--%>
+<%--            const mostrarData7 = (data) => {--%>
+<%--                console.log(data);--%>
+<%--                let body = ''--%>
+<%--                for (let i = 0; i < data.length; i++) {--%>
+<%--                    body += '<tr>' + '<td>' + data[i].pet_id + '</td>' + '<td>' + data[i].microchip + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].race + '</td>' + '<td>' + data[i].sex + '</td>' + '<td>' + data[i].size + '</td>' + '<td>' + data[i].species + '</td>' + '<td>' + data[i].picture + '</td>' + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editPet()"/>' + '</td>' + '<td>' + '    <input name="ver" type="button" value="Create case" id="ver" onclick="createdPet()"/>' + '</td>' + '</tr>';--%>
+<%--                }--%>
+<%--                document.getElementById('pets').innerHTML = body;--%>
+<%--            }--%>
+<%--    });--%>
+<%--</script>--%>
+
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>

@@ -102,7 +102,7 @@
             console.log(data);
 
             if(data[0] == "Owner"){
-                location.href ="./owner.jsp";
+                location.href ="./owner.jsp?username=" + datos.get('username');
             }
         }
 

@@ -96,7 +96,7 @@
             console.log(data);
 
             if(data[0] == "Official"){
-                location.href ="./official.jsp";
+                location.href ="./official.jsp?username="+datos.get('username');
             }
         }
 

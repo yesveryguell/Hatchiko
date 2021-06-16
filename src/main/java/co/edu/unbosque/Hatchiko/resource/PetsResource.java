@@ -70,4 +70,21 @@ public class PetsResource {
         }
     }
 
+    @GET
+    /**
+     * This annotation ensures that the content of the REST service is generated with different formats
+     */
+    @Produces(MediaType.APPLICATION_JSON)
+    /**
+     * This method allows you to list all the pets by race
+     */
+    public Response listPetsOfOwners(@PathParam("username") String username) {
+
+        List<PetPojo> pets = new PetService().listPetOwner(username);
+
+        return Response.ok()
+                .entity(pets)
+                .build();
+    }
+
 }
