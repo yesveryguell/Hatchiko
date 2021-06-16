@@ -108,6 +108,55 @@
                     <div class="input-group">
                         <input class="input--style-2" type="text" placeholder="Neighborhood" name="neighborhood">
                     </div>
+                    <div class="p-t-30">
+                        <button class="btn btn--radius btn--green" type="submit">Update</button>
+                        <a class="btn btn--radius btn--green" href="visit.jsp">Add visit</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <form id="addVisit">
+                    <div>
+                        <input type="hidden" id="username" name="username" value="<%= request.getParameter("username") %>">
+                    </div>
+
+                    <h3>Id:</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="number" placeholder="Id pet" name="id">
+                    </div>
+                    <h3>Created at:</h3>
+                    <div class="input-group">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created_at">
+                    </div>
+                    <div class="input-group">
+                        <h3>Type: </h3>
+                        <select name="type" required>
+                            <option disabled="disabled" selected="selected">Types</option>
+                            <option value="sterilization">Sterilization</option>
+                            <option value="implement-microchip">Implement microchip</option>
+                            <option value="vaccine">Vaccine</option>
+                            <option value="desparasitación">Desparasitación</option>
+                            <option value="urgency">Urgency</option>
+                            <option value="control">Control</option>
+                        </select>
+                        <div class="select-dropdown"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <h3>Description: </h3>
+                        <input class="input--style-2" placeholder="Description" type="text" name="description">
+                    </div>
+                    <div class="p-t-30">
+                        <button class="btn btn--radius btn--green" type="submit">Add</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -138,29 +187,23 @@
 </footer>
 
 <script>
-    var formulario = document.getElementById('formVet');
+    var formulario = document.getElementById('addVisit');
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
         var datos = new FormData(formulario);
-
-        //console.log(datos.get('owner'))
         console.log(datos.get('username'))
-        console.log(datos.get('email'))
-        console.log(datos.get('password'))
-        console.log(datos.get('name'))
-        console.log(datos.get('address'))
-        console.log(datos.get('neighborhood'))
+        console.log(datos.get('id'))
+        console.log(datos.get('created_at'))
+        console.log(datos.get('type'))
+        console.log(datos.get('description'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets', {
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('id') + '/visits', {
             method: 'POST',
             body: JSON.stringify({
-                username: datos.get('username'),
-                email: datos.get('email'),
-                password: datos.get('password'),
-                name: datos.get('name'),
-                address: datos.get('address'),
-                neighborhood: datos.get('neighborhood'),
+                created_at: datos.get('created_at'),
+                type: datos.get('type'),
+                description: datos.get('description'),
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
