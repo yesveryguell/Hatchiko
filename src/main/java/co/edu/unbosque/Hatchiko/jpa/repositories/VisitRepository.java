@@ -20,6 +20,8 @@ public interface VisitRepository {
 
     List<Visit> findByVet(String vet);
 
+    List<Visit> findByDate(String username, String date1, String date2);
+
     List<Visit> findAll();
 
     Optional<Visit> save(Visit visit);

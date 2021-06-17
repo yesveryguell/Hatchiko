@@ -65,6 +65,33 @@ public class VetService {
 
     }
 
+    public List<VetPojo> listVet(String username) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        vetRepository = new VetRepositoryImpl(entityManager);
+        List<Vet> vets = vetRepository.findUserName(username);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<VetPojo> vetPojo = new ArrayList<>();
+        for (Vet vet : vets) {
+            vetPojo.add(new VetPojo(
+                    vet.getUserName(),
+                    vet.getPassword(),
+                    vet.getEmail(),
+                    vet.getName(),
+                    vet.getAddress(),
+                    vet.getNeighborhood()
+            ));
+        }
+
+        return vetPojo;
+
+    }
+
     /**
      * This method is responsible for saving the information that is added to the list of vet in the database
      * <b>pre</b> Information is added in the corresponding forms

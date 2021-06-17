@@ -5,10 +5,7 @@ import co.edu.unbosque.Hatchiko.resource.pojos.VisitPojo;
 import co.edu.unbosque.Hatchiko.services.PetService;
 import co.edu.unbosque.Hatchiko.services.VisitService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -24,12 +21,24 @@ public class VisitsResource {
     /**
      * This method allows you to list all the pets by race
      */
-    public Response listVisits(@PathParam("username") String username) {
+    public Response listVisits(@PathParam("username") String username, @QueryParam("date1") String date1, @QueryParam("date2") String date2) {
 
-        List<VisitPojo> visits = new VisitService().listVisitVet(username);
+        if(date1 == null && date2 == null){
+            List<VisitPojo> visits = new VisitService().listVisitVet(username);
 
-        return Response.ok()
-                .entity(visits)
-                .build();
+            return Response.ok()
+                    .entity(visits)
+                    .build();
+        }
+        if(date1 != null && date2 != null){
+            List<VisitPojo> visits = new VisitService().listVisitDate(username, date1, date2);
+
+            return Response.ok()
+                    .entity(visits)
+                    .build();
+        } else{
+            return null;
+        }
+
     }
 }

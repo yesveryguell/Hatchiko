@@ -218,7 +218,7 @@
         console.log(datos.get('type'))
         console.log(datos.get('description'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pet/' + 1 + '/petCases', {
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/' + 1 + '/petCases', {
             method: 'POST',
             body: JSON.stringify({
                 created_at: datos.get('created_at'),

@@ -130,7 +130,7 @@
 
                     <h3>Id:</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="number" placeholder="Id pet" name="id">
+                        <input class="input--style-2" type="number" placeholder="Id pet" name="pet_id">
                     </div>
                     <h3>Created at:</h3>
                     <div class="input-group">
@@ -163,6 +163,37 @@
     </div>
 </div>
 
+<h1>Info</h1>
+
+<div>
+    <form id = "formVets">
+
+        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+
+        <button style="background-color:#eebb55" type="submit">
+            View info
+        </button>
+    </form>
+</div>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>username</th>
+            <th>email</th>
+            <th>name</th>
+            <th>address</th>
+            <th>neighborhood</th>
+            <th>edit</th>
+        </tr>
+        </thead>
+        <tbody id = "vet">
+
+        </tbody>
+    </table>
+</div>
+
 <h1>Visits</h1>
 
 <div>
@@ -178,14 +209,18 @@
 
 
 
+
 <div>
     <table class="table table-dark table-striped table-bordered">
         <thead>
         <tr>
             <th>Visit_id</th>
-            <th>Created_at</th>
             <th>Type</th>
             <th>Description</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+
         </tr>
         </thead>
         <tbody id = "visits">
@@ -193,6 +228,23 @@
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+<div>
+    <form id = "inner">
+
+        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+
+        <button style="background-color:#eebb55" type="submit">
+            Edit
+        </button>
+    </form>
+</div>
+
 <!-- Hosting -->
 <footer>
     <div class="footer">
@@ -221,7 +273,7 @@
 
 <script>
 
-    var formulario = document.getElementById('editOwner');
+    var formulario = document.getElementById('formVets');
 
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -235,38 +287,77 @@
         var username = document.getElementById('username');
         const mostrarData7 = (data) => {
 
-            console.log(data);
-            console.log(d)
             let body = ''
             for (let i = 0; i < data.length; i++) {
-                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' + '<td>' + data[i].person_id + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>'  + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editOwner(d)"/>' + '</td>'  + '</tr>';
+                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>'  + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editVet(d)"/>' + '</td>'  + '</tr>';
             }
-            document.getElementById('owners').innerHTML = body;
+            document.getElementById('vet').innerHTML = body;
         }
     });
 
 
-    function editOwner(info){
+    function editVet(info){
         location.href ="./editOwner.jsp?username="+ info;
     }
 
 </script>
 
+
+
 <script>
+
+    var formulario = document.getElementById('formVisits');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos1 = new FormData(formulario);
+
+        console.log(datos1.get('username'))
+
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/'+datos1.get('username')+'/visits')
+                .then((response) => response.json())
+                .then(data => mostrarData7(data));
+            var username = document.getElementById('username');
+            const mostrarData7 = (data) => {
+
+                let body = ''
+                for (let i = 0; i < data.length; i++) {
+                    body += '<tr>' + '<td>' + data[i].visit_id + '</td>' + '<td>' + data[i].type + '</td>' + '<td>' + data[i].description + '</td>' + '<td>' + data[i].year + '</td>' + '<td>' + data[i].month + '</td>'  + '<td>' + data[i].day + '</td>' + '</tr>';
+                }
+                document.getElementById('visits').innerHTML = body;
+            }
+
+    });
+
+
+    function editVet(info){
+        location.href ="./editOwner.jsp?username="+ info;
+    }
+
+</script>
+
+
+
+
+<script>
+
     var formulario = document.getElementById('addVisit');
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
         var datos = new FormData(formulario);
+
         console.log(datos.get('username'))
-        console.log(datos.get('id'))
+        console.log(datos.get('pet_id'))
         console.log(datos.get('created_at'))
         console.log(datos.get('type'))
         console.log(datos.get('description'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('id') + '/visits', {
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
             method: 'POST',
             body: JSON.stringify({
+                pet_id: datos.get('pet_id'),
                 created_at: datos.get('created_at'),
                 type: datos.get('type'),
                 description: datos.get('description'),
@@ -278,6 +369,27 @@
             .then((response) => response.json())
             .then((json) => console.log(json));
     });
+
+
+
+</script>
+
+<script>
+
+    var formulario = document.getElementById('inner');
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('username'))
+        location.href ="./editVet.jsp?username="+ datos.get('username');
+
+
+    });
+
+
+
 </script>
 
 <!-- end footer -->

@@ -23,7 +23,7 @@ import java.util.Optional;
  * allows you to define complex expressions, thus converting certain sections of the URL into parameters that can be
  * used by the methods to know how to process the request.
  */
-@Path("/owners")
+@Path("/pets")
 /**
  * The class is initialized PetCaseResource
  */
@@ -35,7 +35,7 @@ public class PetCaseResource {
      * @return
      */
     @POST
-    @Path("/pet/{pet_id}/petCases")
+    @Path("/{pet_id}/petCases")
     /**
      * Annotation is used to specify what types of MIME media renderings a client resource can accept or consume.
      */

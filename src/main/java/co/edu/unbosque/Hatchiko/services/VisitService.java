@@ -60,10 +60,12 @@ public class VisitService {
         List<VisitPojo> visitPojo = new ArrayList<>();
         for (Visit visit : visits) {
             visitPojo.add(new VisitPojo(
-                   visit.getVisit_id(),
-                    visit.getCreated_at().getYear(),
+                    visit.getVisit_id(),
                     visit.getType(),
-                    visit.getDescription()
+                    visit.getDescription(),
+                    visit.getCreated_at().getYear(),
+                    visit.getCreated_at().getMonthValue(),
+                    visit.getCreated_at().getDayOfMonth()
             ));
         }
 
@@ -86,9 +88,38 @@ public class VisitService {
         for (Visit visit : visits) {
             visitPojos.add(new VisitPojo(
                    visit.getVisit_id(),
-                    visit.getCreated_at().getYear(),
                     visit.getType(),
-                    visit.getDescription()
+                    visit.getDescription(),
+                    visit.getCreated_at().getYear(),
+                    visit.getCreated_at().getMonthValue(),
+                    visit.getCreated_at().getDayOfMonth()
+            ));
+        }
+
+        return visitPojos;
+
+    }
+
+    public List<VisitPojo> listVisitDate(String username, String date1, String date2) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        visitRepository = new VisitRepositoryImpl(entityManager);
+        List<Visit> visits = visitRepository.findByDate(username, date1, date2);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<VisitPojo> visitPojos = new ArrayList<>();
+        for (Visit visit : visits) {
+            visitPojos.add(new VisitPojo(
+                    visit.getVisit_id(),
+                    visit.getType(),
+                    visit.getDescription(),
+                    visit.getCreated_at().getYear(),
+                    visit.getCreated_at().getMonthValue(),
+                    visit.getCreated_at().getDayOfMonth()
             ));
         }
 

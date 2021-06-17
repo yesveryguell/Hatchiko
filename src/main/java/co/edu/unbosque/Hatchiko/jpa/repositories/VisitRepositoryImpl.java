@@ -42,7 +42,13 @@ public class VisitRepositoryImpl implements VisitRepository{
 
     @Override
     public List<Visit> findByVet(String vet) {
-        String query = "from Visit where vet = '" + vet + "'";
+        String query = "from Visit where vet = '" + vet + "' order by created_at desc";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Visit> findByDate(String username, String date1, String date2) {
+        String query = "from Visit where vet = '" + username + "'and created_at >= '" + date1 + "' and created_at <= '" + date2 + "'";
         return entityManager.createQuery(query).getResultList();
     }
 
@@ -55,7 +61,8 @@ public class VisitRepositoryImpl implements VisitRepository{
      * This method allows us to search and find the data that has been entered into the list of visits
      */
     public List<Visit> findAll() {
-        return entityManager.createQuery("from Visit ").getResultList();
+
+        return entityManager.createQuery("from Visit order by created_at desc").getResultList();
     }
 
     /**

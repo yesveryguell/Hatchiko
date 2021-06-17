@@ -38,6 +38,13 @@ public class VetRepositoryImpl implements VetRepository{
         Vet vet = entityManager.find(Vet.class, userName);
         return vet != null ? Optional.of(vet) : Optional.empty();
     }
+
+    @Override
+    public List<Vet> findUserName(String username) {
+        String query = "from Vet where username = '" + username + "'";
+        return entityManager.createQuery(query).getResultList();
+    }
+
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @return

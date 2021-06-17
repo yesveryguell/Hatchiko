@@ -32,7 +32,11 @@ public class VisitPojo {
      * Empty constructor
      */
 
-    private Integer anio;
+    private Integer year;
+
+    private Integer month;
+
+    private Integer day;
 
     public VisitPojo() {
     }
@@ -65,11 +69,13 @@ public class VisitPojo {
         this.description = description;
     }
 
-    public VisitPojo(int visit_id, Integer anio, String type, String description) {
+    public VisitPojo(int visit_id, String type, String description, Integer year, Integer month, Integer day) {
         this.visit_id = visit_id;
         this.type = type;
         this.description = description;
-        this.anio = anio;
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
     /**
@@ -144,11 +150,27 @@ public class VisitPojo {
         this.description = description;
     }
 
-    public Integer getAnio() {
-        return anio;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setAnio(Integer anio) {
-        this.anio = anio;
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
     }
 }

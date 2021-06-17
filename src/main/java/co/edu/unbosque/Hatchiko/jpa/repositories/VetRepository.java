@@ -17,6 +17,8 @@ public interface VetRepository {
 
     Optional<Vet> findByUserName(String userName);
 
+    List<Vet> findUserName(String userName);
+
     List<Vet> findAll();
 
     Optional<Vet> save(Vet vet);
