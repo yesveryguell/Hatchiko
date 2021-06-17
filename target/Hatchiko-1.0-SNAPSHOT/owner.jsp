@@ -111,8 +111,8 @@
         <tr>
             <th>Username</th>
             <th>email</th>
-            <th>name</th>
             <th>id</th>
+            <th>name</th>
             <th>address</th>
             <th>neighborhood</th>
         </tr>
