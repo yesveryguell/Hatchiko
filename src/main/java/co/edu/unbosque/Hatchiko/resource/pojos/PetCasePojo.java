@@ -17,7 +17,7 @@ public class PetCasePojo {
     /**
      * Private type attribute with alphanumeric variable String of name created_at
      */
-    private LocalDate created_at;
+    private String created_at;
     /**
      * Private type attribute with alphanumeric variable String of name type
      */
@@ -26,6 +26,9 @@ public class PetCasePojo {
      * Private type attribute with alphanumeric variable String of name description
      */
     private String description;
+
+    private Integer anio;
+
     /**
      * Empty constructor
      */
@@ -38,7 +41,7 @@ public class PetCasePojo {
      * @param type Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public PetCasePojo(Integer case_id, LocalDate created_at, String type, String description) {
+    public PetCasePojo(Integer case_id, String created_at, String type, String description) {
         this.case_id = case_id;
         this.created_at = created_at;
         this.type = type;
@@ -50,10 +53,17 @@ public class PetCasePojo {
      * @param type Case type type!= null, type!=" "
      * @param description Case description description!= null, description!=" "
      */
-    public PetCasePojo(LocalDate created_at, String type, String description) {
+    public PetCasePojo(String created_at, String type, String description) {
         this.created_at = created_at;
         this.type = type;
         this.description = description;
+    }
+
+    public PetCasePojo(Integer case_id, Integer anio, String type, String description) {
+        this.case_id = case_id;
+        this.type = type;
+        this.description = description;
+        this.anio = anio;
     }
 
     /**
@@ -76,7 +86,7 @@ public class PetCasePojo {
      *Gets the value of the name attribute created_at of type String
      * @return created_at
      */
-    public LocalDate getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
@@ -84,7 +94,7 @@ public class PetCasePojo {
      * Update or modify the attribute name
      * @param created_at Case creation created_at!= null, created_at!=" "
      */
-    public void setCreated_at(LocalDate created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
     /**
@@ -116,5 +126,13 @@ public class PetCasePojo {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
     }
 }

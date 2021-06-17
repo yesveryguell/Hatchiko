@@ -15,6 +15,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +41,7 @@ public class PetCaseService {
      * This method is responsible for storing the information that is added to the Pet Case list in the database
      * <b>pre</b> The information previously added in the forms is saved
      * <b>post</b> The information is saved in the list, which causes it to be stored in the database
+     *
      * @return casePojo
      */
     public List<PetCasePojo> listCase() {
@@ -56,8 +58,8 @@ public class PetCaseService {
         List<PetCasePojo> casePojo = new ArrayList<>();
         for (PetCase case1 : aCases) {
             casePojo.add(new PetCasePojo(
-                   case1.getCase_id(),
-                    case1.getCreated_at(),
+                    case1.getCase_id(),
+                    case1.getCreated_at().getYear(),
                     case1.getType(),
                     case1.getDescription()
             ));
@@ -82,7 +84,7 @@ public class PetCaseService {
         for (PetCase case1 : aCases) {
             casePojo.add(new PetCasePojo(
                     case1.getCase_id(),
-                    case1.getCreated_at(),
+                    case1.getCreated_at().getYear(),
                     case1.getType(),
                     case1.getDescription()
             ));
@@ -96,8 +98,9 @@ public class PetCaseService {
      * This method is responsible for saving the information that is added to the list of Pet Case in the database
      * <b>pre</b> Information is added in the corresponding forms
      * <b>post</b> The information is saved and stored in the database
+     *
      * @param PetCasePojo PetCasePojo!= null, PetCasePojo!=" "
-     * @param pet_id pet_id!= null, pet_id!=" "
+     * @param pet_id      pet_id!= null, pet_id!=" "
      * @return persistedCase
      */
     public Optional<PetCase> savePetCase(PetCasePojo PetCasePojo, Integer pet_id) {
@@ -105,10 +108,12 @@ public class PetCaseService {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+
+        LocalDate date1 = LocalDate.parse(PetCasePojo.getCreated_at());
         caseRepository = new PetCaseRepositoryImpl(entityManager);
         petRepository = new PetRepositoryImpl(entityManager);
         Optional<Pet> pet = petRepository.findById(pet_id);
-        PetCase petCase = new PetCase(PetCasePojo.getCreated_at(), PetCasePojo.getType(), PetCasePojo.getDescription());
+        PetCase petCase = new PetCase(date1, PetCasePojo.getType(), PetCasePojo.getDescription());
         pet.ifPresent(a -> {
             a.addPetCase(petCase);
             petRepository.save(a);
@@ -125,7 +130,8 @@ public class PetCaseService {
      * This method allows us to modify the information that was added in the lists and that was saved in the databases
      * <b>pre</b> You are looking for the information you want to modify
      * <b>post</b> It is modified and the changes are saved
-     * @param id id!= null, id!=" "
+     *
+     * @param id     id!= null, id!=" "
      * @param aCases aCases!= null, aCases!=" "
      */
     public void modifyCase(Integer id, PetCase aCases) {
@@ -139,7 +145,6 @@ public class PetCaseService {
         entityManager.close();
         entityManagerFactory.close();
     }
-
 
 
 }

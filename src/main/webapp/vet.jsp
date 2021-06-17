@@ -217,6 +217,41 @@
 
 </footer>
 
+
+
+<script>
+
+    var formulario = document.getElementById('editOwner');
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos1 = new FormData(formulario);
+
+        console.log(datos1.get('username'))
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/'+datos1.get('username'))
+            .then((response) => response.json())
+            .then(data => mostrarData7(data));
+        var username = document.getElementById('username');
+        const mostrarData7 = (data) => {
+
+            console.log(data);
+            console.log(d)
+            let body = ''
+            for (let i = 0; i < data.length; i++) {
+                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' + '<td>' + data[i].person_id + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>'  + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editOwner(d)"/>' + '</td>'  + '</tr>';
+            }
+            document.getElementById('owners').innerHTML = body;
+        }
+    });
+
+
+    function editOwner(info){
+        location.href ="./editOwner.jsp?username="+ info;
+    }
+
+</script>
+
 <script>
     var formulario = document.getElementById('addVisit');
     formulario.addEventListener('submit', function (e) {
