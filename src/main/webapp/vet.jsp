@@ -155,33 +155,6 @@
         </button>
     </form>
 </div>
-
-<!-- Hosting -->
-<footer>
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a><a
-                                href="hello-servlet">Hello Servlet</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</footer>
-
-
-
 <script>
 
     var formulario = document.getElementById('formVets');
