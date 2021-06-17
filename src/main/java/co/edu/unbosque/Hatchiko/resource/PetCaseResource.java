@@ -31,12 +31,11 @@ public class PetCaseResource {
     /**
      * This can be very useful for us to communicate with a web service.
      * @param petCasePojo petCasePojo!=null, petCasePojo!=" "
-     * @param username username!=null, username!=" "
      * @param pet_id pet_id!=null, pet_id!=" "
      * @return
      */
     @POST
-    @Path("/{username}/pet/{pet_id}/petCases")
+    @Path("/pet/{pet_id}/petCases")
     /**
      * Annotation is used to specify what types of MIME media renderings a client resource can accept or consume.
      */
@@ -53,7 +52,7 @@ public class PetCaseResource {
      * parameters are extracted from the request URI, and the parameter names correspond to the URI path template
      * variable names specified in the @Path class-level annotation.
      */
-    public Response create(PetCasePojo petCasePojo, @PathParam("username") String username, @PathParam("pet_id") Integer pet_id) {
+    public Response create(PetCasePojo petCasePojo, @PathParam("pet_id") Integer pet_id) {
 
         Optional<PetCase> persistedPetCase = new PetCaseService().savePetCase(petCasePojo, pet_id);
 

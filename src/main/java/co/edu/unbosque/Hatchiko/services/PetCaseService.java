@@ -6,10 +6,8 @@ package co.edu.unbosque.Hatchiko.services;
 import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
 import co.edu.unbosque.Hatchiko.jpa.entities.PetCase;
-import co.edu.unbosque.Hatchiko.jpa.repositories.PetCaseRepository;
-import co.edu.unbosque.Hatchiko.jpa.repositories.PetCaseRepositoryImpl;
-import co.edu.unbosque.Hatchiko.jpa.repositories.PetRepository;
-import co.edu.unbosque.Hatchiko.jpa.repositories.PetRepositoryImpl;
+import co.edu.unbosque.Hatchiko.jpa.repositories.*;
+import co.edu.unbosque.Hatchiko.resource.pojos.OwnerPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetCasePojo;
 
 
@@ -59,6 +57,31 @@ public class PetCaseService {
         for (PetCase case1 : aCases) {
             casePojo.add(new PetCasePojo(
                    case1.getCase_id(),
+                    case1.getCreated_at(),
+                    case1.getType(),
+                    case1.getDescription()
+            ));
+        }
+
+        return casePojo;
+
+    }
+
+    public List<PetCasePojo> listCases(Integer id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        caseRepository = new PetCaseRepositoryImpl(entityManager);
+        List<PetCase> aCases = caseRepository.findId(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        List<PetCasePojo> casePojo = new ArrayList<>();
+        for (PetCase case1 : aCases) {
+            casePojo.add(new PetCasePojo(
+                    case1.getCase_id(),
                     case1.getCreated_at(),
                     case1.getType(),
                     case1.getDescription()

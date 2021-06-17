@@ -3,6 +3,7 @@
  */
 package co.edu.unbosque.Hatchiko.jpa.repositories;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Owner;
 import co.edu.unbosque.Hatchiko.jpa.entities.PetCase;
 
 import javax.persistence.EntityManager;
@@ -39,6 +40,11 @@ public class PetCaseRepositoryImpl implements PetCaseRepository {
     public Optional<PetCase> findById(Integer id) {
         PetCase aCases = entityManager.find(PetCase.class, id);
         return aCases != null ? Optional.of(aCases) : Optional.empty();
+    }
+
+    public List<PetCase> findId(Integer id) {
+        String query = "from PetCase where case_id = '" + id + "'";
+        return entityManager.createQuery(query).getResultList();
     }
 
     /**

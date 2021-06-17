@@ -45,6 +45,18 @@ public class PetCasePojo {
         this.description = description;
     }
     /**
+     * Constructor that includes the 4 numeric and alphanumeric variables Integer case_id, String created_at, type y description
+     * @param created_at Case creation created_at!= null, created_at!=" "
+     * @param type Case type type!= null, type!=" "
+     * @param description Case description description!= null, description!=" "
+     */
+    public PetCasePojo(LocalDate created_at, String type, String description) {
+        this.created_at = created_at;
+        this.type = type;
+        this.description = description;
+    }
+
+    /**
      * Gets the value of the case_id name attribute of type Integer
      * @return case_id
      */

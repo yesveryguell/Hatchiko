@@ -93,15 +93,16 @@
         <div class="card card-2">
             <div class="card-heading"></div>
             <div class="card-body">
-                <form>
+                <form id="addCases">
+<%--                    <input type="hidden" id="pet_id" name="pet_id" value="<%= request.getParameter("pet_id") %>">--%>
                     <h3>Created at: </h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created">
+                        <input class="input--style-2" type="date" placeholder="Created at" name="created_at">
                     </div>
                     <div class="input-group">
                         <h3>Type: </h3>
-                        <select name="specie" required>
-                            <option disabled="disabled" selected="selected">Specie</option>
+                        <select name="type" required>
+                            <option disabled="disabled" selected="selected">Type</option>
                             <option value="lost-it">Lost it</option>
                             <option value="stolen">Stolen</option>
                             <option value="dead">Dead</option>
@@ -114,7 +115,7 @@
                         <input class="input--style-2" placeholder="Description" type="text" name="description">
                     </div>
                     <div class="p-t-30">
-                        <button class="btn btn--radius btn--green" type="submit">Update</button>
+                        <button class="btn btn--radius btn--green" type="submit">Add case</button>
                         <a class="btn btn--radius btn--green" href="visit.jsp">Add visit</a>
                     </div>
                 </form>
@@ -142,9 +143,96 @@
             </div>
         </div>
     </div>
+    <h1>Cases</h1>
 
+    <div>
+        <form id = "formCase">
+            <input type="hidden" name="pet_id" value="<%= request.getParameter("pet_id") %>">
+
+            <button style="background-color:#eebb55" type="submit">
+                View cases
+            </button>
+        </form>
+    </div>
+
+
+
+    <div>
+        <table class="table table-dark table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Case Id</th>
+                <th>Created at</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody id = "cases">
+
+            </tbody>
+        </table>
+    </div>
 
 </footer>
+
+
+<%--<script>--%>
+
+<%--    var formulario = document.getElementById('formCase');--%>
+
+<%--    formulario.addEventListener('submit', function (e) {--%>
+<%--        e.preventDefault();--%>
+
+<%--        var datos3 = new FormData(formulario);--%>
+
+<%--        console.log(datos3.get('username'))--%>
+<%--        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/'+datos3.get('username'))--%>
+<%--            .then((response) => response.json())--%>
+<%--            .then(data => mostrarData8(data));--%>
+<%--        const mostrarData8 = (data) => {--%>
+<%--            console.log(data);--%>
+<%--            console.log(username)--%>
+<%--            let body = ''--%>
+<%--            for (let i = 0; i < data.length; i++) {--%>
+<%--                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' +  '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>'  + '<td>' + ' <input name="ver" type="button" value="Edit" id="ver" onclick="editOwner(d)"/>' + '</td>'  + '</tr>';--%>
+<%--            }--%>
+<%--            document.getElementById('cases').innerHTML = body;--%>
+<%--        }--%>
+<%--    });--%>
+
+
+<%--    function editVet(info){--%>
+<%--        location.href ="./editVet.jsp?username="+ info;--%>
+<%--    }--%>
+
+<%--</script>--%>
+
+<script>
+    var formulario = document.getElementById('addCases');
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+        console.log(datos.get('1'))
+        console.log(datos.get('created_at'))
+        console.log(datos.get('type'))
+        console.log(datos.get('description'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/pet/1/petCases', {
+            method: 'POST',
+            body: JSON.stringify({
+                created_at: datos.get('created_at'),
+                type: datos.get('type'),
+                description: datos.get('description'),
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+</script>
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
