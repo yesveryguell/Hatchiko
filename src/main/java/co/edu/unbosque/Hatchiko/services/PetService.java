@@ -352,7 +352,7 @@ public class PetService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petRepository = new PetRepositoryImpl(entityManager);
-        petRepository.updateById(pet_id, petPojo.getName(), petPojo.getSpecies(), petPojo.getRace(), petPojo.getSize(), petPojo.getSex(), petPojo.getPicture());
+        petRepository.updateById(pet_id, petPojo.getName(), petPojo.getSpecies(), petPojo.getRace(), petPojo.getSize(), petPojo.getSex());
 
         Optional<Pet> pet = petRepository.findById(pet_id);
         entityManager.close();
@@ -361,5 +361,19 @@ public class PetService {
         return pet;
     }
 
+    public Optional<Pet> modifyPetByImage(int pet_id, String image) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        petRepository.uploapImage(pet_id, image);
+
+        Optional<Pet> pet = petRepository.findById(pet_id);
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return pet;
+    }
 
 }

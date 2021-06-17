@@ -36,5 +36,7 @@ public interface PetRepository {
 
     Optional<Pet> save(Pet pet);
 
-    void updateById(Integer id, String name, String species, String race, String size, String sex, String picture);
+    void updateById(Integer id, String name, String species, String race, String size, String sex);
+
+    void uploapImage(Integer id, String image);
 }

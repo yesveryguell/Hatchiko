@@ -3,6 +3,8 @@
  */
 package co.edu.unbosque.Hatchiko.resource;
 
+import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
+import co.edu.unbosque.Hatchiko.services.PetService;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
@@ -17,15 +19,16 @@ import javax.ws.rs.core.Response;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Path("/upload")
 public class UploadResource {
 
-    private final String UPLOAD_DIRECTORY = "/images/";
+    private final String UPLOAD_DIRECTORY = "/imagesPets/";
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response uploadFile(@Context ServletContext servletContext, MultipartFormDataInput input) {
+    public Response uploadFile(@Context ServletContext servletContext, MultipartFormDataInput input, @QueryParam("pet_id") Integer id) {
 
         String fileName = "";
 
@@ -51,6 +54,7 @@ public class UploadResource {
             }
 
         }
+        Optional<Pet> persitedPet = new PetService().modifyPetByImage(id, fileName);
 
         String output = "File saved to server location : " + fileName;
 

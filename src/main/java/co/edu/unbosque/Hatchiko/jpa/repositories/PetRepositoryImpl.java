@@ -127,13 +127,12 @@ public class PetRepositoryImpl implements PetRepository{
      * @param race race!= null, race!= " "
      * @param size size!= null, size!= " "
      * @param sex sex!= null, sex!= " "
-     * @param picture picture!= null, picture!= " "
      */
     @Override
     /**
      * This method allows us to update the list of pets by id
      */
-    public void updateById(Integer id, String name, String species, String race, String size, String sex, String picture) {
+    public void updateById(Integer id, String name, String species, String race, String size, String sex) {
         Pet pet = entityManager.find(Pet.class, id);
         if (pet != null) {
             try {
@@ -143,7 +142,21 @@ public class PetRepositoryImpl implements PetRepository{
                 pet.setRace(race);
                 pet.setSize(size);
                 pet.setSex(sex);
-                pet.setPicture(picture);
+                entityManager.merge(pet);
+                entityManager.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void uploapImage(Integer id, String image) {
+        Pet pet = entityManager.find(Pet.class, id);
+        if (pet != null) {
+            try {
+                entityManager.getTransaction().begin();
+                pet.setPicture(image);
                 entityManager.merge(pet);
                 entityManager.getTransaction().commit();
             } catch (Exception e) {

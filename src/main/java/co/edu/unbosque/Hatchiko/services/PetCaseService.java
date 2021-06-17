@@ -71,13 +71,13 @@ public class PetCaseService {
 
     }
 
-    public List<PetCasePojo> listCases(Integer id) {
+    public List<PetCasePojo> listCases(Integer id, String date1, String date2) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         caseRepository = new PetCaseRepositoryImpl(entityManager);
-        List<PetCase> aCases = caseRepository.findId(id);
+        List<PetCase> aCases = caseRepository.findId(id, date1, date2);
 
         entityManager.close();
         entityManagerFactory.close();

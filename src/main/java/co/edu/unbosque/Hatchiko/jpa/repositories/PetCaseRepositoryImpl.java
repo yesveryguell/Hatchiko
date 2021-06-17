@@ -42,9 +42,28 @@ public class PetCaseRepositoryImpl implements PetCaseRepository {
         return aCases != null ? Optional.of(aCases) : Optional.empty();
     }
 
-    public List<PetCase> findId(Integer id) {
-        String query = "from PetCase where case_id = '" + id + "'";
-        return entityManager.createQuery(query).getResultList();
+    public List<PetCase> findId(Integer id, String date1, String date2) {
+
+        int d = 0;
+        int d2 = 0;
+
+        String[] dates1 = date1.split("-");
+        String[] dates2 = date2.split("-");
+
+        for (int i = 0; i < dates1.length; i++) {
+            d += Integer.parseInt(dates1[i]);
+        }
+        for (int i = 0; i < dates2.length; i++) {
+            d2 += Integer.parseInt(dates2[i]);
+        }
+        if(d < d2){
+            String query = "from PetCase where pet = "+ id + "and created_at >= '" + date1 + "' and created_at <= '" + date2 + "'order by created_at desc";
+            return entityManager.createQuery(query).getResultList();
+        }else{
+            String query = "from PetCase where pet = "+ id + "and created_at >= '" + date2 + "' and created_at <= '" + date1 + "'order by created_at desc";
+            return entityManager.createQuery(query).getResultList();
+        }
+
     }
 
     /**

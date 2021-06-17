@@ -190,9 +190,6 @@
     });
 
 
-    function editVet(info) {
-        location.href = "./editOwner.jsp?username=" + info;
-    }
 
 </script>
 
@@ -223,11 +220,6 @@
         }
 
 
-    }
-
-
-    function editVet(info) {
-        location.href = "./editOwner.jsp?username=" + info;
     }
 
 </script>

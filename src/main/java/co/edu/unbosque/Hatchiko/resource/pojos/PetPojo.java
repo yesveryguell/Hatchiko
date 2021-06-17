@@ -79,6 +79,18 @@ public class PetPojo {
         this.picture = picture;
     }
 
+    public PetPojo(String name, String species, String race, String size, String sex) {
+        this.name = name;
+        this.species = species;
+        this.race = race;
+        this.size = size;
+        this.sex = sex;
+    }
+
+    public PetPojo(String picture) {
+        this.picture = picture;
+    }
+
     /**
      * Gets the value of the name attribute Pet_id of type Integer
      * @return getPet_id

@@ -17,7 +17,7 @@ import java.util.Optional;
 public interface PetCaseRepository {
     Optional<PetCase> findById(Integer id);
 
-    List<PetCase> findId(Integer id);
+    List<PetCase> findId(Integer id, String date1, String date2);
 
     List<PetCase> findAll();
 
