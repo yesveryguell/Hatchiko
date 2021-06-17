@@ -23,5 +23,5 @@ public interface VetRepository {
 
     Optional<Vet> save(Vet vet);
 
-    void updateByUsername(String username, String name, String address, String neighborhood);
+    void updateByUsername(String username, String address, String neighborhood);
 }

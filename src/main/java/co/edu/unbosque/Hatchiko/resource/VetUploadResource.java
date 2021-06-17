@@ -21,9 +21,8 @@ public class VetUploadResource {
     public Response modify(@PathParam("username") String userName, VetPojo vetPojo) {
         Optional<Vet> persistedVet = new VetService().modifyVet(userName, vetPojo);
 
-
         return Response.ok()
-                .entity(persistedVet.get())
+                .entity(vetPojo)
                 .build();
     }
 

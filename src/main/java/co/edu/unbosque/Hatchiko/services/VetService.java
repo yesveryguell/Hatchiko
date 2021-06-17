@@ -140,7 +140,7 @@ public class VetService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepository = new VetRepositoryImpl(entityManager);
-        vetRepository.updateByUsername(username, vetPojo.getName(), vetPojo.getAddress(), vetPojo.getNeighborhood());
+        vetRepository.updateByUsername(username, vetPojo.getAddress(), vetPojo.getNeighborhood());
 
         Optional<Vet> vet = vetRepository.findByUserName(username);
         entityManager.close();

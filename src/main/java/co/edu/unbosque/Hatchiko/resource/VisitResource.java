@@ -56,7 +56,7 @@ public class VisitResource {
 
         if (persistedVisit.isPresent()) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedVisit.get())
+                    .entity(visit)
                     .build();
         } else {
             return Response.serverError()

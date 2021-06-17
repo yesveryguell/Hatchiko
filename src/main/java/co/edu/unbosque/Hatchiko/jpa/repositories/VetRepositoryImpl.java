@@ -81,7 +81,6 @@ public class VetRepositoryImpl implements VetRepository{
     /**
      * informs the compiler that the element is meant to override an element declared in a superclass.
      * @param username username!= null, username!= " "
-     * @param name name!= null, name!= " "
      * @param address address!= null, address!= " "
      * @param neighborhood neighborhood!= null, neighborhood!= " "
      */
@@ -89,12 +88,11 @@ public class VetRepositoryImpl implements VetRepository{
     /**
      * This method allows us to update the list of vets by username
      */
-    public void updateByUsername(String username, String name, String address, String neighborhood) {
+    public void updateByUsername(String username,String address, String neighborhood) {
         Vet vet = entityManager.find(Vet.class, username);
         if (vet != null) {
             try {
                 entityManager.getTransaction().begin();
-                vet.setName(name);
                 vet.setAddress(address);
                 vet.setNeighborhood(neighborhood);
                 entityManager.merge(vet);

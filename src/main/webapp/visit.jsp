@@ -94,14 +94,19 @@
         <div class="card card-2">
             <div class="card-heading"></div>
             <div class="card-body">
-                <form>
+                <form id = "addVisit">
+                    <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+                    <div class="input-group">
+                        <h3>Pet id: </h3>
+                        <input class="input--style-2" placeholder="Pet_id" type="text" name="pet_id">
+                    </div>
                     <h3>Created at:</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created_at">
                     </div>
                     <div class="input-group">
                         <h3>Type: </h3>
-                        <select name="specie" required>
+                        <select name="type" required>
                             <option disabled="disabled" selected="selected">Specie</option>
                             <option value="sterilization">Sterilization</option>
                             <option value="implement-microchip">Implement microchip</option>
@@ -148,6 +153,40 @@
 
 
 </footer>
+
+
+<script>
+
+    var formulario = document.getElementById('addVisit');
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('username'))
+        console.log(datos.get('pet_id'))
+        console.log(datos.get('created_at'))
+        console.log(datos.get('type'))
+        console.log(datos.get('description'))
+
+        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
+            method: 'POST',
+            body: JSON.stringify({
+                created_at: datos.get('created_at'),
+                type: datos.get('type'),
+                description: datos.get('description'),
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+
+
+
+</script>
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>

@@ -89,79 +89,6 @@
     </div>
 </header>
 <!-- end banner -->
-<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
-    <div class="wrapper wrapper--w960">
-        <div class="card card-2">
-            <div class="card-heading"></div>
-            <div class="card-body">
-                <h2 class="title">Registration Info</h2>
-                <form id="formVet">
-                    <h3>Name</h3>
-                    <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Name" name="name">
-                    </div>
-                    <h3>Address</h3>
-                    <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Address" name="address">
-                    </div>
-                    <h3>Neighborhood</h3>
-                    <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Neighborhood" name="neighborhood">
-                    </div>
-                    <div class="p-t-30">
-                        <button class="btn btn--radius btn--green" type="submit">Update</button>
-                        <a class="btn btn--radius btn--green" href="visit.jsp">Add visit</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
-    <div class="wrapper wrapper--w960">
-        <div class="card card-2">
-            <div class="card-heading"></div>
-            <div class="card-body">
-                <form id="addVisit">
-                    <div>
-                        <input type="hidden" id="username" name="username" value="<%= request.getParameter("username") %>">
-                    </div>
-
-                    <h3>Id:</h3>
-                    <div class="input-group">
-                        <input class="input--style-2" type="number" placeholder="Id pet" name="pet_id">
-                    </div>
-                    <h3>Created at:</h3>
-                    <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created_at">
-                    </div>
-                    <div class="input-group">
-                        <h3>Type: </h3>
-                        <select name="type" required>
-                            <option disabled="disabled" selected="selected">Types</option>
-                            <option value="sterilization">Sterilization</option>
-                            <option value="implement-microchip">Implement microchip</option>
-                            <option value="vaccine">Vaccine</option>
-                            <option value="desparasitación">Desparasitación</option>
-                            <option value="urgency">Urgency</option>
-                            <option value="control">Control</option>
-                        </select>
-                        <div class="select-dropdown"></div>
-                    </div>
-
-                    <div class="input-group">
-                        <h3>Description: </h3>
-                        <input class="input--style-2" placeholder="Description" type="text" name="description">
-                    </div>
-                    <div class="p-t-30">
-                        <button class="btn btn--radius btn--green" type="submit">Add</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <h1>Info</h1>
 
@@ -194,10 +121,9 @@
     </table>
 </div>
 
-<h1>Visits</h1>
 
 <div>
-    <form id = "formVisits">
+    <form id = "inner">
 
         <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
 
@@ -207,40 +133,25 @@
     </form>
 </div>
 
-
-
-
 <div>
-    <table class="table table-dark table-striped table-bordered">
-        <thead>
-        <tr>
-            <th>Visit_id</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>year</th>
-            <th>month</th>
-            <th>day</th>
-
-        </tr>
-        </thead>
-        <tbody id = "visits">
-
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-
-<div>
-    <form id = "inner">
+    <form id = "visit">
 
         <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
 
         <button style="background-color:#eebb55" type="submit">
-            Edit
+            Add visit
+        </button>
+    </form>
+</div>
+
+
+<div>
+    <form id = "editVet">
+
+        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+
+        <button style="background-color:#eebb55" type="submit">
+            Edit vet
         </button>
     </form>
 </div>
@@ -302,72 +213,18 @@
 
 </script>
 
-
-
 <script>
 
-    var formulario = document.getElementById('formVisits');
-
-    formulario.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        var datos1 = new FormData(formulario);
-
-        console.log(datos1.get('username'))
-
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/'+datos1.get('username')+'/visits')
-                .then((response) => response.json())
-                .then(data => mostrarData7(data));
-            var username = document.getElementById('username');
-            const mostrarData7 = (data) => {
-
-                let body = ''
-                for (let i = 0; i < data.length; i++) {
-                    body += '<tr>' + '<td>' + data[i].visit_id + '</td>' + '<td>' + data[i].type + '</td>' + '<td>' + data[i].description + '</td>' + '<td>' + data[i].year + '</td>' + '<td>' + data[i].month + '</td>'  + '<td>' + data[i].day + '</td>' + '</tr>';
-                }
-                document.getElementById('visits').innerHTML = body;
-            }
-
-    });
-
-
-    function editVet(info){
-        location.href ="./editOwner.jsp?username="+ info;
-    }
-
-</script>
-
-
-
-
-<script>
-
-    var formulario = document.getElementById('addVisit');
+    var formulario = document.getElementById('inner');
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
         var datos = new FormData(formulario);
 
         console.log(datos.get('username'))
-        console.log(datos.get('pet_id'))
-        console.log(datos.get('created_at'))
-        console.log(datos.get('type'))
-        console.log(datos.get('description'))
+        location.href ="./viewVisits.jsp?username="+ datos.get('username');
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
-            method: 'POST',
-            body: JSON.stringify({
-                pet_id: datos.get('pet_id'),
-                created_at: datos.get('created_at'),
-                type: datos.get('type'),
-                description: datos.get('description'),
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+
     });
 
 
@@ -376,7 +233,25 @@
 
 <script>
 
-    var formulario = document.getElementById('inner');
+    var formulario = document.getElementById('visit');
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var datos = new FormData(formulario);
+
+        console.log(datos.get('username'))
+        location.href ="./visit.jsp?username="+ datos.get('username');
+
+
+    });
+
+
+
+</script>
+
+<script>
+
+    var formulario = document.getElementById('editVet');
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -387,8 +262,6 @@
 
 
     });
-
-
 
 </script>
 

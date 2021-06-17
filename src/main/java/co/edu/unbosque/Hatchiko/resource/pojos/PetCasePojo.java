@@ -27,7 +27,11 @@ public class PetCasePojo {
      */
     private String description;
 
-    private Integer anio;
+    private Integer year;
+
+    private Integer month;
+
+    private Integer day;
 
     /**
      * Empty constructor
@@ -59,11 +63,13 @@ public class PetCasePojo {
         this.description = description;
     }
 
-    public PetCasePojo(Integer case_id, Integer anio, String type, String description) {
+    public PetCasePojo(Integer case_id, String type, String description, Integer year, Integer month, Integer day) {
         this.case_id = case_id;
         this.type = type;
         this.description = description;
-        this.anio = anio;
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
     /**
@@ -128,11 +134,27 @@ public class PetCasePojo {
         this.description = description;
     }
 
-    public Integer getAnio() {
-        return anio;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setAnio(Integer anio) {
-        this.anio = anio;
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
     }
 }

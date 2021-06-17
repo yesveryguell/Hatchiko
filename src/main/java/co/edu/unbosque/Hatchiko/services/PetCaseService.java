@@ -59,9 +59,11 @@ public class PetCaseService {
         for (PetCase case1 : aCases) {
             casePojo.add(new PetCasePojo(
                     case1.getCase_id(),
-                    case1.getCreated_at().getYear(),
                     case1.getType(),
-                    case1.getDescription()
+                    case1.getDescription(),
+                    case1.getCreated_at().getYear(),
+                    case1.getCreated_at().getMonthValue(),
+                    case1.getCreated_at().getDayOfMonth()
             ));
         }
 
@@ -84,9 +86,11 @@ public class PetCaseService {
         for (PetCase case1 : aCases) {
             casePojo.add(new PetCasePojo(
                     case1.getCase_id(),
-                    case1.getCreated_at().getYear(),
                     case1.getType(),
-                    case1.getDescription()
+                    case1.getDescription(),
+                    case1.getCreated_at().getYear(),
+                    case1.getCreated_at().getMonthValue(),
+                    case1.getCreated_at().getDayOfMonth()
             ));
         }
 

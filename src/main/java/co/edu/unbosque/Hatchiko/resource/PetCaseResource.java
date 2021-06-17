@@ -58,7 +58,7 @@ public class PetCaseResource {
 
         if (persistedPetCase.isPresent()) {
             return Response.status(Response.Status.CREATED)
-                    .entity(persistedPetCase.get())
+                    .entity(petCasePojo)
                     .build();
         } else {
             return Response.serverError()

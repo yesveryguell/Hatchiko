@@ -23,7 +23,6 @@ public class VisitPojo {
      * Private type attribute with alphanumeric variable String of name type
      */
     private String type;
-    @Column(name = "description")
     /**
      * Private type attribute with alphanumeric variable String of name description
      */
