@@ -1,0 +1,7 @@
+co.edu.unbosque.Hatchiko
+co.edu.unbosque.Hatchiko.jpa.entities
+co.edu.unbosque.Hatchiko.jpa.repositories
+co.edu.unbosque.Hatchiko.resource
+co.edu.unbosque.Hatchiko.resource.filters
+co.edu.unbosque.Hatchiko.resource.pojos
+co.edu.unbosque.Hatchiko.services

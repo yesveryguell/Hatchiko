@@ -1,0 +1,678 @@
+{
+	"info": {
+		"_postman_id": "f6b1f972-840b-4a88-9193-4c10260f3f22",
+		"name": "Hatchiko",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Official",
+			"item": [
+				{
+					"name": "CreateOfficial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"oficial2\",\r\n\"password\":\"5473\",\r\n\"email\":\"feliperojas_15@yahoo.com\",\r\n\"name\":\"Felipe Rojas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/officers",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"officers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Owner",
+			"item": [
+				{
+					"name": "CreateOwner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"username\",\r\n    \"password\": \"8900\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"person_id\": \"1\",\r\n    \"name\": \"Juan\",\r\n    \"address\": \"Cra5\",\r\n    \"neighborhood\": \"Usaquen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOwnerByNeighborhood",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditOwner",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"address\": \"Septima\",\r\n\"neighborhood\": \"Usaquen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/Focus",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"owners",
+								"Focus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vet",
+			"item": [
+				{
+					"name": "CreateVet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Vet2\",\r\n    \"password\": \"09810\",\r\n    \"email\": \"email1@gmail.com\",\r\n    \"name\": \"name1\",\r\n    \"address\": \"Octava\",\r\n    \"neighborhood\": \"Usaquen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"vets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditVet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"address\": \"Cra5\",\r\n\"neighborhood\": \"Suba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/Vet2",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"vets",
+								"Vet2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "CreatePet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microchip\": \"092128\",\r\n    \"name\": \"Kyle\",\r\n    \"species\": \"Canino\",\r\n    \"race\": \"Labrador\",\r\n    \"size\": \"Grande\",\r\n    \"sex\": \"Hembra\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/Focus/pets",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"owners",
+								"Focus",
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetsBySpecie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/species",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"species"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetsByMicrochip",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/microchip",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"microchip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetsByRace",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/race",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"race"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetsBySex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/sex",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"sex"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetsBySize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/size",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"size"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetsByFilters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?pet_id=1",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets"
+							],
+							"query": [
+								{
+									"key": "pet_id",
+									"value": "1"
+								},
+								{
+									"key": "microchip",
+									"value": "092128",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Kyle",
+									"disabled": true
+								},
+								{
+									"key": "species",
+									"value": "Canino",
+									"disabled": true
+								},
+								{
+									"key": "race",
+									"value": "Labrador",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "Grande",
+									"disabled": true
+								},
+								{
+									"key": "sex",
+									"value": "Hembra",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditPet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Kyle\",\r\n    \"species\": \"Canino\",\r\n    \"race\": \"Labrador\",\r\n    \"size\": \"Grande\",\r\n    \"sex\": \"Macho\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/Focus/pets/1",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"owners",
+								"Focus",
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PetCase",
+			"item": [
+				{
+					"name": "CreatePetCase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"created_at\":\"2021-06-12\",\r\n    \"type\":\"Perdida\",\r\n    \"description\":\"Fue el dia de hoy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/1/petCases",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"1",
+								"petCases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetcaseByFilters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/1/petCases?date1=2021-06-01&date2=2021-06-18",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"pets",
+								"1",
+								"petCases"
+							],
+							"query": [
+								{
+									"key": "date1",
+									"value": "2021-06-01"
+								},
+								{
+									"key": "date2",
+									"value": "2021-06-18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetCasesByType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/petCases",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"petCases"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Visits",
+			"item": [
+				{
+					"name": "CreateVisit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"created_at\":\"2021-06-13\",\r\n    \"type\":\"vacunacion\",\r\n    \"description\":\"Se encuentra muy enfermo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/Vet2/pet/1/visits",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"vets",
+								"Vet2",
+								"pet",
+								"1",
+								"visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetVisitsByType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/visits",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetVisitsByFilters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/Vet2/visits?date1=2021-06-01&date2=2021-06-30",
+							"protocol": "http",
+							"host": [
+								"35",
+								"206",
+								"97",
+								"221"
+							],
+							"port": "8080",
+							"path": [
+								"Hatchiko-1.0-SNAPSHOT",
+								"api",
+								"vets",
+								"Vet2",
+								"visits"
+							],
+							"query": [
+								{
+									"key": "date1",
+									"value": "2021-06-01"
+								},
+								{
+									"key": "date2",
+									"value": "2021-06-30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
