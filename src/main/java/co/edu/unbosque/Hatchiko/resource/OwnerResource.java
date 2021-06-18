@@ -65,37 +65,37 @@ public class OwnerResource {
 
 
     }
-    /**
-     * you can annotate any class with a record annotation to allow lombok to generate a record field.
-     */
-    @Logged
-    /**
-     * The @GET annotation is a request method designator and corresponds to the similarly named HTTP method
-     */
-    @GET
-    /**
-     * This annotation ensures that the content of the REST service is generated with different formats
-     */
-    @Produces(MediaType.TEXT_PLAIN)
-    /**
-     * This method allows the authentication of the entry
-     */
-    /**
-     * Binds the value(s) of a HTTP header to a resource method parameter, resource class field, or resource class bean property.
-     */
-    public Response hello(@HeaderParam("role") String role) {
-
-        // If role doesn't match
-        if (!"Owner".equals(role))
-            return Response.status(Response.Status.FORBIDDEN)
-                    .entity("Role " + role + " cannot access to this method")
-                    .build();
-
-        return Response.ok()
-                .entity("Hello, World, " + role + "!")
-                .build();
-
-    }
+//    /**
+//     * you can annotate any class with a record annotation to allow lombok to generate a record field.
+//     */
+//    @Logged
+//    /**
+//     * The @GET annotation is a request method designator and corresponds to the similarly named HTTP method
+//     */
+//    @GET
+//    /**
+//     * This annotation ensures that the content of the REST service is generated with different formats
+//     */
+//    @Produces(MediaType.TEXT_PLAIN)
+//    /**
+//     * This method allows the authentication of the entry
+//     */
+//    /**
+//     * Binds the value(s) of a HTTP header to a resource method parameter, resource class field, or resource class bean property.
+//     */
+//    public Response hello(@HeaderParam("role") String role) {
+//
+//        // If role doesn't match
+//        if (!"Owner".equals(role))
+//            return Response.status(Response.Status.FORBIDDEN)
+//                    .entity("Role " + role + " cannot access to this method")
+//                    .build();
+//
+//        return Response.ok()
+//                .entity("Hello, World, " + role + "!")
+//                .build();
+//
+//    }
 
     /**
      * The @GET annotation is a request method designator and corresponds to the similarly named HTTP method
