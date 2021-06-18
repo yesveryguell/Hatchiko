@@ -27,7 +27,7 @@ Se visualizarán tablas discriminadas con distinta organización. La edición de
 
 #### ENLACE VIDEO YOUTUBE:
 
-#### https://youtu.be/Mwj90HwT1og
+#### https://www.youtube.com/watch?v=pZPz2R85GmI
 
 
 
