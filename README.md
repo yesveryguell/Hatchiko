@@ -6,6 +6,14 @@
  - PostgreSQL JDBC Driver 42.2.10
  - JDK 1.8
 
+#### Git hub pages:
+No implementamos dos repositorios por tanto no subimos el repositorio a git hub pages, sin embrago aquí se encuentra la ruta a nuestro proyecto.
+http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/index.html
+
+### Offical
+username = Oficial
+password = 12345
+
 #### DESCRIPCIÓN:
 Es una aplicación web en la cual se hará un registro integro acerca de veterinarias, mascotas y sus respectivos propietarios.
 
