@@ -1,5 +1,11 @@
 # Hatchiko
 
+#### Stack:
+ - Wildfly 23.0.1.Final
+ - PostgreSQL 10
+ - PostgreSQL JDBC Driver 42.2.10
+ - JDK 1.8
+
 #### DESCRIPCIÓN:
 Es una aplicación web en la cual se hará un registro integro acerca de veterinarias, mascotas y sus respectivos propietarios.
 
