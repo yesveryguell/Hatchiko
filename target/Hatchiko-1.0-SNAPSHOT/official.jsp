@@ -219,9 +219,11 @@
         <thead>
         <tr>
             <th>case_id</th>
-            <th>created_at</th>
             <th>type</th>
             <th>description</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
         </tr>
         </thead>
         <tbody id = "caseInfo">
@@ -415,7 +417,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/petCases')
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/petCases')
         .then((response) => response.json())
         .then(data => mostrarData6(data));
     const mostrarData6 = (data) =>{
@@ -424,7 +426,7 @@
         for(let i = 0; i<data.length; i++){
             body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
             for (let j = 0; j < data[i].cases.length; j++) {
-                body+= '<tr>' + '<td>' + data[i].cases[j].case_id + '</td>' + '<td>' +data[i].cases[j].created_at + '</td>' + '<td>' +data[i].cases[j].type + '</td>' + '<td>' +data[i].cases[j].description + '</td>' + '</tr>';
+                body+= '<tr>' + '<td>' + data[i].cases[j].case_id + '</td>' + '<td>' +data[i].cases[j].type + '</td>' + '<td>' +data[i].cases[j].description + '</td>' + '<td>' +data[i].cases[j].year + '</td>' + '<td>' +data[i].cases[j].month + '</td>' + '<td>' +data[i].cases[j].day + '</td>' +'</tr>';
             }
         }
         document.getElementById('caseInfo').innerHTML = body;

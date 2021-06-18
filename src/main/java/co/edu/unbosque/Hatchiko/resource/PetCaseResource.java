@@ -23,53 +23,13 @@ import java.util.Optional;
  * allows you to define complex expressions, thus converting certain sections of the URL into parameters that can be
  * used by the methods to know how to process the request.
  */
-@Path("/pets")
+@Path("/petCases")
 /**
  * The class is initialized PetCaseResource
  */
 public class PetCaseResource {
-    /**
-     * This can be very useful for us to communicate with a web service.
-     * @param petCasePojo petCasePojo!=null, petCasePojo!=" "
-     * @param pet_id pet_id!=null, pet_id!=" "
-     * @return
-     */
-    @POST
-    @Path("/{pet_id}/petCases")
-    /**
-     * Annotation is used to specify what types of MIME media renderings a client resource can accept or consume.
-     */
-    @Consumes(MediaType.APPLICATION_JSON)
-    /**
-     * This annotation ensures that the content of the REST service is generated with different formats
-     */
-    @Produces(MediaType.APPLICATION_JSON)
-    /**
-     * This method allows us to create an Pet case in the database
-     */
-    /**
-     * The @PathParam annotation is a type of parameter that you can extract for use in your resource class. URI path
-     * parameters are extracted from the request URI, and the parameter names correspond to the URI path template
-     * variable names specified in the @Path class-level annotation.
-     */
-    public Response create(PetCasePojo petCasePojo, @PathParam("pet_id") Integer pet_id) {
-
-        Optional<PetCase> persistedPetCase = new PetCaseService().savePetCase(petCasePojo, pet_id);
-
-        if (persistedPetCase.isPresent()) {
-            return Response.status(Response.Status.CREATED)
-                    .entity(petCasePojo)
-                    .build();
-        } else {
-            return Response.serverError()
-                    .entity("Owner user could not be created")
-                    .build();
-        }
-    }
-
 
     @GET
-    @Path("/petCases")
     /**
      * This annotation ensures that the content of the REST service is generated with different formats
      */
