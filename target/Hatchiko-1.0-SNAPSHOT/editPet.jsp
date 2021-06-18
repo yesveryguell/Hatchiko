@@ -55,20 +55,23 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Pet registration</h2>
-                <form id="editPet">
-                    <input type="hidden" id="authorId" name="username" value="<%= request.getParameter("username") %>">
-                    <span class="login100-form-title p-b-34">
+                <span class="login100-form-title p-b-34">
 						<a href="index.html"><img src="images/logo_t.png"/></a>
 					</span>
-                    <div>
-                        <form id="viewId">
-                            <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+                <div>
+                    <form id="viewId">
+                        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
 
-                            <button style="background-color:#eebb55" type="submit">
-                                View ids
-                            </button>
-                        </form>
-                    </div>
+                        <button style="background-color:#eebb55" type="submit">
+                            View ids
+                        </button>
+                    </form>
+                </div>
+
+                <form id="editPet">
+                    <input type="hidden" id="authorId" name="username" value="<%= request.getParameter("username") %>">
+
+
                     <h3>Pet id</h3>
                     <div class="col-2">
                         <div class="input-group">
@@ -83,7 +86,7 @@
 
                     <h3>Name</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Name" name="name">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name" required="">
                     </div>
 
                     <h3>Species</h3>
@@ -101,11 +104,11 @@
                     </div>
                     <h3>Race</h3>
                     <div class="input-group">
-                        <input class="input--style-2" placeholder="Race" type="text" name="race">
+                        <input class="input--style-2" placeholder="Race" type="text" name="race" required="">
                     </div>
                     <h3>Size</h3>
                     <div class="input-group">
-                        <input class="input--style-2" placeholder="Size" type="text" name="size">
+                        <input class="input--style-2" placeholder="Size" type="text" name="size" required="">
                     </div>
                     <h3>Sex</h3>
                     <div class="col-2">
@@ -185,6 +188,7 @@
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+        alert("Edited pet")
     });
 </script>
 <script src="js/jquery.min.js"></script>

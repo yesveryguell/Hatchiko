@@ -1,15 +1,19 @@
 package co.edu.unbosque.Hatchiko.resource;
 
 import co.edu.unbosque.Hatchiko.jpa.entities.Pet;
+import co.edu.unbosque.Hatchiko.jpa.entities.Vet;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetPojo;
 import co.edu.unbosque.Hatchiko.resource.pojos.PetTotalPojo;
+import co.edu.unbosque.Hatchiko.resource.pojos.VetPojo;
 import co.edu.unbosque.Hatchiko.services.PetService;
+import co.edu.unbosque.Hatchiko.services.VetService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Path("/pets")
 public class PetResource {
@@ -225,5 +229,16 @@ public class PetResource {
         }else {
         return null;
         }
+    }
+
+    @PUT
+    @Path("/{pet_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response modify(@PathParam("pet_id") Integer id, PetPojo petPojo) {
+        Optional<Pet> pet = new PetService().modifyMicrochip(id, petPojo.getMicrochip());
+
+        return Response.ok()
+                .entity(petPojo)
+                .build();
     }
 }

@@ -56,16 +56,17 @@
                 <span class="login100-form-title p-b-34">
 						<a href="index.html"><img src="images/logo_t.png"/></a>
 					</span>
-                <form id = "viewCase">
-                    <div>
-                        <form id = "viewId">
-                            <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+                <div>
+                    <form id = "viewId">
+                        <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
 
-                            <button style="background-color:#eebb55" type="submit">
-                                View ids
-                            </button>
-                        </form>
-                    </div>
+                        <button style="background-color:#eebb55" type="submit">
+                            View ids
+                        </button>
+                    </form>
+                </div>
+                <form id = "viewCase">
+
                     <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
                     <h3>Pet id</h3>
                     <div class="col-2">
@@ -80,12 +81,12 @@
                     </div>
                     <h3>Created at:</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created_at1">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created_at1" required="">
                     </div>
 
                     <h3>Created at:</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created_at2">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created_at2" required="">
                     </div>
 
 

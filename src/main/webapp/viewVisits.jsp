@@ -88,30 +88,6 @@
     </div>
 </header>
 
-<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
-    <div class="wrapper wrapper--w960">
-        <div class="card card-2">
-            <div class="card-heading"></div>
-            <div class="card-body">
-                <form id="visitsDateFilter">
-
-                    <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
-
-                    <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="date1" id="date1">
-                    </div>
-
-                    <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="date2" id="date2">
-                    </div>
-
-                    <input name="ver" type="button" value="Edit" id="ver" onclick="dates()"/>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <h1>Visits</h1>
 <div>
     <form id="formVisits">
@@ -141,7 +117,29 @@
         </tbody>
     </table>
 </div>
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <form id="visitsDateFilter">
 
+                    <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
+
+                    <div class="input-group">
+                        <input class="input--style-2" type="date" placeholder="Created" name="date1" id="date1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <input class="input--style-2" type="date" placeholder="Created" name="date2" id="date2" required="">
+                    </div>
+
+                    <input name="ver" type="button" value="View info" id="ver" onclick="dates()"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <h1>filter date</h1>
 <div>
     <table class="table table-dark table-striped table-bordered">

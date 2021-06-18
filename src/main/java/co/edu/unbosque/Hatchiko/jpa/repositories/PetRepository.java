@@ -39,4 +39,6 @@ public interface PetRepository {
     void updateById(Integer id, String name, String species, String race, String size, String sex);
 
     void uploapImage(Integer id, String image);
+
+    void editMicrochip(Integer id, String microchip);
 }

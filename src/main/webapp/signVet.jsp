@@ -40,10 +40,10 @@
 					</span>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="text" name="username" placeholder="User name">
+                    <input id="first-name" class="input100" type="text" name="username" placeholder="User name" required="">
                     <span class="focus-input100"></span>
                 </div>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+                <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password" required="">
                     <input class="input100" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
@@ -101,7 +101,10 @@
             console.log(data);
 
             if(data[0] == "Vet"){
+                alert("Welcome " + datos.get('username'))
                 location.href ="./vet.jsp?username=" + datos.get('username');
+            }else{
+                alert("Incorrect username and password")
             }
         }
 

@@ -91,6 +91,7 @@ public class PetPojo {
         this.picture = picture;
     }
 
+
     /**
      * Gets the value of the name attribute Pet_id of type Integer
      * @return getPet_id

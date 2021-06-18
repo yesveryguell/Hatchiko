@@ -40,11 +40,11 @@
 					</span>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="text" name="username" placeholder="Username">
+                    <input id="first-name" class="input100" type="text" name="username" placeholder="Username" required="">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="Password" required="">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -93,10 +93,14 @@
             .then((response) => response.json())
             .then(data => mostrarData(data));
         const mostrarData = (data) =>{
+
             console.log(data);
 
             if(data[0] == "Official"){
+                alert("Welcome " + datos.get('username'))
                 location.href ="./official.jsp?username="+datos.get('username');
+            }else{
+                alert("Incorrect username and password")
             }
         }
 

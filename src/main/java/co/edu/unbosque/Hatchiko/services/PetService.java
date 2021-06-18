@@ -376,4 +376,19 @@ public class PetService {
         return pet;
     }
 
+    public Optional<Pet> modifyMicrochip(int pet_id, String microchip) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hatchiko");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petRepository = new PetRepositoryImpl(entityManager);
+        petRepository.editMicrochip(pet_id, microchip);
+
+        Optional<Pet> pet = petRepository.findById(pet_id);
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return pet;
+    }
+
 }

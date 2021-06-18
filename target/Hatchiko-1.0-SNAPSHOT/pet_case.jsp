@@ -97,7 +97,7 @@
 <%--                    <input type="hidden" id="pet_id" name="pet_id" value="<%= request.getParameter("pet_id") %>">--%>
                     <h3>Created at: </h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created at" name="created_at">
+                        <input class="input--style-2" type="date" placeholder="Created at" name="created_at" required="">
                     </div>
                     <div class="input-group">
                         <h3>Type: </h3>
@@ -112,7 +112,7 @@
 
                     <div class="input-group">
                         <h3>Description: </h3>
-                        <input class="input--style-2" placeholder="Description" type="text" name="description">
+                        <input class="input--style-2" placeholder="Description" type="text" name="description" required="">
                     </div>
                     <div class="p-t-30">
                         <button class="btn btn--radius btn--green" type="submit">Add case</button>
@@ -231,6 +231,7 @@
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+        alert("Created case")
     });
 </script>
 <!-- end footer -->

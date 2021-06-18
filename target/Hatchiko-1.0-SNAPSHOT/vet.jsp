@@ -90,7 +90,7 @@
 </header>
 <!-- end banner -->
 
-<h1>Info</h1>
+<h1>My info</h1>
 
 <div>
     <form id = "formVets">
@@ -112,7 +112,6 @@
             <th>name</th>
             <th>address</th>
             <th>neighborhood</th>
-            <th>edit</th>
         </tr>
         </thead>
         <tbody id = "vet">
@@ -173,16 +172,12 @@
 
             let body = ''
             for (let i = 0; i < data.length; i++) {
-                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>'  + '<td>' + '    <input name="ver" type="button" value="Edit" id="ver" onclick="editVet(d)"/>' + '</td>'  + '</tr>';
+                body += '<tr>' + '<td>' + data[i].username + '</td>' + '<td>' + data[i].email + '</td>' + '<td>' + data[i].name + '</td>' + '<td>' + data[i].address + '</td>' + '<td>' + data[i].neighborhood + '</td>' + '</tr>';
             }
             document.getElementById('vet').innerHTML = body;
         }
     });
 
-
-    function editVet(info){
-        location.href ="./editOwner.jsp?username="+ info;
-    }
 
 </script>
 

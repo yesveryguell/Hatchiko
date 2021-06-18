@@ -98,11 +98,11 @@
                 <form>
                     <h3>Microchip</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Microchip" name="name">
+                        <input class="input--style-2" type="text" placeholder="Microchip" name="name" required="">
                     </div>
                     <h3>Name</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Name" name="name">
+                        <input class="input--style-2" type="text" placeholder="Name" name="name" required="">
                     </div>
 
                     <h3>Species</h3>
@@ -120,11 +120,11 @@
                     </div>
                     <h3>Race</h3>
                     <div class="input-group">
-                        <input class="input--style-2" placeholder="Race" type="text" name="race">
+                        <input class="input--style-2" placeholder="Race" type="text" name="race" required="">
                     </div>
                     <h3>Size</h3>
                     <div class="input-group">
-                        <input class="input--style-2" placeholder="Size" type="text" name="size">
+                        <input class="input--style-2" placeholder="Size" type="text" name="size" required="">
                     </div>
                     <h3>Sex</h3>
                     <div class="col-2">

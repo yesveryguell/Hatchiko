@@ -39,34 +39,30 @@
 						Sign Up
 					</span>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="text" name="username" placeholder="Username">
+                    <input id="first-name" class="input100" type="text" name="username" placeholder="Username" required="">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="Password" required="">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="email">
-                    <input id="email" class="input100" type="text" name="email" placeholder="email">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                    <input class="input100" type="password" name="pass" placeholder="Re - password">
+                    <input id="email" class="input100" type="text" name="email" placeholder="email" required="">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="name">
-                    <input id="name" class="input100" type="text" name="name" placeholder="Name">
+                    <input id="name" class="input100" type="text" name="name" placeholder="Name" required="">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="address">
-                    <input id="address" class="input100" type="text" name="address" placeholder="Address">
+                    <input id="address" class="input100" type="text" name="address" placeholder="Address" required="">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div data-validate="neighborhood">
-                    <select name="neighborhood">
+                    <select name="neighborhood" required="">
                         <option disabled="disabled" selected="selected">Neighborhood</option>
                         <option value="A. Nriño">A. Nriño</option>
                         <option value="B. Unidos">B. Unidos</option>
@@ -169,6 +165,7 @@
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+        alert("Created vet")
     });
 </script>
 

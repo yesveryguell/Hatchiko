@@ -72,7 +72,7 @@
                     <div class="col-2">
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="pet_id" required id="ids">
+                                <select name="pet_id" required id="ids" required="">
 
                                 </select>
                                 <div class="select-dropdown"></div>
@@ -81,7 +81,7 @@
                     </div>
                     <h3>Created at:</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created_at">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created_at" required="">
                     </div>
                     <div class="input-group">
                         <h3>Type: </h3>
@@ -96,7 +96,7 @@
 
                     <div class="input-group">
                         <h3>Description: </h3>
-                        <input class="input--style-2" placeholder="Description" type="text" name="description">
+                        <input class="input--style-2" placeholder="Description" type="text" name="description" required="">
                     </div>
                     <div class="p-t-30">
                         <button class="btn btn--radius btn--green" type="submit">Add</button>
@@ -160,6 +160,7 @@
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+        alert("created case")
     });
 
 

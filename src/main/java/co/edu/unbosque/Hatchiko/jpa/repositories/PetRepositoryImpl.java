@@ -165,4 +165,19 @@ public class PetRepositoryImpl implements PetRepository{
         }
     }
 
+    @Override
+    public void editMicrochip(Integer id, String microchip) {
+        Pet pet = entityManager.find(Pet.class, id);
+        if (pet != null) {
+            try {
+                entityManager.getTransaction().begin();
+                pet.setMicrochip(microchip);
+                entityManager.merge(pet);
+                entityManager.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

@@ -61,11 +61,11 @@
                     <div class="row row-space">
                         <h3>Address</h3>
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Address" name="address">
+                            <input class="input--style-2" type="text" placeholder="Address" name="address" required="">
                         </div>
                         <h3>Neighborhood</h3>
                         <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="neighborhood">
-                            <select name="neighborhood">
+                            <select name="neighborhood" required="">
                                 <option disabled="disabled" selected="selected">Neighborhood</option>
                                 <option value="A. Nriño">A. Nriño</option>
                                 <option value="B. Unidos">B. Unidos</option>
@@ -129,6 +129,7 @@
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+        alert("Edited owner")
     });
 </script>
 <script src="js/jquery.min.js"></script>

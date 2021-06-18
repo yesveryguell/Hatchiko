@@ -52,9 +52,8 @@ public class PetUploadResource {
     public Response modify(@PathParam("username") String userName,@PathParam("pet_id") int pet_id, PetPojo petPojo) {
         Optional<Pet> persitedPet = new PetService().modifyPet(pet_id, petPojo);
 
-
         return Response.ok()
-                .entity(persitedPet.get())
+                .entity(petPojo)
                 .build();
     }
 }

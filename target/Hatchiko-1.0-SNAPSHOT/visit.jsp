@@ -98,29 +98,32 @@
                     <input type="hidden" name="username" value="<%= request.getParameter("username") %>">
                     <div class="input-group">
                         <h3>Pet id: </h3>
-                        <input class="input--style-2" placeholder="Pet_id" type="text" name="pet_id">
+                        <input class="input--style-2" placeholder="Pet_id" type="text" name="pet_id" required="">
                     </div>
                     <h3>Created at:</h3>
                     <div class="input-group">
-                        <input class="input--style-2" type="date" placeholder="Created" name="created_at">
+                        <input class="input--style-2" type="date" placeholder="Created" name="created_at" required="">
                     </div>
                     <div class="input-group">
                         <h3>Type: </h3>
                         <select name="type" required>
                             <option disabled="disabled" selected="selected">Specie</option>
                             <option value="sterilization">Sterilization</option>
-                            <option value="implement-microchip">Implement microchip</option>
-                            <option value="vaccine">Vaccine</option>
-                            <option value="desparasitación">Desparasitación</option>
-                            <option value="urgency">Urgency</option>
+                            <option value="implementacion-microchip">Implement microchip</option>
+                            <option value="vacunacion">Vaccine</option>
+                            <option value="desparasitacion">Deworming</option>
+                            <option value="urgencia">Urgency</option>
                             <option value="control">Control</option>
                         </select>
                         <div class="select-dropdown"></div>
                     </div>
-
+                    <div class="input-group">
+                        <h3>Microchip: </h3>
+                        <input class="input--style-2" placeholder="Microchip" type="text" name="microchip">
+                    </div>
                     <div class="input-group">
                         <h3>Description: </h3>
-                        <input class="input--style-2" placeholder="Description" type="text" name="description">
+                        <input class="input--style-2" placeholder="Description" type="text" name="description" required="">
                     </div>
                     <div class="p-t-30">
                         <button class="btn btn--radius btn--green" type="submit">Add</button>
@@ -168,20 +171,60 @@
         console.log(datos.get('created_at'))
         console.log(datos.get('type'))
         console.log(datos.get('description'))
+        console.log(datos.get('microchip'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
-            method: 'POST',
-            body: JSON.stringify({
-                created_at: datos.get('created_at'),
-                type: datos.get('type'),
-                description: datos.get('description'),
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+        if(datos.get('type') == "implementacion-microchip" && datos.get('microchip') != ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/' + datos.get('pet_id'), {
+                method: 'PUT',
+                body: JSON.stringify({
+                    microchip: datos.get('microchip'),
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
+                method: 'POST',
+                body: JSON.stringify({
+                    created_at: datos.get('created_at'),
+                    type: datos.get('type'),
+                    description: datos.get('description'),
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+            alert("implanted microchip")
+        }
+        if(datos.get('type') != "implementacion-microchip" && datos.get('microchip') == ""){
+            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
+                method: 'POST',
+                body: JSON.stringify({
+                    created_at: datos.get('created_at'),
+                    type: datos.get('type'),
+                    description: datos.get('description'),
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+            alert("created visit")
+
+        }
+        if(datos.get('type') == "implementacion-microchip" && datos.get('microchip') == ""){
+            alert("Required microchip field")
+        }
+        if(datos.get('type') != "implementacion-microchip" && datos.get('microchip') != ""){
+            alert("microchip isn't necessary")
+        }
+
     });
 
 
