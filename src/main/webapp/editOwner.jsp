@@ -117,7 +117,7 @@
         console.log(datos.get('address'))
         console.log(datos.get('neighborhood'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username'), {
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username'), {
             method: 'PUT',
             body: JSON.stringify({
                 address: datos.get('address'),

@@ -330,7 +330,7 @@
 </footer>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners')
         .then((response) => response.json())
         .then(data => mostrarData(data));
     const mostrarData = (data) =>{
@@ -352,7 +352,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/species')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/species')
         .then((response) => response.json())
         .then(data => mostrarData1(data));
     const mostrarData1 = (data) =>{
@@ -369,7 +369,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/microchip')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/microchip')
         .then((response) => response.json())
         .then(data => mostrarData2(data));
     const mostrarData2 = (data) =>{
@@ -386,7 +386,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/race')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/race')
         .then((response) => response.json())
         .then(data => mostrarData3(data));
     const mostrarData3 = (data) =>{
@@ -403,7 +403,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/sex')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/sex')
         .then((response) => response.json())
         .then(data => mostrarData4(data));
     const mostrarData4 = (data) =>{
@@ -420,7 +420,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/size')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/size')
         .then((response) => response.json())
         .then(data => mostrarData5(data));
     const mostrarData5 = (data) =>{
@@ -437,7 +437,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/petCases')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/petCases')
         .then((response) => response.json())
         .then(data => mostrarData6(data));
     const mostrarData6 = (data) =>{
@@ -454,7 +454,7 @@
 </script>
 
 <script>
-    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/visits')
+    fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/visits')
         .then((response) => response.json())
         .then(data => mostrarData20(data));
     const mostrarData20 = (data) =>{
@@ -482,7 +482,7 @@
         console.log(datos.get('race'))
 
         if(datos.get('id') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?pet_id='+datos.get('id'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?pet_id='+datos.get('id'))
                 .then((response) => response.json())
                 .then(data => mostrarData7(data));
             const mostrarData7 = (data) =>{
@@ -495,7 +495,7 @@
             }
         }
         if(datos.get('microchip') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?microchip='+datos.get('microchip'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?microchip='+datos.get('microchip'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
             const mostrarData8 = (data) =>{
@@ -509,7 +509,7 @@
         }
 
         if(datos.get('name') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?name='+datos.get('name'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?name='+datos.get('name'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
             const mostrarData8 = (data) =>{
@@ -523,7 +523,7 @@
         }
 
         if(datos.get('specie') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?species='+datos.get('specie'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?species='+datos.get('specie'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
             const mostrarData8 = (data) =>{
@@ -537,7 +537,7 @@
         }
 
         if(datos.get('race') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?race='+datos.get('race'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?race='+datos.get('race'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
             const mostrarData8 = (data) =>{
@@ -551,7 +551,7 @@
         }
 
         if(datos.get('size') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?size='+datos.get('size'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?size='+datos.get('size'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
             const mostrarData8 = (data) =>{
@@ -565,7 +565,7 @@
         }
 
         if(datos.get('sex') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets?sex='+datos.get('sex'))
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets?sex='+datos.get('sex'))
                 .then((response) => response.json())
                 .then(data => mostrarData8(data));
             const mostrarData8 = (data) =>{

@@ -116,7 +116,7 @@
         console.log(datos.get('neighborhood'))
         alert("Your information was updated")
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username'), {
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username'), {
             method: 'PUT',
             body: JSON.stringify({
                 name: datos.get('name'),

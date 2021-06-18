@@ -174,7 +174,7 @@
         console.log(datos.get('microchip'))
 
         if(datos.get('type') == "implementacion-microchip" && datos.get('microchip') != ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/' + datos.get('pet_id'), {
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/' + datos.get('pet_id'), {
                 method: 'PUT',
                 body: JSON.stringify({
                     microchip: datos.get('microchip'),
@@ -186,7 +186,7 @@
                 .then((response) => response.json())
                 .then((json) => console.log(json));
 
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
                 method: 'POST',
                 body: JSON.stringify({
                     created_at: datos.get('created_at'),
@@ -202,7 +202,7 @@
             alert("implanted microchip")
         }
         if(datos.get('type') != "implementacion-microchip" && datos.get('microchip') == ""){
-            fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
+            fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos.get('username') + '/pet/' + datos.get('pet_id') + '/visits', {
                 method: 'POST',
                 body: JSON.stringify({
                     created_at: datos.get('created_at'),

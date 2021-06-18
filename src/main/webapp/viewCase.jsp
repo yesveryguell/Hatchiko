@@ -128,7 +128,7 @@
         var datos1 = new FormData(formulario);
         var dat = "pet_id";
         console.log(datos1.get('username'))
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username')+"/pets")
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username')+"/pets")
             .then((response) => response.json())
             .then(data => mostrarData7(data));
         const mostrarData7 = (data) => {
@@ -155,7 +155,7 @@
         console.log(datos1.get('created_at1'))
         console.log(datos1.get('created_at2'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/pets/' + datos1.get('pet_id') + '/petCases?date1='+datos1.get('created_at1')+'&date2='+datos1.get('created_at2'))
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/pets/' + datos1.get('pet_id') + '/petCases?date1='+datos1.get('created_at1')+'&date2='+datos1.get('created_at2'))
             .then((response) => response.json())
             .then(data => mostrarData7(data));
         var username = document.getElementById('username');

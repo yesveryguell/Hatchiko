@@ -127,7 +127,7 @@
         console.log(datos.get('size'))
         console.log(datos.get('sex'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username') + '/pets', {
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username') + '/pets', {
             method: 'POST',
             body: JSON.stringify({
                 microchip: datos.get('microchip'),

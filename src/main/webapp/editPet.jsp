@@ -142,7 +142,7 @@
         var datos1 = new FormData(formulario);
         var dat = "pet_id";
         console.log(datos1.get('username'))
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos1.get('username') + "/pets")
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos1.get('username') + "/pets")
             .then((response) => response.json())
             .then(data => mostrarData7(data));
         const mostrarData7 = (data) => {
@@ -173,7 +173,7 @@
 
         alert("Your information was updated")
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username') + '/pets/' + datos.get('pet_id'), {
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos.get('username') + '/pets/' + datos.get('pet_id'), {
             method: 'PUT',
             body: JSON.stringify({
                 name: datos.get('name'),

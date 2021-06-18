@@ -65,7 +65,7 @@
                         </button>
                     </form>
                 </div>
-                <form method="post" action="http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/upload?pet_id=1"
+                <form method="post" action="http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/upload?pet_id=1"
                       enctype="multipart/form-data">
 
                     <div class="rs-select2 js-select-simple select--no-search">
@@ -93,7 +93,7 @@
         var datos1 = new FormData(formulario);
         var dat = "pet_id";
         console.log(datos1.get('username'))
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos1.get('username') + "/pets")
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/' + datos1.get('username') + "/pets")
             .then((response) => response.json())
             .then(data => mostrarData7(data));
         const mostrarData7 = (data) => {

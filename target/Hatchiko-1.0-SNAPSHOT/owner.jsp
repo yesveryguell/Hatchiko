@@ -238,7 +238,7 @@
         var datos1 = new FormData(formulario);
 
         console.log(datos1.get('username'))
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username'))
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/owners/'+datos1.get('username'))
             .then((response) => response.json())
             .then(data => mostrarData7(data));
         const mostrarData7 = (data) => {

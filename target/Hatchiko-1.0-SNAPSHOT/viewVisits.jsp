@@ -172,7 +172,7 @@
 
         console.log(datos1.get('username'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos1.get('username') + '/visits')
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos1.get('username') + '/visits')
             .then((response) => response.json())
             .then(data => mostrarData7(data));
         var username = document.getElementById('username');
@@ -204,7 +204,7 @@
         console.log(datos1.get('date1'))
         console.log(datos1.get('date2'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos1.get('username') + '/visits?date1=' + datos1.get('date1') + '&date2=' + datos1.get('date2'))
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/' + datos1.get('username') + '/visits?date1=' + datos1.get('date1') + '&date2=' + datos1.get('date2'))
             .then((response) => response.json())
             .then(data => mostrarData8(data));
         var username = document.getElementById('username');

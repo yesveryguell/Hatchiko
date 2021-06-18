@@ -85,7 +85,7 @@
         console.log(datos.get('username'))
         console.log(datos.get('pass'))
 
-        fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/vets/login', {
+        fetch('http://35.206.97.221:8080/Hatchiko-1.0-SNAPSHOT/api/vets/login', {
             method: 'POST',
             body: JSON.stringify({
                 username: datos.get('username'),
