@@ -36,6 +36,7 @@ public class UploadResource {
         Map<String, List<InputPart>> formParts = input.getFormDataMap();
         List<InputPart> inputParts = formParts.get("file");
 
+
         for (InputPart inputPart : inputParts) {
 
             try {

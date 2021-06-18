@@ -232,6 +232,26 @@
     </table>
 </div>
 
+<h1>Visit</h1>
+
+<div>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>visit_id</th>
+            <th>type</th>
+            <th>description</th>
+            <th>year</th>
+            <th>month</th>
+            <th>day</th>
+        </tr>
+        </thead>
+        <tbody id = "visitInfo">
+
+        </tbody>
+    </table>
+</div>
+
 <div>
     <form action="" id="filter">
         <a href="">Id</a>
@@ -430,6 +450,23 @@
             }
         }
         document.getElementById('caseInfo').innerHTML = body;
+    }
+</script>
+
+<script>
+    fetch('http://localhost:8080/Hatchiko-1.0-SNAPSHOT/api/visits')
+        .then((response) => response.json())
+        .then(data => mostrarData20(data));
+    const mostrarData20 = (data) =>{
+        console.log(data);
+        let body = ''
+        for(let i = 0; i<data.length; i++){
+            body+= '<tr>' + '<td> '+data[i].total + '</td>' + '</tr>'
+            for (let j = 0; j < data[i].cases.length; j++) {
+                body+= '<tr>' + '<td>' + data[i].cases[j].visit_id + '</td>' + '<td>' +data[i].cases[j].type + '</td>' + '<td>' +data[i].cases[j].description + '</td>' + '<td>' +data[i].cases[j].year + '</td>' + '<td>' +data[i].cases[j].month + '</td>' + '<td>' +data[i].cases[j].day + '</td>' +'</tr>';
+            }
+        }
+        document.getElementById('visitInfo').innerHTML = body;
     }
 </script>
 

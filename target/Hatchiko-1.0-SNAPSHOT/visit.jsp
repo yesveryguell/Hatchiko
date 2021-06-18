@@ -108,7 +108,7 @@
                         <h3>Type: </h3>
                         <select name="type" required>
                             <option disabled="disabled" selected="selected">Specie</option>
-                            <option value="sterilization">Sterilization</option>
+                            <option value="esterilization">Sterilization</option>
                             <option value="implementacion-microchip">Implement microchip</option>
                             <option value="vacunacion">Vaccine</option>
                             <option value="desparasitacion">Deworming</option>
